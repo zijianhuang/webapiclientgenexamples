@@ -28,5 +28,5 @@ This VS solution was constructed using Visual Studio 2015.
 
 
 **Remarks**:
-The size of the repository is around 230MB since the binary files of NuGet packages and NodeModules are included, so you should be able to build and run integration testing right away.
+The size of the repository is around 100 MB since the binary files of NuGet packages are included, so you should be able to build and run integration testing right away. However, if you are interested in the DemoAngular2 project, you need to run "npm install" to download all the node_modules files._
 
