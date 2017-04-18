@@ -1,0 +1,12 @@
+﻿{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "module": "commonjs",
+    "sourceMap": true
+
+  },
+
+  "exclude": [
+    "scripts/typing/qunit/qunit-1.16.d.ts"
+  ]
+}

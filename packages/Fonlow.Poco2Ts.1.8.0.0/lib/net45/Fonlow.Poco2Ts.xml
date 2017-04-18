@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Fonlow.Poco2Ts</name>
+    </assembly>
+    <members>
+        <member name="T:Fonlow.Poco2Client.CherryPicking">
+            <summary>
+            Pick a type or a member field or property
+            </summary>
+        </member>
+        <member name="M:Fonlow.Poco2Client.CherryPicking.GetFieldCustomName(System.Reflection.MemberInfo,Fonlow.Poco2Client.CherryPickingMethods)">
+            <summary>
+            Get custom property name if decorated by DataMemberAttribute or JsonPropertyAttribute. If not defined, return null.
+            </summary>
+            <param name="memberInfo"></param>
+            <param name="methods"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fonlow.Poco2Client.CherryPickingMethods">
+            <summary>
+            Flagged options for cherry picking in various development processes.
+            </summary>
+        </member>
+        <member name="F:Fonlow.Poco2Client.CherryPickingMethods.All">
+            <summary>
+            Include all public classes, properties and properties.
+            </summary>
+        </member>
+        <member name="F:Fonlow.Poco2Client.CherryPickingMethods.DataContract">
+            <summary>
+            Include all public classes decorated by DataContractAttribute, and public properties or fields decorated by DataMemberAttribute. 
+            And use DataMemberAttribute.IsRequired
+            </summary>
+        </member>
+        <member name="F:Fonlow.Poco2Client.CherryPickingMethods.NewtonsoftJson">
+            <summary>
+            Include all public classes decorated by JsonObjectAttribute, and public properties or fields decorated by JsonPropertyAttribute.  
+            And use JsonPropertyAttribute.Required
+            </summary>
+        </member>
+        <member name="F:Fonlow.Poco2Client.CherryPickingMethods.Serializable">
+            <summary>
+            Include all public classes decorated by SerializableAttribute, and all public properties or fields but excluding those decorated by NonSerializedAttribute.
+            And use System.ComponentModel.DataAnnotations.RequiredAttribute.
+            </summary>
+        </member>
+        <member name="F:Fonlow.Poco2Client.CherryPickingMethods.AspNet">
+            <summary>
+            Include all public classes, properties and properties. 
+            And use System.ComponentModel.DataAnnotations.RequiredAttribute.
+            </summary>
+        </member>
+        <member name="T:Fonlow.Poco2Client.CherryType">
+            <summary>
+            How significant the cherry is
+            </summary>
+        </member>
+        <member name="T:Fonlow.Poco2Client.PodGenHelper">
+            <summary>
+            Some shared functions used by CsPodgen and TsPodGen
+            </summary>
+        </member>
+        <member name="T:Fonlow.Poco2Client.Poco2CsGen">
+            <summary>
+            POCO to C# client data types generator
+            </summary>
+        </member>
+        <member name="M:Fonlow.Poco2Client.Poco2CsGen.#ctor">
+            <summary>
+            Init with its own CodeCompileUnit.
+            </summary>
+        </member>
+        <member name="M:Fonlow.Poco2Client.Poco2CsGen.#ctor(System.CodeDom.CodeCompileUnit)">
+            <summary>
+            Gen will share the same CodeCompileUnit with other CodeGen components.
+            </summary>
+            <param name="codeCompileUnit"></param>
+        </member>
+        <member name="M:Fonlow.Poco2Client.Poco2CsGen.SaveCodeToFile(System.String)">
+            <summary>
+            Save TypeScript codes generated into a file.
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:Fonlow.Poco2Client.Poco2CsGen.CreateCodeDom(System.Type[],Fonlow.Poco2Client.CherryPickingMethods)">
+            <summary>
+            Create TypeScript CodeDOM for POCO types. 
+            For an enum type, all members will be processed regardless of EnumMemberAttribute.
+            </summary>
+            <param name="types">POCO types.</param>
+        </member>
+        <member name="T:Fonlow.Poco2Ts.PocoAssemblyFileWalker">
+            <summary>
+            Pick types in the assembly for further processing.
+            </summary>
+        </member>
+        <member name="M:Fonlow.Poco2Ts.PocoAssemblyFileWalker.Walk(System.String,System.String,Fonlow.Poco2Client.CherryPickingMethods)">
+            <summary>
+            Walk classes in the assembly decorated by cherry picking data annotation attributes, and save TypeScript codes to the file.
+            </summary>
+            <param name="assemblyFilePath">Absolute or relative path, including the assembly file extension name dll or exe.</param>
+            <param name="tsFilePath"></param>
+        </member>
+        <member name="T:Fonlow.Poco2Ts.Poco2TsGen">
+            <summary>
+            POCO to TypeScript interfaces generator. Create CodeDOM and output TS codes
+            </summary>
+        </member>
+        <member name="M:Fonlow.Poco2Ts.Poco2TsGen.#ctor">
+            <summary>
+            Init with its own CodeCompileUnit.
+            </summary>
+        </member>
+        <member name="M:Fonlow.Poco2Ts.Poco2TsGen.#ctor(System.CodeDom.CodeCompileUnit)">
+            <summary>
+            Poco2TsGen will share the same CodeCompileUnit with other CodeGen components.
+            </summary>
+            <param name="codeCompileUnit"></param>
+        </member>
+        <member name="M:Fonlow.Poco2Ts.Poco2TsGen.SaveCodeToFile(System.String)">
+            <summary>
+            Save TypeScript codes generated into a file.
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:Fonlow.Poco2Ts.Poco2TsGen.WriteCode(System.IO.TextWriter)">
+            <summary>
+            Save TypeScript codes generated into a TextWriter.
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:Fonlow.Poco2Ts.Poco2TsGen.CreateCodeDom(System.Type[],Fonlow.Poco2Client.CherryPickingMethods)">
+            <summary>
+            Create TypeScript CodeDOM for POCO types. 
+            For an enum type, all members will be processed regardless of EnumMemberAttribute.
+            </summary>
+            <param name="types">POCO types.</param>
+        </member>
+        <member name="M:Fonlow.Poco2Ts.Poco2TsGen.TranslateToClientTypeReference(System.Type)">
+            <summary>
+            Translate a service type into a CodeTypeReference for client.
+            </summary>
+            <param name="type">CLR type of the service</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

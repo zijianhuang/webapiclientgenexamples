@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Fonlow.TypeScriptCodeDom</name>
+    </assembly>
+    <members>
+        <member name="M:Fonlow.TypeScriptCodeDom.CodeObjectHelper.WriteCodeCommentStatement(System.CodeDom.CodeCommentStatement,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)">
+            <summary>
+            Multi-line doc comment will be split according to JSDoc 3 at http://usejsdoc.org
+            Multi-line comment will be split
+            </summary>
+            <param name="commentStatement"></param>
+            <param name="w"></param>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fonlow.TypeScriptCodeDom.CodeObjectHelper.WriteCodeStatementCollection(System.CodeDom.CodeStatementCollection,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)">
+            <summary>
+            Write every statements with 1 more BasicIndent of the caller, and add ; and linebreak at the end,
+            </summary>
+            <param name="statements"></param>
+            <param name="w"></param>
+            <param name="o"></param>
+        </member>
+        <member name="M:Fonlow.TypeScriptCodeDom.CodeObjectHelper.WriteCodeTryCatchFinallyStatement(System.CodeDom.CodeTryCatchFinallyStatement,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)">
+            <summary>
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
+            </summary>
+            <param name="tryCatchFinallyStatement"></param>
+            <param name="w"></param>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fonlow.TypeScriptCodeDom.CodeObjectHelper.WriteCodeCatchClause(System.CodeDom.CodeCatchClause,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)">
+            <summary>
+            5.14 Try Statements
+            The variable introduced by a 'catch' clause of a 'try' statement is always of type Any.It is not possible to include a type annotation in a 'catch' clause.
+            </summary>
+            <param name="catchClause"></param>
+            <param name="w"></param>
+            <param name="o"></param>
+        </member>
+        <member name="M:Fonlow.TypeScriptCodeDom.CodeObjectHelper.GetCodeBinaryOperatorTypeText(System.CodeDom.CodeBinaryOperatorType)">
+            <summary>
+            https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators
+            https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fonlow.TypeScriptCodeDom.CodeObjectHelper.GetTypeOfType(System.CodeDom.CodeTypeDeclaration)">
+            <summary>
+            return enum, interface or class
+            </summary>
+            <param name="typeDeclaration"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fonlow.TypeScriptCodeDom.CodeSnipetTypeReference">
+            <summary>
+            Support code snipet as BaseType.
+            CodeTypeReference seems to have a bug which could not read such callbackType properly with 5 or more Tuple parameters.
+            I tried provide callbackTypeText in constructors of CodeTypeReference and CodeParrameterDeclarationExpression, as well as property assignment.
+            all end up with "(string ", corrupted.
+            So this class is a hack against the possible bug of CodeTypeReference in dealing with Tuple
+            </summary>
+            <remarks>
+            CodeTypeReference will fail at these 2 forms of Tuple
+            callback: (data : {Item1:string, Item2:string, Item3:string, Item4:string, Item5:number}
+            callback: (data : [string, string, string, string, number])
+            </remarks>
+        </member>
+        <member name="P:Fonlow.TypeScriptCodeDom.CodeSnipetTypeReference.BaseType">
+            <summary>
+            Hide the BaseType of CodeTypeReference
+            </summary>
+            <remarks>The new keyword could not entirely hide the ancestor's BaseType, but at least stop the BaseType assignment from being refined by CodeTypeRefernce's built-in parser.</remarks>
+        </member>
+        <member name="T:Fonlow.TypeScriptCodeDom.KeywordHandler">
+            <summary>
+            Keywoards not good for identifier in TS v1.6 as defined in https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md
+            </summary>
+        </member>
+        <member name="M:Fonlow.TypeScriptCodeDom.KeywordHandler.IsValidIdentifier(System.String)">
+            <summary>
+            Chick if not keyword, and leave the compiler to validate other factors
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fonlow.TypeScriptCodeDom.TypeMapper">
+            <summary>
+            Map CLR types to TS types
+            </summary>
+        </member>
+        <member name="M:Fonlow.TypeScriptCodeDom.TypeMapper.MapCodeTypeReferenceToTsText(System.CodeDom.CodeTypeReference)">
+            <summary>
+            Get the TypeScript text of the CodeTypeReference
+            </summary>
+            <param name="codeTypeReference">CodeTypeReference to a CLR type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Fonlow.TypeScriptCodeDom.TypeMapper.MapCodeTypeReferenceCollectionToTsText(System.CodeDom.CodeTypeReferenceCollection)">
+            <summary>
+            Get text of CodeTypeReferenceCollection in CSV
+            </summary>
+            <param name="collection"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fonlow.TypeScriptCodeDom.TypeScriptCodeProvider">
+            <summary>
+            TypeScriptCodeProvider has ICodeGenerator implemented for TypeScript.
+            </summary>
+            <remarks>As stated in msdn, when implementing ICodeGenerator, "you must not call the corresponding method of the base class."</remarks>
+        </member>
+        <member name="M:Fonlow.TypeScriptCodeDom.TypeScriptCodeProvider.ValidateIdentifier(System.String)">
+            <summary>
+            Chick if not keyword, and leave the compiler to validate other factors
+            </summary>
+            <exception cref="T:System.ArgumentException"/>
+        </member>
+    </members>
+</doc>

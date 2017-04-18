@@ -1,0 +1,15 @@
+﻿{
+    "Compile": {
+        "Mode": "External",
+        "Extensions": [ ".ts" ],
+        "ExtensionsWithNoOutput": [ ".d.ts" ]
+
+    },
+    "Framework": "qunit",
+    "References": [
+        { "Path": "Scripts/jquery-3.1.1.min.js" },
+        { "Path": "Scripts/require.js" },
+        { "Path": "Scripts/ClientApi/WebApiClientAuto.js"}
+    ],
+    "RootReferencePathMode": "SettingsFileDirectory"
+}
