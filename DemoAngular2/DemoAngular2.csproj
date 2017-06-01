@@ -52,9 +52,9 @@
     <Content Include="app\hero-search.component.html" />
     <Content Include="app\heroes.component.css" />
     <Content Include="app\heroes.component.html" />
+    <Content Include="browser-test-shim.js" />
     <Content Include="Content\jasmine\jasmine.css" />
     <Content Include="Content\jasmine\jasmine_favicon.png" />
-    <Content Include="browser-test-shim.js" />
     <Content Include="karma-test-shim.js" />
     <Content Include="karma.conf.js" />
     <Content Include="Scripts\jasmine\boot.js" />

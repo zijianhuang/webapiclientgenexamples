@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
+import { MdButtonModule, MdCheckboxModule, MdInputModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -20,6 +23,9 @@ import DemoWebApi_Controllers_Client = namespaces.DemoWebApi_Controllers_Client;
         BrowserModule,
         FormsModule,
         HttpModule,
+
+        BrowserAnimationsModule,
+        MdButtonModule, MdCheckboxModule, MdInputModule ,
         //   InMemoryWebApiModule.forRoot(InMemoryDataService),
         AppRoutingModule
     ],
