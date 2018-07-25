@@ -203,6 +203,88 @@ export namespace DemoWebApi_Models_Client {
 
 export namespace DemoWebApi_Controllers_Client {
     @Injectable()
+    export class Entities {
+        constructor(@Inject('baseUri') private baseUri: string = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/', private http: Http){
+        }
+
+        /** 
+         * PUT api/SuperDemo/link?id={id}&relationship={relationship}
+         * @param {number} id 
+         * @param {string} relationship 
+         * @param {DemoWebApi_DemoData_Client.Person} person 
+         * @return {boolean} 
+         */
+        linkPerson(id: number, relationship: string, person: DemoWebApi_DemoData_Client.Person): Observable<boolean>{
+            return this.http.put(this.baseUri + 'api/SuperDemo/link?id='+id+'&relationship='+encodeURIComponent(relationship), JSON.stringify(person), { headers: new Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(response=> response.json());
+        }
+
+        /** 
+         * GET api/SuperDemo/Company?id={id}
+         * @param {number} id 
+         * @return {DemoWebApi_DemoData_Client.Company} 
+         */
+        getCompany(id: number): Observable<DemoWebApi_DemoData_Client.Company>{
+            return this.http.get(this.baseUri + 'api/SuperDemo/Company?id='+id).map(response=> response.json());
+        }
+
+        /** 
+         * GET api/SuperDemo/PersonNotFound?id={id}
+         * @param {number} id 
+         * @return {DemoWebApi_DemoData_Client.Person} 
+         */
+        getPersonNotFound(id: number): Observable<DemoWebApi_DemoData_Client.Person>{
+            return this.http.get(this.baseUri + 'api/SuperDemo/PersonNotFound?id='+id).map(response=> response.json());
+        }
+
+        /** 
+         * GET api/SuperDemo/PersonActionNotFound?id={id}
+         * @param {number} id 
+         * @return {DemoWebApi_DemoData_Client.Person} 
+         */
+        getPersonActionNotFound(id: number): Observable<DemoWebApi_DemoData_Client.Person>{
+            return this.http.get(this.baseUri + 'api/SuperDemo/PersonActionNotFound?id='+id).map(response=> response.json());
+        }
+
+        /** 
+         * Get a person
+         * so to know the person
+         * GET api/Entities/{id}
+         * @param {number} id unique id of that guy
+         * @return {DemoWebApi_DemoData_Client.Person} person in db
+         */
+        getPerson(id: number): Observable<DemoWebApi_DemoData_Client.Person>{
+            return this.http.get(this.baseUri + 'api/Entities/'+id).map(response=> response.json());
+        }
+
+        /** 
+         * POST api/Entities
+         * @param {DemoWebApi_DemoData_Client.Person} p 
+         * @return {number} 
+         */
+        createPerson(p: DemoWebApi_DemoData_Client.Person): Observable<number>{
+            return this.http.post(this.baseUri + 'api/Entities', JSON.stringify(p), { headers: new Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(response=> response.json());
+        }
+
+        /** 
+         * PUT api/Entities
+         * @param {DemoWebApi_DemoData_Client.Person} person 
+         * @return {void} 
+         */
+        updatePerson(person: DemoWebApi_DemoData_Client.Person): Observable<Response>{
+            return this.http.put(this.baseUri + 'api/Entities', JSON.stringify(person), { headers: new Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) });
+        }
+
+        /** 
+         * DELETE api/Entities/{id}
+         * @param {number} id 
+         * @return {void} 
+         */
+        delete(id: number): Observable<Response>{
+            return this.http.delete(this.baseUri + 'api/Entities/'+id);
+        }
+    }
+
+    @Injectable()
     export class SuperDemo {
         constructor(@Inject('baseUri') private baseUri: string = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/', private http: Http){
         }
@@ -680,88 +762,6 @@ export namespace DemoWebApi_Controllers_Client {
     }
 
     @Injectable()
-    export class Entities {
-        constructor(@Inject('baseUri') private baseUri: string = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/', private http: Http){
-        }
-
-        /** 
-         * PUT api/SuperDemo/link?id={id}&relationship={relationship}
-         * @param {number} id 
-         * @param {string} relationship 
-         * @param {DemoWebApi_DemoData_Client.Person} person 
-         * @return {boolean} 
-         */
-        linkPerson(id: number, relationship: string, person: DemoWebApi_DemoData_Client.Person): Observable<boolean>{
-            return this.http.put(this.baseUri + 'api/SuperDemo/link?id='+id+'&relationship='+encodeURIComponent(relationship), JSON.stringify(person), { headers: new Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(response=> response.json());
-        }
-
-        /** 
-         * GET api/SuperDemo/Company?id={id}
-         * @param {number} id 
-         * @return {DemoWebApi_DemoData_Client.Company} 
-         */
-        getCompany(id: number): Observable<DemoWebApi_DemoData_Client.Company>{
-            return this.http.get(this.baseUri + 'api/SuperDemo/Company?id='+id).map(response=> response.json());
-        }
-
-        /** 
-         * GET api/SuperDemo/PersonNotFound?id={id}
-         * @param {number} id 
-         * @return {DemoWebApi_DemoData_Client.Person} 
-         */
-        getPersonNotFound(id: number): Observable<DemoWebApi_DemoData_Client.Person>{
-            return this.http.get(this.baseUri + 'api/SuperDemo/PersonNotFound?id='+id).map(response=> response.json());
-        }
-
-        /** 
-         * GET api/SuperDemo/PersonActionNotFound?id={id}
-         * @param {number} id 
-         * @return {DemoWebApi_DemoData_Client.Person} 
-         */
-        getPersonActionNotFound(id: number): Observable<DemoWebApi_DemoData_Client.Person>{
-            return this.http.get(this.baseUri + 'api/SuperDemo/PersonActionNotFound?id='+id).map(response=> response.json());
-        }
-
-        /** 
-         * Get a person
-         * so to know the person
-         * GET api/Entities/{id}
-         * @param {number} id unique id of that guy
-         * @return {DemoWebApi_DemoData_Client.Person} person in db
-         */
-        getPerson(id: number): Observable<DemoWebApi_DemoData_Client.Person>{
-            return this.http.get(this.baseUri + 'api/Entities/'+id).map(response=> response.json());
-        }
-
-        /** 
-         * POST api/Entities
-         * @param {DemoWebApi_DemoData_Client.Person} p 
-         * @return {number} 
-         */
-        createPerson(p: DemoWebApi_DemoData_Client.Person): Observable<number>{
-            return this.http.post(this.baseUri + 'api/Entities', JSON.stringify(p), { headers: new Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(response=> response.json());
-        }
-
-        /** 
-         * PUT api/Entities
-         * @param {DemoWebApi_DemoData_Client.Person} person 
-         * @return {void} 
-         */
-        updatePerson(person: DemoWebApi_DemoData_Client.Person): Observable<Response>{
-            return this.http.put(this.baseUri + 'api/Entities', JSON.stringify(person), { headers: new Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) });
-        }
-
-        /** 
-         * DELETE api/Entities/{id}
-         * @param {number} id 
-         * @return {void} 
-         */
-        delete(id: number): Observable<Response>{
-            return this.http.delete(this.baseUri + 'api/Entities/'+id);
-        }
-    }
-
-    @Injectable()
     export class Tuple {
         constructor(@Inject('baseUri') private baseUri: string = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/', private http: Http){
         }
@@ -992,6 +992,67 @@ export namespace DemoWebApi_Controllers_Client {
     }
 
     @Injectable()
+    export class Values {
+        constructor(@Inject('baseUri') private baseUri: string = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/', private http: Http){
+        }
+
+        /** 
+         * GET api/Values
+         * @return {Array<string>} 
+         */
+        get(): Observable<Array<string>>{
+            return this.http.get(this.baseUri + 'api/Values').map(response=> response.json());
+        }
+
+        /** 
+         * GET api/Values/{id}?name={name}
+         * @param {number} id 
+         * @param {string} name 
+         * @return {string} 
+         */
+        getByIdAndName(id: number, name: string): Observable<string>{
+            return this.http.get(this.baseUri + 'api/Values/'+id+'?name='+encodeURIComponent(name)).map(response=> response.json());
+        }
+
+        /** 
+         * GET api/Values?name={name}
+         * @param {string} name 
+         * @return {string} 
+         */
+        getByName(name: string): Observable<string>{
+            return this.http.get(this.baseUri + 'api/Values?name='+encodeURIComponent(name)).map(response=> response.json());
+        }
+
+        /** 
+         * POST api/Values
+         * @param {string} value 
+         * @return {string} 
+         */
+        post(value: string): Observable<string>{
+            return this.http.post(this.baseUri + 'api/Values', JSON.stringify(value), { headers: new Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(response=> response.json());
+        }
+
+        /** 
+         * PUT api/Values/{id}
+         * @param {number} id 
+         * @param {string} value 
+         * @return {void} 
+         */
+        put(id: number, value: string): Observable<Response>{
+            return this.http.put(this.baseUri + 'api/Values/'+id, JSON.stringify(value), { headers: new Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) });
+        }
+
+        /** 
+         * DELETE api/Values/{id}
+         * @param {number} id 
+         * @return {void} 
+         */
+        delete(id: number): Observable<Response>{
+            return this.http.delete(this.baseUri + 'api/Values/'+id);
+        }
+    }
+
+    @Injectable()
     export class Heroes {
         constructor(@Inject('baseUri') private baseUri: string = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/', private http: Http){
         }
@@ -1052,67 +1113,6 @@ export namespace DemoWebApi_Controllers_Client {
          */
         search(name: string): Observable<Array<DemoWebApi_Controllers_Client.Hero>>{
             return this.http.get(this.baseUri + 'api/Heroes?name='+encodeURIComponent(name)).map(response=> response.json());
-        }
-    }
-
-    @Injectable()
-    export class Values {
-        constructor(@Inject('baseUri') private baseUri: string = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/', private http: Http){
-        }
-
-        /** 
-         * GET api/Values
-         * @return {Array<string>} 
-         */
-        get(): Observable<Array<string>>{
-            return this.http.get(this.baseUri + 'api/Values').map(response=> response.json());
-        }
-
-        /** 
-         * GET api/Values/{id}?name={name}
-         * @param {number} id 
-         * @param {string} name 
-         * @return {string} 
-         */
-        getByIdAndName(id: number, name: string): Observable<string>{
-            return this.http.get(this.baseUri + 'api/Values/'+id+'?name='+encodeURIComponent(name)).map(response=> response.json());
-        }
-
-        /** 
-         * GET api/Values?name={name}
-         * @param {string} name 
-         * @return {string} 
-         */
-        getByName(name: string): Observable<string>{
-            return this.http.get(this.baseUri + 'api/Values?name='+encodeURIComponent(name)).map(response=> response.json());
-        }
-
-        /** 
-         * POST api/Values
-         * @param {string} value 
-         * @return {string} 
-         */
-        post(value: string): Observable<string>{
-            return this.http.post(this.baseUri + 'api/Values', JSON.stringify(value), { headers: new Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(response=> response.json());
-        }
-
-        /** 
-         * PUT api/Values/{id}
-         * @param {number} id 
-         * @param {string} value 
-         * @return {void} 
-         */
-        put(id: number, value: string): Observable<Response>{
-            return this.http.put(this.baseUri + 'api/Values/'+id, JSON.stringify(value), { headers: new Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) });
-        }
-
-        /** 
-         * DELETE api/Values/{id}
-         * @param {number} id 
-         * @return {void} 
-         */
-        delete(id: number): Observable<Response>{
-            return this.http.delete(this.baseUri + 'api/Values/'+id);
         }
     }
 

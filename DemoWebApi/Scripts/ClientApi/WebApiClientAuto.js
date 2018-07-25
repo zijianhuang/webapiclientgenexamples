@@ -40,7 +40,87 @@ var DemoWebApi_DemoData_Client;
 })(DemoWebApi_DemoData_Client || (DemoWebApi_DemoData_Client = {}));
 var DemoWebApi_Controllers_Client;
 (function (DemoWebApi_Controllers_Client) {
-    var SuperDemo = (function () {
+    var Entities = /** @class */ (function () {
+        function Entities(baseUri, httpClient, error, statusCode) {
+            if (baseUri === void 0) { baseUri = HttpClient.locationOrigin; }
+            if (httpClient === void 0) { httpClient = new HttpClient(); }
+            this.baseUri = baseUri;
+            this.httpClient = httpClient;
+            this.error = error;
+            this.statusCode = statusCode;
+        }
+        /**
+         * PUT api/SuperDemo/link?id={id}&relationship={relationship}
+         * @param {number} id
+         * @param {string} relationship
+         * @param {DemoWebApi_DemoData_Client.Person} person
+         * @return {boolean}
+         */
+        Entities.prototype.linkPerson = function (id, relationship, person, callback) {
+            this.httpClient.put(this.baseUri + 'api/SuperDemo/link?id=' + id + '&relationship=' + encodeURIComponent(relationship), person, callback, this.error, this.statusCode);
+        };
+        /**
+         * GET api/SuperDemo/Company?id={id}
+         * @param {number} id
+         * @return {DemoWebApi_DemoData_Client.Company}
+         */
+        Entities.prototype.getCompany = function (id, callback) {
+            this.httpClient.get(this.baseUri + 'api/SuperDemo/Company?id=' + id, callback, this.error, this.statusCode);
+        };
+        /**
+         * GET api/SuperDemo/PersonNotFound?id={id}
+         * @param {number} id
+         * @return {DemoWebApi_DemoData_Client.Person}
+         */
+        Entities.prototype.getPersonNotFound = function (id, callback) {
+            this.httpClient.get(this.baseUri + 'api/SuperDemo/PersonNotFound?id=' + id, callback, this.error, this.statusCode);
+        };
+        /**
+         * GET api/SuperDemo/PersonActionNotFound?id={id}
+         * @param {number} id
+         * @return {DemoWebApi_DemoData_Client.Person}
+         */
+        Entities.prototype.getPersonActionNotFound = function (id, callback) {
+            this.httpClient.get(this.baseUri + 'api/SuperDemo/PersonActionNotFound?id=' + id, callback, this.error, this.statusCode);
+        };
+        /**
+         * Get a person
+         * so to know the person
+         * GET api/Entities/{id}
+         * @param {number} id unique id of that guy
+         * @return {DemoWebApi_DemoData_Client.Person} person in db
+         */
+        Entities.prototype.getPerson = function (id, callback) {
+            this.httpClient.get(this.baseUri + 'api/Entities/' + id, callback, this.error, this.statusCode);
+        };
+        /**
+         * POST api/Entities
+         * @param {DemoWebApi_DemoData_Client.Person} p
+         * @return {number}
+         */
+        Entities.prototype.createPerson = function (p, callback) {
+            this.httpClient.post(this.baseUri + 'api/Entities', p, callback, this.error, this.statusCode);
+        };
+        /**
+         * PUT api/Entities
+         * @param {DemoWebApi_DemoData_Client.Person} person
+         * @return {void}
+         */
+        Entities.prototype.updatePerson = function (person, callback) {
+            this.httpClient.put(this.baseUri + 'api/Entities', person, callback, this.error, this.statusCode);
+        };
+        /**
+         * DELETE api/Entities/{id}
+         * @param {number} id
+         * @return {void}
+         */
+        Entities.prototype["delete"] = function (id, callback) {
+            this.httpClient["delete"](this.baseUri + 'api/Entities/' + id, callback, this.error, this.statusCode);
+        };
+        return Entities;
+    }());
+    DemoWebApi_Controllers_Client.Entities = Entities;
+    var SuperDemo = /** @class */ (function () {
         function SuperDemo(baseUri, httpClient, error, statusCode) {
             if (baseUri === void 0) { baseUri = HttpClient.locationOrigin; }
             if (httpClient === void 0) { httpClient = new HttpClient(); }
@@ -467,87 +547,7 @@ var DemoWebApi_Controllers_Client;
         return SuperDemo;
     }());
     DemoWebApi_Controllers_Client.SuperDemo = SuperDemo;
-    var Entities = (function () {
-        function Entities(baseUri, httpClient, error, statusCode) {
-            if (baseUri === void 0) { baseUri = HttpClient.locationOrigin; }
-            if (httpClient === void 0) { httpClient = new HttpClient(); }
-            this.baseUri = baseUri;
-            this.httpClient = httpClient;
-            this.error = error;
-            this.statusCode = statusCode;
-        }
-        /**
-         * PUT api/SuperDemo/link?id={id}&relationship={relationship}
-         * @param {number} id
-         * @param {string} relationship
-         * @param {DemoWebApi_DemoData_Client.Person} person
-         * @return {boolean}
-         */
-        Entities.prototype.linkPerson = function (id, relationship, person, callback) {
-            this.httpClient.put(this.baseUri + 'api/SuperDemo/link?id=' + id + '&relationship=' + encodeURIComponent(relationship), person, callback, this.error, this.statusCode);
-        };
-        /**
-         * GET api/SuperDemo/Company?id={id}
-         * @param {number} id
-         * @return {DemoWebApi_DemoData_Client.Company}
-         */
-        Entities.prototype.getCompany = function (id, callback) {
-            this.httpClient.get(this.baseUri + 'api/SuperDemo/Company?id=' + id, callback, this.error, this.statusCode);
-        };
-        /**
-         * GET api/SuperDemo/PersonNotFound?id={id}
-         * @param {number} id
-         * @return {DemoWebApi_DemoData_Client.Person}
-         */
-        Entities.prototype.getPersonNotFound = function (id, callback) {
-            this.httpClient.get(this.baseUri + 'api/SuperDemo/PersonNotFound?id=' + id, callback, this.error, this.statusCode);
-        };
-        /**
-         * GET api/SuperDemo/PersonActionNotFound?id={id}
-         * @param {number} id
-         * @return {DemoWebApi_DemoData_Client.Person}
-         */
-        Entities.prototype.getPersonActionNotFound = function (id, callback) {
-            this.httpClient.get(this.baseUri + 'api/SuperDemo/PersonActionNotFound?id=' + id, callback, this.error, this.statusCode);
-        };
-        /**
-         * Get a person
-         * so to know the person
-         * GET api/Entities/{id}
-         * @param {number} id unique id of that guy
-         * @return {DemoWebApi_DemoData_Client.Person} person in db
-         */
-        Entities.prototype.getPerson = function (id, callback) {
-            this.httpClient.get(this.baseUri + 'api/Entities/' + id, callback, this.error, this.statusCode);
-        };
-        /**
-         * POST api/Entities
-         * @param {DemoWebApi_DemoData_Client.Person} p
-         * @return {number}
-         */
-        Entities.prototype.createPerson = function (p, callback) {
-            this.httpClient.post(this.baseUri + 'api/Entities', p, callback, this.error, this.statusCode);
-        };
-        /**
-         * PUT api/Entities
-         * @param {DemoWebApi_DemoData_Client.Person} person
-         * @return {void}
-         */
-        Entities.prototype.updatePerson = function (person, callback) {
-            this.httpClient.put(this.baseUri + 'api/Entities', person, callback, this.error, this.statusCode);
-        };
-        /**
-         * DELETE api/Entities/{id}
-         * @param {number} id
-         * @return {void}
-         */
-        Entities.prototype["delete"] = function (id, callback) {
-            this.httpClient["delete"](this.baseUri + 'api/Entities/' + id, callback, this.error, this.statusCode);
-        };
-        return Entities;
-    }());
-    DemoWebApi_Controllers_Client.Entities = Entities;
-    var Tuple = (function () {
+    var Tuple = /** @class */ (function () {
         function Tuple(baseUri, httpClient, error, statusCode) {
             if (baseUri === void 0) { baseUri = HttpClient.locationOrigin; }
             if (httpClient === void 0) { httpClient = new HttpClient(); }
@@ -757,7 +757,68 @@ var DemoWebApi_Controllers_Client;
         return Tuple;
     }());
     DemoWebApi_Controllers_Client.Tuple = Tuple;
-    var Heroes = (function () {
+    var Values = /** @class */ (function () {
+        function Values(baseUri, httpClient, error, statusCode) {
+            if (baseUri === void 0) { baseUri = HttpClient.locationOrigin; }
+            if (httpClient === void 0) { httpClient = new HttpClient(); }
+            this.baseUri = baseUri;
+            this.httpClient = httpClient;
+            this.error = error;
+            this.statusCode = statusCode;
+        }
+        /**
+         * GET api/Values
+         * @return {Array<string>}
+         */
+        Values.prototype.get = function (callback) {
+            this.httpClient.get(this.baseUri + 'api/Values', callback, this.error, this.statusCode);
+        };
+        /**
+         * GET api/Values/{id}?name={name}
+         * @param {number} id
+         * @param {string} name
+         * @return {string}
+         */
+        Values.prototype.getByIdAndName = function (id, name, callback) {
+            this.httpClient.get(this.baseUri + 'api/Values/' + id + '?name=' + encodeURIComponent(name), callback, this.error, this.statusCode);
+        };
+        /**
+         * GET api/Values?name={name}
+         * @param {string} name
+         * @return {string}
+         */
+        Values.prototype.getByName = function (name, callback) {
+            this.httpClient.get(this.baseUri + 'api/Values?name=' + encodeURIComponent(name), callback, this.error, this.statusCode);
+        };
+        /**
+         * POST api/Values
+         * @param {string} value
+         * @return {string}
+         */
+        Values.prototype.post = function (value, callback) {
+            this.httpClient.post(this.baseUri + 'api/Values', value, callback, this.error, this.statusCode);
+        };
+        /**
+         * PUT api/Values/{id}
+         * @param {number} id
+         * @param {string} value
+         * @return {void}
+         */
+        Values.prototype.put = function (id, value, callback) {
+            this.httpClient.put(this.baseUri + 'api/Values/' + id, value, callback, this.error, this.statusCode);
+        };
+        /**
+         * DELETE api/Values/{id}
+         * @param {number} id
+         * @return {void}
+         */
+        Values.prototype["delete"] = function (id, callback) {
+            this.httpClient["delete"](this.baseUri + 'api/Values/' + id, callback, this.error, this.statusCode);
+        };
+        return Values;
+    }());
+    DemoWebApi_Controllers_Client.Values = Values;
+    var Heroes = /** @class */ (function () {
         function Heroes(baseUri, httpClient, error, statusCode) {
             if (baseUri === void 0) { baseUri = HttpClient.locationOrigin; }
             if (httpClient === void 0) { httpClient = new HttpClient(); }
@@ -821,65 +882,4 @@ var DemoWebApi_Controllers_Client;
         return Heroes;
     }());
     DemoWebApi_Controllers_Client.Heroes = Heroes;
-    var Values = (function () {
-        function Values(baseUri, httpClient, error, statusCode) {
-            if (baseUri === void 0) { baseUri = HttpClient.locationOrigin; }
-            if (httpClient === void 0) { httpClient = new HttpClient(); }
-            this.baseUri = baseUri;
-            this.httpClient = httpClient;
-            this.error = error;
-            this.statusCode = statusCode;
-        }
-        /**
-         * GET api/Values
-         * @return {Array<string>}
-         */
-        Values.prototype.get = function (callback) {
-            this.httpClient.get(this.baseUri + 'api/Values', callback, this.error, this.statusCode);
-        };
-        /**
-         * GET api/Values/{id}?name={name}
-         * @param {number} id
-         * @param {string} name
-         * @return {string}
-         */
-        Values.prototype.getByIdAndName = function (id, name, callback) {
-            this.httpClient.get(this.baseUri + 'api/Values/' + id + '?name=' + encodeURIComponent(name), callback, this.error, this.statusCode);
-        };
-        /**
-         * GET api/Values?name={name}
-         * @param {string} name
-         * @return {string}
-         */
-        Values.prototype.getByName = function (name, callback) {
-            this.httpClient.get(this.baseUri + 'api/Values?name=' + encodeURIComponent(name), callback, this.error, this.statusCode);
-        };
-        /**
-         * POST api/Values
-         * @param {string} value
-         * @return {string}
-         */
-        Values.prototype.post = function (value, callback) {
-            this.httpClient.post(this.baseUri + 'api/Values', value, callback, this.error, this.statusCode);
-        };
-        /**
-         * PUT api/Values/{id}
-         * @param {number} id
-         * @param {string} value
-         * @return {void}
-         */
-        Values.prototype.put = function (id, value, callback) {
-            this.httpClient.put(this.baseUri + 'api/Values/' + id, value, callback, this.error, this.statusCode);
-        };
-        /**
-         * DELETE api/Values/{id}
-         * @param {number} id
-         * @return {void}
-         */
-        Values.prototype["delete"] = function (id, callback) {
-            this.httpClient["delete"](this.baseUri + 'api/Values/' + id, callback, this.error, this.statusCode);
-        };
-        return Values;
-    }());
-    DemoWebApi_Controllers_Client.Values = Values;
 })(DemoWebApi_Controllers_Client || (DemoWebApi_Controllers_Client = {}));

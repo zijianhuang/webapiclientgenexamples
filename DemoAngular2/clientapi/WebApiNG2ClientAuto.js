@@ -5,10 +5,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
@@ -54,6 +57,88 @@ var DemoWebApi_DemoData_Client;
 })(DemoWebApi_DemoData_Client = exports.DemoWebApi_DemoData_Client || (exports.DemoWebApi_DemoData_Client = {}));
 var DemoWebApi_Controllers_Client;
 (function (DemoWebApi_Controllers_Client) {
+    var Entities = (function () {
+        function Entities(baseUri, http) {
+            if (baseUri === void 0) { baseUri = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/'; }
+            this.baseUri = baseUri;
+            this.http = http;
+        }
+        /**
+         * PUT api/SuperDemo/link?id={id}&relationship={relationship}
+         * @param {number} id
+         * @param {string} relationship
+         * @param {DemoWebApi_DemoData_Client.Person} person
+         * @return {boolean}
+         */
+        Entities.prototype.linkPerson = function (id, relationship, person) {
+            return this.http.put(this.baseUri + 'api/SuperDemo/link?id=' + id + '&relationship=' + encodeURIComponent(relationship), JSON.stringify(person), { headers: new http_1.Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(function (response) { return response.json(); });
+        };
+        /**
+         * GET api/SuperDemo/Company?id={id}
+         * @param {number} id
+         * @return {DemoWebApi_DemoData_Client.Company}
+         */
+        Entities.prototype.getCompany = function (id) {
+            return this.http.get(this.baseUri + 'api/SuperDemo/Company?id=' + id).map(function (response) { return response.json(); });
+        };
+        /**
+         * GET api/SuperDemo/PersonNotFound?id={id}
+         * @param {number} id
+         * @return {DemoWebApi_DemoData_Client.Person}
+         */
+        Entities.prototype.getPersonNotFound = function (id) {
+            return this.http.get(this.baseUri + 'api/SuperDemo/PersonNotFound?id=' + id).map(function (response) { return response.json(); });
+        };
+        /**
+         * GET api/SuperDemo/PersonActionNotFound?id={id}
+         * @param {number} id
+         * @return {DemoWebApi_DemoData_Client.Person}
+         */
+        Entities.prototype.getPersonActionNotFound = function (id) {
+            return this.http.get(this.baseUri + 'api/SuperDemo/PersonActionNotFound?id=' + id).map(function (response) { return response.json(); });
+        };
+        /**
+         * Get a person
+         * so to know the person
+         * GET api/Entities/{id}
+         * @param {number} id unique id of that guy
+         * @return {DemoWebApi_DemoData_Client.Person} person in db
+         */
+        Entities.prototype.getPerson = function (id) {
+            return this.http.get(this.baseUri + 'api/Entities/' + id).map(function (response) { return response.json(); });
+        };
+        /**
+         * POST api/Entities
+         * @param {DemoWebApi_DemoData_Client.Person} p
+         * @return {number}
+         */
+        Entities.prototype.createPerson = function (p) {
+            return this.http.post(this.baseUri + 'api/Entities', JSON.stringify(p), { headers: new http_1.Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(function (response) { return response.json(); });
+        };
+        /**
+         * PUT api/Entities
+         * @param {DemoWebApi_DemoData_Client.Person} person
+         * @return {void}
+         */
+        Entities.prototype.updatePerson = function (person) {
+            return this.http.put(this.baseUri + 'api/Entities', JSON.stringify(person), { headers: new http_1.Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) });
+        };
+        /**
+         * DELETE api/Entities/{id}
+         * @param {number} id
+         * @return {void}
+         */
+        Entities.prototype.delete = function (id) {
+            return this.http.delete(this.baseUri + 'api/Entities/' + id);
+        };
+        Entities = __decorate([
+            core_1.Injectable(),
+            __param(0, core_1.Inject('baseUri')),
+            __metadata("design:paramtypes", [String, http_1.Http])
+        ], Entities);
+        return Entities;
+    }());
+    DemoWebApi_Controllers_Client.Entities = Entities;
     var SuperDemo = (function () {
         function SuperDemo(baseUri, http) {
             if (baseUri === void 0) { baseUri = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/'; }
@@ -475,94 +560,14 @@ var DemoWebApi_Controllers_Client;
         SuperDemo.prototype.postWithQueryButEmptyBody = function (s, i) {
             return this.http.post(this.baseUri + 'api/SuperDemo/PostEmpty?s=' + encodeURIComponent(s) + '&i=' + i, JSON.stringify(null), { headers: new http_1.Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(function (response) { return response.json(); });
         };
+        SuperDemo = __decorate([
+            core_1.Injectable(),
+            __param(0, core_1.Inject('baseUri')),
+            __metadata("design:paramtypes", [String, http_1.Http])
+        ], SuperDemo);
         return SuperDemo;
     }());
-    SuperDemo = __decorate([
-        core_1.Injectable(),
-        __param(0, core_1.Inject('baseUri'))
-    ], SuperDemo);
     DemoWebApi_Controllers_Client.SuperDemo = SuperDemo;
-    var Entities = (function () {
-        function Entities(baseUri, http) {
-            if (baseUri === void 0) { baseUri = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/'; }
-            this.baseUri = baseUri;
-            this.http = http;
-        }
-        /**
-         * PUT api/SuperDemo/link?id={id}&relationship={relationship}
-         * @param {number} id
-         * @param {string} relationship
-         * @param {DemoWebApi_DemoData_Client.Person} person
-         * @return {boolean}
-         */
-        Entities.prototype.linkPerson = function (id, relationship, person) {
-            return this.http.put(this.baseUri + 'api/SuperDemo/link?id=' + id + '&relationship=' + encodeURIComponent(relationship), JSON.stringify(person), { headers: new http_1.Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(function (response) { return response.json(); });
-        };
-        /**
-         * GET api/SuperDemo/Company?id={id}
-         * @param {number} id
-         * @return {DemoWebApi_DemoData_Client.Company}
-         */
-        Entities.prototype.getCompany = function (id) {
-            return this.http.get(this.baseUri + 'api/SuperDemo/Company?id=' + id).map(function (response) { return response.json(); });
-        };
-        /**
-         * GET api/SuperDemo/PersonNotFound?id={id}
-         * @param {number} id
-         * @return {DemoWebApi_DemoData_Client.Person}
-         */
-        Entities.prototype.getPersonNotFound = function (id) {
-            return this.http.get(this.baseUri + 'api/SuperDemo/PersonNotFound?id=' + id).map(function (response) { return response.json(); });
-        };
-        /**
-         * GET api/SuperDemo/PersonActionNotFound?id={id}
-         * @param {number} id
-         * @return {DemoWebApi_DemoData_Client.Person}
-         */
-        Entities.prototype.getPersonActionNotFound = function (id) {
-            return this.http.get(this.baseUri + 'api/SuperDemo/PersonActionNotFound?id=' + id).map(function (response) { return response.json(); });
-        };
-        /**
-         * Get a person
-         * so to know the person
-         * GET api/Entities/{id}
-         * @param {number} id unique id of that guy
-         * @return {DemoWebApi_DemoData_Client.Person} person in db
-         */
-        Entities.prototype.getPerson = function (id) {
-            return this.http.get(this.baseUri + 'api/Entities/' + id).map(function (response) { return response.json(); });
-        };
-        /**
-         * POST api/Entities
-         * @param {DemoWebApi_DemoData_Client.Person} p
-         * @return {number}
-         */
-        Entities.prototype.createPerson = function (p) {
-            return this.http.post(this.baseUri + 'api/Entities', JSON.stringify(p), { headers: new http_1.Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(function (response) { return response.json(); });
-        };
-        /**
-         * PUT api/Entities
-         * @param {DemoWebApi_DemoData_Client.Person} person
-         * @return {void}
-         */
-        Entities.prototype.updatePerson = function (person) {
-            return this.http.put(this.baseUri + 'api/Entities', JSON.stringify(person), { headers: new http_1.Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) });
-        };
-        /**
-         * DELETE api/Entities/{id}
-         * @param {number} id
-         * @return {void}
-         */
-        Entities.prototype["delete"] = function (id) {
-            return this.http["delete"](this.baseUri + 'api/Entities/' + id);
-        };
-        return Entities;
-    }());
-    Entities = __decorate([
-        core_1.Injectable(),
-        __param(0, core_1.Inject('baseUri'))
-    ], Entities);
-    DemoWebApi_Controllers_Client.Entities = Entities;
     var Tuple = (function () {
         function Tuple(baseUri, http) {
             if (baseUri === void 0) { baseUri = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/'; }
@@ -767,78 +772,14 @@ var DemoWebApi_Controllers_Client;
         Tuple.prototype.postTuple8 = function (tuple) {
             return this.http.post(this.baseUri + 'api/Tuple/Tuple8', JSON.stringify(tuple), { headers: new http_1.Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(function (response) { return response.json(); });
         };
+        Tuple = __decorate([
+            core_1.Injectable(),
+            __param(0, core_1.Inject('baseUri')),
+            __metadata("design:paramtypes", [String, http_1.Http])
+        ], Tuple);
         return Tuple;
     }());
-    Tuple = __decorate([
-        core_1.Injectable(),
-        __param(0, core_1.Inject('baseUri'))
-    ], Tuple);
     DemoWebApi_Controllers_Client.Tuple = Tuple;
-    var Heroes = (function () {
-        function Heroes(baseUri, http) {
-            if (baseUri === void 0) { baseUri = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/'; }
-            this.baseUri = baseUri;
-            this.http = http;
-        }
-        /**
-         * Get all heroes.
-         * GET api/Heroes
-         * @return {Array<DemoWebApi_Controllers_Client.Hero>}
-         */
-        Heroes.prototype.get = function () {
-            return this.http.get(this.baseUri + 'api/Heroes').map(function (response) { return response.json(); });
-        };
-        /**
-         * Get a hero.
-         * GET api/Heroes/{id}
-         * @param {number} id
-         * @return {DemoWebApi_Controllers_Client.Hero}
-         */
-        Heroes.prototype.getById = function (id) {
-            return this.http.get(this.baseUri + 'api/Heroes/' + id).map(function (response) { return response.json(); });
-        };
-        /**
-         * DELETE api/Heroes/{id}
-         * @param {number} id
-         * @return {void}
-         */
-        Heroes.prototype["delete"] = function (id) {
-            return this.http["delete"](this.baseUri + 'api/Heroes/' + id);
-        };
-        /**
-         * Add a hero
-         * POST api/Heroes?name={name}
-         * @param {string} name
-         * @return {DemoWebApi_Controllers_Client.Hero}
-         */
-        Heroes.prototype.post = function (name) {
-            return this.http.post(this.baseUri + 'api/Heroes?name=' + encodeURIComponent(name), JSON.stringify(null), { headers: new http_1.Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(function (response) { return response.json(); });
-        };
-        /**
-         * Update hero.
-         * PUT api/Heroes
-         * @param {DemoWebApi_Controllers_Client.Hero} hero
-         * @return {DemoWebApi_Controllers_Client.Hero}
-         */
-        Heroes.prototype.put = function (hero) {
-            return this.http.put(this.baseUri + 'api/Heroes', JSON.stringify(hero), { headers: new http_1.Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(function (response) { return response.json(); });
-        };
-        /**
-         * Search heroes
-         * GET api/Heroes?name={name}
-         * @param {string} name keyword contained in hero name.
-         * @return {Array<DemoWebApi_Controllers_Client.Hero>} Hero array matching the keyword.
-         */
-        Heroes.prototype.search = function (name) {
-            return this.http.get(this.baseUri + 'api/Heroes?name=' + encodeURIComponent(name)).map(function (response) { return response.json(); });
-        };
-        return Heroes;
-    }());
-    Heroes = __decorate([
-        core_1.Injectable(),
-        __param(0, core_1.Inject('baseUri'))
-    ], Heroes);
-    DemoWebApi_Controllers_Client.Heroes = Heroes;
     var Values = (function () {
         function Values(baseUri, http) {
             if (baseUri === void 0) { baseUri = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/'; }
@@ -891,14 +832,82 @@ var DemoWebApi_Controllers_Client;
          * @param {number} id
          * @return {void}
          */
-        Values.prototype["delete"] = function (id) {
-            return this.http["delete"](this.baseUri + 'api/Values/' + id);
+        Values.prototype.delete = function (id) {
+            return this.http.delete(this.baseUri + 'api/Values/' + id);
         };
+        Values = __decorate([
+            core_1.Injectable(),
+            __param(0, core_1.Inject('baseUri')),
+            __metadata("design:paramtypes", [String, http_1.Http])
+        ], Values);
         return Values;
     }());
-    Values = __decorate([
-        core_1.Injectable(),
-        __param(0, core_1.Inject('baseUri'))
-    ], Values);
     DemoWebApi_Controllers_Client.Values = Values;
+    var Heroes = (function () {
+        function Heroes(baseUri, http) {
+            if (baseUri === void 0) { baseUri = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/'; }
+            this.baseUri = baseUri;
+            this.http = http;
+        }
+        /**
+         * Get all heroes.
+         * GET api/Heroes
+         * @return {Array<DemoWebApi_Controllers_Client.Hero>}
+         */
+        Heroes.prototype.get = function () {
+            return this.http.get(this.baseUri + 'api/Heroes').map(function (response) { return response.json(); });
+        };
+        /**
+         * Get a hero.
+         * GET api/Heroes/{id}
+         * @param {number} id
+         * @return {DemoWebApi_Controllers_Client.Hero}
+         */
+        Heroes.prototype.getById = function (id) {
+            return this.http.get(this.baseUri + 'api/Heroes/' + id).map(function (response) { return response.json(); });
+        };
+        /**
+         * DELETE api/Heroes/{id}
+         * @param {number} id
+         * @return {void}
+         */
+        Heroes.prototype.delete = function (id) {
+            return this.http.delete(this.baseUri + 'api/Heroes/' + id);
+        };
+        /**
+         * Add a hero
+         * POST api/Heroes?name={name}
+         * @param {string} name
+         * @return {DemoWebApi_Controllers_Client.Hero}
+         */
+        Heroes.prototype.post = function (name) {
+            return this.http.post(this.baseUri + 'api/Heroes?name=' + encodeURIComponent(name), JSON.stringify(null), { headers: new http_1.Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(function (response) { return response.json(); });
+        };
+        /**
+         * Update hero.
+         * PUT api/Heroes
+         * @param {DemoWebApi_Controllers_Client.Hero} hero
+         * @return {DemoWebApi_Controllers_Client.Hero}
+         */
+        Heroes.prototype.put = function (hero) {
+            return this.http.put(this.baseUri + 'api/Heroes', JSON.stringify(hero), { headers: new http_1.Headers({ 'Content-Type': 'text/plain;charset=UTF-8' }) }).map(function (response) { return response.json(); });
+        };
+        /**
+         * Search heroes
+         * GET api/Heroes?name={name}
+         * @param {string} name keyword contained in hero name.
+         * @return {Array<DemoWebApi_Controllers_Client.Hero>} Hero array matching the keyword.
+         */
+        Heroes.prototype.search = function (name) {
+            return this.http.get(this.baseUri + 'api/Heroes?name=' + encodeURIComponent(name)).map(function (response) { return response.json(); });
+        };
+        Heroes = __decorate([
+            core_1.Injectable(),
+            __param(0, core_1.Inject('baseUri')),
+            __metadata("design:paramtypes", [String, http_1.Http])
+        ], Heroes);
+        return Heroes;
+    }());
+    DemoWebApi_Controllers_Client.Heroes = Heroes;
 })(DemoWebApi_Controllers_Client = exports.DemoWebApi_Controllers_Client || (exports.DemoWebApi_Controllers_Client = {}));
+//# sourceMappingURL=WebApiNG2ClientAuto.js.map
