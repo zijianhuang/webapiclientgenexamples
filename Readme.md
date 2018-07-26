@@ -10,12 +10,12 @@
 This VS solution was constructed using Visual Studio 2015.
 
 **Server side:**
-1. .NET Framework 4.5
+1. .NET Framework 4.5.2-4.6.2
 1. ASP.NET Web API 2.2
 
 
 **.NET client side:**
-1. .NET Framework 4.5, or Universal Windows, or Mono.Android, or Xamarin.iOS
+1. .NET Framework 4.5.2, or Universal Windows, or Mono.Android, or Xamarin.iOS
 1. ASP.NET Web API 2.2 Client Libraries
 1. Json.NET of Newtonsoft [for Content-Type application/json](http://www.asp.net/web-api/overview/formats-and-model-binding/content-negotiation)
 1. Microsoft Build Tools 2015
@@ -23,10 +23,12 @@ This VS solution was constructed using Visual Studio 2015.
 **TypeScript client side:**
 1. TypeScript compiler
 1. jQuery and Chutzpah Test Adapter for the Test Explorer
-1. Angular 2/4 and its dependencies in node_modules supported by Node.js and npm.
+1. Angular 2/4/5 and its dependencies in node_modules supported by Node.js and npm.
 
 
 
 **Remarks**:
-The size of the repository is around 100 MB since the binary files of NuGet packages are included, so you should be able to build and run integration testing right away. However, if you are interested in the DemoAngular2 project, you need to run "npm install" to download all the node_modules files._
+* tag "withWebApiClientGen22" is with WebApiClientGen v2.2 and Angular 4.3
+* tag "NG522" is with WebapiClientGen v2.4.4 and Angular 5
+* Current trunk is similar to tag "NG522
 

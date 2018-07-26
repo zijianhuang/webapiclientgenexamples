@@ -10,7 +10,7 @@
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <TypeScriptToolsVersion>2.4</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -82,8 +82,6 @@
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\rxjs-extensions.ts" />
     <TypeScriptCompile Include="clientapi\WebApiNG2ClientAuto.ts" />
-    <TypeScriptCompile Include="environments\environment.prod.ts" />
-    <TypeScriptCompile Include="environments\environment.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />

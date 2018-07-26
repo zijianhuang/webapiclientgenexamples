@@ -4,7 +4,6 @@
 /// <reference path="jquery.unobtrusive-ajax.min.js" />
 /// <reference path="jquery.validate.min.js" />
 /// <reference path="jquery.validate.unobtrusive.min.js" />
-/// <reference path="jquery-3.1.1.slim.js" />
 /// <reference path="modernizr-2.8.3.js" />
 /// <reference path="qunit.js" />
 /// <reference path="respond.js" />
