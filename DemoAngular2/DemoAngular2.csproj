@@ -7,7 +7,7 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <OutputPath>bin</OutputPath>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <TypeScriptToolsVersion>2.4</TypeScriptToolsVersion>
@@ -53,9 +53,9 @@
     <Content Include="app\hero-search.component.html" />
     <Content Include="app\heroes.component.css" />
     <Content Include="app\heroes.component.html" />
+    <Content Include="browser-test-shim.js" />
     <Content Include="Content\jasmine\jasmine.css" />
     <Content Include="Content\jasmine\jasmine_favicon.png" />
-    <Content Include="browser-test-shim.js" />
     <Content Include="karma-test-shim.js" />
     <Content Include="karma.conf.js" />
     <Content Include="Scripts\jasmine\boot.js" />
@@ -89,7 +89,7 @@
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
     <Content Include="typings.json" />
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
