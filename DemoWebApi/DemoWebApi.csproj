@@ -59,33 +59,29 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Essential.Diagnostics, Version=1.2.0.0, Culture=neutral, PublicKeyToken=9d041bca93991466, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\3rdParty\EssentialDiagnostics\Essential.Diagnostics.dll</HintPath>
+    <Reference Include="Essential.Diagnostics.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9d041bca93991466, processorArchitecture=MSIL">
+      <HintPath>..\packages\Essential.Diagnostics.Core.2.0.206\lib\Essential.Diagnostics.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Fonlow.DocComment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fonlow.Poco2Ts.1.8.0.0\lib\net45\Fonlow.DocComment.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Essential.Diagnostics.RollingFileTraceListener, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9d041bca93991466, processorArchitecture=MSIL">
+      <HintPath>..\packages\Essential.Diagnostics.RollingFileTraceListener.2.0.206\lib\Essential.Diagnostics.RollingFileTraceListener.dll</HintPath>
     </Reference>
-    <Reference Include="Fonlow.Poco2Ts, Version=1.8.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fonlow.Poco2Ts.1.8.0.0\lib\net45\Fonlow.Poco2Ts.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fonlow.DocComment, Version=1.0.2.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fonlow.WebApiClientGen.2.4.4\lib\net452\Fonlow.DocComment.dll</HintPath>
     </Reference>
-    <Reference Include="Fonlow.TypeScriptCodeDom, Version=1.8.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fonlow.TypeScriptCodeDOM.1.8.0.0\lib\net45\Fonlow.TypeScriptCodeDom.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fonlow.Poco2Ts, Version=1.8.2.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fonlow.Poco2Ts.1.8.2\lib\net452\Fonlow.Poco2Ts.dll</HintPath>
     </Reference>
-    <Reference Include="Fonlow.Web.Meta, Version=1.1.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fonlow.WebApiClientGen.2.2.0.0\lib\net45\Fonlow.Web.Meta.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fonlow.TypeScriptCodeDom, Version=1.8.1.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fonlow.TypeScriptCodeDOM.1.8.1\lib\net452\Fonlow.TypeScriptCodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="Fonlow.Web.Meta, Version=1.1.1.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fonlow.WebApiClientGen.2.4.4\lib\net452\Fonlow.Web.Meta.dll</HintPath>
     </Reference>
     <Reference Include="Fonlow.Web.MetaTransform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fonlow.WebApiClientGen.2.2.0.0\lib\net45\Fonlow.Web.MetaTransform.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Fonlow.WebApiClientGen.2.4.4\lib\net452\Fonlow.Web.MetaTransform.dll</HintPath>
     </Reference>
-    <Reference Include="Fonlow.WebApiClientGen, Version=2.2.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fonlow.WebApiClientGen.2.2.0.0\lib\net45\Fonlow.WebApiClientGen.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fonlow.WebApiClientGen, Version=2.4.3.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fonlow.WebApiClientGen.2.4.4\lib\net452\Fonlow.WebApiClientGen.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -237,10 +233,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CodeGenController.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\HeroesController.cs" />
     <Compile Include="Controllers\SuperDemoController.cs" />
-    <Compile Include="Controllers\CodeGenController.cs" />
     <Compile Include="Controllers\EntitiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TupleController.cs" />

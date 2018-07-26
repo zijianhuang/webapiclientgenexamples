@@ -6,11 +6,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-require("./rxjs-extensions");
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
-var http_1 = require("@angular/http");
+var http_1 = require("@angular/common/http");
 var app_routing_module_1 = require("./app-routing.module");
 var app_component_1 = require("./app.component");
 var dashboard_component_1 = require("./dashboard.component");
@@ -19,6 +18,10 @@ var hero_detail_component_1 = require("./hero-detail.component");
 var hero_search_component_1 = require("./hero-search.component");
 var namespaces = require("../clientapi/WebApiNG2ClientAuto");
 var DemoWebApi_Controllers_Client = namespaces.DemoWebApi_Controllers_Client;
+function clientFactory(http) {
+    return new DemoWebApi_Controllers_Client.Heroes('http://localhost:10965/', http);
+}
+exports.clientFactory = clientFactory;
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,7 +30,7 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
-                http_1.HttpModule,
+                http_1.HttpClientModule,
                 //   InMemoryWebApiModule.forRoot(InMemoryDataService),
                 app_routing_module_1.AppRoutingModule
             ],
@@ -40,18 +43,13 @@ var AppModule = (function () {
             ],
             providers: [
                 {
-                    provide: http_1.Http,
-                    useFactory: function (backend, options) {
-                        return new http_1.Http(backend, options);
-                    },
-                    deps: [http_1.XHRBackend, http_1.RequestOptions]
+                    provide: http_1.HttpClient,
+                    useClass: http_1.HttpClient
                 },
                 {
                     provide: DemoWebApi_Controllers_Client.Heroes,
-                    useFactory: function (http) {
-                        return new DemoWebApi_Controllers_Client.Heroes("http://localhost:10965/", http);
-                    },
-                    deps: [http_1.Http],
+                    useFactory: clientFactory,
+                    deps: [http_1.HttpClient],
                 },
             ],
             bootstrap: [app_component_1.AppComponent]

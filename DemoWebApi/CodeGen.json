@@ -12,14 +12,15 @@
         "CherryPickingMethods": 3
     },
 
-    "ClientApiOutputs": {
-        "ClientLibraryProjectFolderName": "DemoWebApi.ClientApi",
-        "GenerateBothAsyncAndSync": true,
+	"ClientApiOutputs": {
+		"ClientLibraryProjectFolderName": "..\\DemoWebApi.ClientApi",
+		"GenerateBothAsyncAndSync": true,
 
-        "CamelCase": true,
-        "ContentType": "text/plain;charset=UTF-8",
-        "TypeScriptJQFolder": "Scripts\\ClientApi",
-        "TypeScriptNG2Folder": "..\\DemoAngular2\\ClientApi"
+		"CamelCase": true,
+		"ContentType": "text/plain;charset=UTF-8",
+		"TypeScriptJQFolder": "Scripts\\ClientApi",
+		"TypeScriptNG2Folder": "..\\DemoAngular2\\ClientApi",
+		"NGVersion": 5
 
-    }
+	}
 }

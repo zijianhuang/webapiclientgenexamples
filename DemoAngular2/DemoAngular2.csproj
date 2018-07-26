@@ -81,9 +81,9 @@
     <TypeScriptCompile Include="app\hero-detail.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\rxjs-extensions.ts" />
-    <TypeScriptCompile Include="app\tests\1st.spec.ts" />
-    <TypeScriptCompile Include="app\tests\clientApi.spec.ts" />
     <TypeScriptCompile Include="clientapi\WebApiNG2ClientAuto.ts" />
+    <TypeScriptCompile Include="environments\environment.prod.ts" />
+    <TypeScriptCompile Include="environments\environment.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
