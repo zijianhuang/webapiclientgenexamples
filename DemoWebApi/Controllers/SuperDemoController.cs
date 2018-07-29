@@ -29,6 +29,11 @@ namespace DemoWebApi.Controllers
             return await Task.Run(() => d * d);
         }
 
+		/// <summary>
+		/// True to return now, false to return null
+		/// </summary>
+		/// <param name="hasValue"></param>
+		/// <returns></returns>
         [HttpGet]
         [Route("NullableDatetime")]
         public async Task<DateTime?> GetDateTime(bool hasValue)
@@ -45,21 +50,28 @@ namespace DemoWebApi.Controllers
             });
         }
 
-        [HttpGet]
-        [Route("NextYear")]
-        public DateTime GetNextYear(DateTime dt)
-        {
-            return dt.AddYears(1);
-        }
+		//[HttpPost]
+		//[Route("kkk")]
+		//public void PostSomethingWrong(DemoData.Company x, DemoData.Person y)
+		//{
+		//    //do nothing.
+		//}
 
-        [HttpGet]
-        [Route("NextHour")]
-        public DateTimeOffset GetNextHour(DateTimeOffset dt)
-        {
-            return dt.AddHours(1);
-        }
+		[HttpGet]
+		[Route("NextYear")]
+		public DateTime GetNextYear(DateTime dt)
+		{
+			return dt.AddYears(1);
+		}
 
-        [HttpPost]
+		[HttpGet]
+		[Route("NextHour")]
+		public DateTimeOffset GetNextHour(DateTimeOffset dt)
+		{
+			return dt.AddHours(1);
+		}
+
+		[HttpPost]
         [Route("NextYear")]
         public DateTime PostNextYear([FromBody] DateTime dt)
         {
@@ -92,6 +104,11 @@ namespace DemoWebApi.Controllers
             return d.HasValue;
         }
 
+		/// <summary>
+		/// True to return 100, and false to return null
+		/// </summary>
+		/// <param name="hasValue"></param>
+		/// <returns></returns>
         [HttpGet]
         [Route("NullableDecimal")]
         public async Task<Decimal?> GetNullableDecimal(bool hasValue)
@@ -119,7 +136,11 @@ namespace DemoWebApi.Controllers
           //  return 0.1f + 0.2f - 0.3f;//in VS 2015 update 2. this is a zero result done by the compiler in IL code.
         }
 
-        [HttpGet]
+		/// <summary>
+		/// Result of 0.1d + 0.2d - 0.3d
+		/// </summary>
+		/// <returns></returns>
+		[HttpGet]
         [Route("DoubleZero")]
         public double GetDoubleZero()
         {
@@ -560,5 +581,61 @@ namespace DemoWebApi.Controllers
             return new Tuple<string, int>(s, i);
         }
 
-    }
+		[HttpGet]
+		[Route("DoubleNullable")]
+		public Tuple<string, double?, decimal?> GetPrimitiveNullable(string location, double? dd=null, decimal? de=null)
+		{
+			return new Tuple<string, double?, decimal?>(location, dd, de);
+		}
+
+		[HttpGet]
+		[Route("DoubleNullable2")]
+		public Tuple<double?, decimal?> GetPrimitiveNullable2(double? dd=null, decimal? de=null)
+		{
+			return new Tuple<double?, decimal?>(dd, de);
+		}
+
+
+		/// <summary>
+		/// If Dt is not defined, add a year from now
+		/// </summary>
+		/// <param name="n"></param>
+		/// <param name="dt"></param>
+		/// <returns></returns>
+		[HttpGet]
+		[Route("NextYearNullable")]
+		public DateTime GetNextYearNullable(int n, DateTime? dt = null)//must have default value set to null to make it optional so the runtime could locate this controller
+		{
+			return dt.HasValue ? dt.Value.AddYears(n) : DateTime.Now.AddYears(n);
+		}
+
+		/// <summary>
+		/// If Dt is not defined, add a hour from now
+		/// </summary>
+		/// <param name="n"></param>
+		/// <param name="dt"></param>
+		/// <returns></returns>
+		[HttpGet]
+		[Route("NextHourNullable")]
+		public DateTimeOffset GetNextHourNullable(int n, DateTimeOffset? dt = null)//must have default value set to null to make it optional so the runtime could locate this controller
+		{
+			return dt.HasValue ? dt.Value.AddHours(n) : DateTime.Now.AddHours(n);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="startDate"></param>
+		/// <param name="endDate"></param>
+		/// <returns></returns>
+		[HttpGet]
+		[Route("SearchDateRange")]
+		public Tuple<DateTime?, DateTime?> SearchDateRange(DateTime? startDate = null, DateTime? endDate = null)
+		{
+			return new Tuple<DateTime?, DateTime?>(startDate, endDate);
+		}
+
+
+
+	}
 }

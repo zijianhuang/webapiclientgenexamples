@@ -25,7 +25,7 @@
     <RestorePackages>true</RestorePackages>
     <TargetFrameworkProfile />
     <UseGlobalApplicationHostFile />
-    <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.4</TypeScriptToolsVersion>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <Use64BitIISExpress />
   </PropertyGroup>
@@ -59,11 +59,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Essential.Diagnostics.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9d041bca93991466, processorArchitecture=MSIL">
-      <HintPath>..\packages\Essential.Diagnostics.Core.2.0.206\lib\Essential.Diagnostics.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Essential.Diagnostics.RollingFileTraceListener, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9d041bca93991466, processorArchitecture=MSIL">
-      <HintPath>..\packages\Essential.Diagnostics.RollingFileTraceListener.2.0.206\lib\Essential.Diagnostics.RollingFileTraceListener.dll</HintPath>
+    <Reference Include="Essential.Diagnostics, Version=1.2.0.0, Culture=neutral, PublicKeyToken=9d041bca93991466, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\EssentialDiagnostics\Essential.Diagnostics.dll</HintPath>
     </Reference>
     <Reference Include="Fonlow.DocComment, Version=1.0.2.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
       <HintPath>..\packages\Fonlow.WebApiClientGen.2.4.4\lib\net452\Fonlow.DocComment.dll</HintPath>
@@ -137,9 +135,9 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -233,10 +231,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CodeGenController.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\HeroesController.cs" />
     <Compile Include="Controllers\SuperDemoController.cs" />
+    <Compile Include="Controllers\CodeGenController.cs" />
     <Compile Include="Controllers\EntitiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TupleController.cs" />
@@ -261,15 +259,22 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\qunit.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="CodeGen.json" />
     <Content Include="CopyToLocalIis.bat" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
@@ -290,31 +295,23 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="Scripts\bootstrap.bundle.js" />
-    <Content Include="Scripts\bootstrap.bundle.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Scripts\esm\popper-utils.js" />
-    <Content Include="Scripts\esm\popper-utils.min.js" />
-    <Content Include="Scripts\esm\popper.js" />
-    <Content Include="Scripts\esm\popper.min.js" />
-    <Content Include="Scripts\esm\popper.min.js.map" />
-    <Content Include="Scripts\esm\popper.js.map" />
-    <Content Include="Scripts\esm\popper-utils.min.js.map" />
-    <Content Include="Scripts\esm\popper-utils.js.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
@@ -327,7 +324,9 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
-    <Content Include="Scripts\qunit.js" />
+    <Content Include="Scripts\qunit-2.6.1.css" />
+    <Content Include="Scripts\qunit-2.6.1.js" />
+    <Content Include="Scripts\require.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
@@ -336,6 +335,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="tests.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -362,6 +362,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="tslint.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -369,8 +370,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DemoWebApi.DemoData\DemoWebApi.DemoData.csproj">
@@ -385,6 +384,7 @@
     <TypeScriptCompile Include="Scripts\ClientApi\WebApiClientAuto.ts" />
     <TypeScriptCompile Include="Scripts\index.d.ts" />
     <TypeScriptCompile Include="Scripts\tests\demo.tests.ts" />
+    <TypeScriptCompile Include="Scripts\tests\special.tests.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\qunit\qunit.d.ts" />
   </ItemGroup>

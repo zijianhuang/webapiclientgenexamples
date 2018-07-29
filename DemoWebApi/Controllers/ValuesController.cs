@@ -7,6 +7,7 @@ using System.Web.Http;
 
 namespace DemoWebApi.Controllers
 {
+   // [Authorize]
     public class ValuesController : ApiController
     {
         // GET api/values
@@ -21,12 +22,17 @@ namespace DemoWebApi.Controllers
             return name + id.ToString();
         }
 
-        public string Get(string name)
-        {
-            return name.ToUpper();
-        }
+		public string Get(string name)
+		{
+			return name.ToUpper();
+		}
 
-        [HttpPost]
+		public string Get(int id)
+		{
+			return id.ToString();
+		}
+
+		[HttpPost]
         public string Post([FromBody]string value)
         {
             System.Diagnostics.Debug.WriteLine("received POST value: "+value);
