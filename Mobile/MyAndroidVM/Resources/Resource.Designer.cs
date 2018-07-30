@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("DemoWebApi.AndroidClientApi.Resource", IsApplication=false)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("MyAndroidVM.Resource", IsApplication=false)]
 
-namespace DemoWebApi.AndroidClientApi
+namespace MyAndroidVM
 {
 	
 	

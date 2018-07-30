@@ -27459,7 +27459,6 @@
       "outputPath": "C:\\VSProjects\\webapiclientgenexamples\\DemoWebApi.UniversalClientApi\\obj\\",
       "projectStyle": "ProjectJson",
       "configFilePaths": [
-        "C:\\VSProjects\\webapiclientgenexamples\\.nuget\\NuGet.Config",
         "C:\\Users\\Z\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

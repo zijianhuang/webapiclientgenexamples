@@ -851,6 +851,264 @@ namespace DemoWebApi.Controllers.Client
     using Newtonsoft.Json;
     
     
+    public partial class Heroes
+    {
+        
+        private System.Net.Http.HttpClient client;
+        
+        private System.Uri baseUri;
+        
+        public Heroes(System.Net.Http.HttpClient client, System.Uri baseUri)
+        {
+            if (client == null)
+                throw new ArgumentNullException("client", "Null HttpClient.");
+
+            if (baseUri == null)
+                throw new ArgumentNullException("baseUri", "Null baseUri");
+
+            this.client = client;
+            this.baseUri = baseUri;
+        }
+        
+        /// <summary>
+        /// Add a hero
+        /// POST api/Heroes/q?name={name}
+        /// </summary>
+        public async Task<DemoWebApi.Controllers.Client.Hero> PostWithQueryAsync(string name)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Heroes/q?name="+Uri.EscapeDataString(name));
+            var responseMessage = await client.PostAsync(requestUri, new StringContent(String.Empty));
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// Add a hero
+        /// POST api/Heroes/q?name={name}
+        /// </summary>
+        public DemoWebApi.Controllers.Client.Hero PostWithQuery(string name)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Heroes/q?name="+Uri.EscapeDataString(name));
+            var responseMessage = this.client.PostAsync(requestUri, new StringContent(String.Empty)).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// Get all heroes.
+        /// GET api/Heroes
+        /// </summary>
+        public async Task<DemoWebApi.Controllers.Client.Hero[]> GetAsync()
+        {
+            var requestUri = new Uri(this.baseUri, "api/Heroes");
+            var responseMessage = await client.GetAsync(requestUri);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero[]>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// Get all heroes.
+        /// GET api/Heroes
+        /// </summary>
+        public DemoWebApi.Controllers.Client.Hero[] Get()
+        {
+            var requestUri = new Uri(this.baseUri, "api/Heroes");
+            var responseMessage = this.client.GetAsync(requestUri).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero[]>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// Get a hero.
+        /// GET api/Heroes/{id}
+        /// </summary>
+        public async Task<DemoWebApi.Controllers.Client.Hero> GetAsync(long id)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Heroes/"+id);
+            var responseMessage = await client.GetAsync(requestUri);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// Get a hero.
+        /// GET api/Heroes/{id}
+        /// </summary>
+        public DemoWebApi.Controllers.Client.Hero Get(long id)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Heroes/"+id);
+            var responseMessage = this.client.GetAsync(requestUri).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// DELETE api/Heroes/{id}
+        /// </summary>
+        public async Task DeleteAsync(long id)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Heroes/"+id);
+            var responseMessage = await client.DeleteAsync(requestUri);
+            responseMessage.EnsureSuccessStatusCode();
+        }
+        
+        /// <summary>
+        /// DELETE api/Heroes/{id}
+        /// </summary>
+        public void Delete(long id)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Heroes/"+id);
+            var responseMessage = this.client.DeleteAsync(requestUri).Result;
+            responseMessage.EnsureSuccessStatusCode();
+        }
+        
+        /// <summary>
+        /// POST api/Heroes?name={name}
+        /// </summary>
+        public async Task<DemoWebApi.Controllers.Client.Hero> PostAsync(string name)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Heroes?name="+Uri.EscapeDataString(name));
+            var responseMessage = await client.PostAsync(requestUri, new StringContent(String.Empty));
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// POST api/Heroes?name={name}
+        /// </summary>
+        public DemoWebApi.Controllers.Client.Hero Post(string name)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Heroes?name="+Uri.EscapeDataString(name));
+            var responseMessage = this.client.PostAsync(requestUri, new StringContent(String.Empty)).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// Update hero.
+        /// PUT api/Heroes
+        /// </summary>
+        public async Task<DemoWebApi.Controllers.Client.Hero> PutAsync(DemoWebApi.Controllers.Client.Hero hero)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Heroes");
+            using (var requestWriter = new System.IO.StringWriter())
+            {
+            var requestSerializer = JsonSerializer.Create();
+            requestSerializer.Serialize(requestWriter, hero);
+            var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync(requestUri, content);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero>(jsonReader);
+            }
+            }
+        }
+        
+        /// <summary>
+        /// Update hero.
+        /// PUT api/Heroes
+        /// </summary>
+        public DemoWebApi.Controllers.Client.Hero Put(DemoWebApi.Controllers.Client.Hero hero)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Heroes");
+            using (var requestWriter = new System.IO.StringWriter())
+            {
+            var requestSerializer = JsonSerializer.Create();
+            requestSerializer.Serialize(requestWriter, hero);
+            var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
+            var responseMessage = this.client.PutAsync(requestUri, content).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero>(jsonReader);
+            }
+            }
+        }
+        
+        /// <summary>
+        /// Search heroes
+        /// GET api/Heroes?name={name}
+        /// </summary>
+        /// <param name="name">keyword contained in hero name.</param>
+        /// <returns>Hero array matching the keyword.</returns>
+        public async Task<DemoWebApi.Controllers.Client.Hero[]> SearchAsync(string name)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Heroes?name="+Uri.EscapeDataString(name));
+            var responseMessage = await client.GetAsync(requestUri);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero[]>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// Search heroes
+        /// GET api/Heroes?name={name}
+        /// </summary>
+        /// <param name="name">keyword contained in hero name.</param>
+        /// <returns>Hero array matching the keyword.</returns>
+        public DemoWebApi.Controllers.Client.Hero[] Search(string name)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Heroes?name="+Uri.EscapeDataString(name));
+            var responseMessage = this.client.GetAsync(requestUri).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero[]>(jsonReader);
+            }
+        }
+    }
+    
     public partial class Entities
     {
         
@@ -871,153 +1129,15 @@ namespace DemoWebApi.Controllers.Client
         }
         
         /// <summary>
-        /// PUT api/SuperDemo/link?id={id}&relationship={relationship}
-        /// </summary>
-        public async Task<bool> LinkPersonAsync(long id, string relationship, DemoWebApi.DemoData.Client.Person person)
-        {
-            var requestUri = new Uri(this.baseUri, "api/SuperDemo/link?id="+id+"&relationship="+Uri.EscapeDataString(relationship));
-            using (var requestWriter = new System.IO.StringWriter())
-            {
-            var requestSerializer = JsonSerializer.Create();
-            requestSerializer.Serialize(requestWriter, person);
-            var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync(requestUri, content);
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = await responseMessage.Content.ReadAsStreamAsync();
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            return System.Boolean.Parse(jsonReader.ReadAsString());
-            }
-            }
-        }
-        
-        /// <summary>
-        /// PUT api/SuperDemo/link?id={id}&relationship={relationship}
-        /// </summary>
-        public bool LinkPerson(long id, string relationship, DemoWebApi.DemoData.Client.Person person)
-        {
-            var requestUri = new Uri(this.baseUri, "api/SuperDemo/link?id="+id+"&relationship="+Uri.EscapeDataString(relationship));
-            using (var requestWriter = new System.IO.StringWriter())
-            {
-            var requestSerializer = JsonSerializer.Create();
-            requestSerializer.Serialize(requestWriter, person);
-            var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
-            var responseMessage = this.client.PutAsync(requestUri, content).Result;
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            return System.Boolean.Parse(jsonReader.ReadAsString());
-            }
-            }
-        }
-        
-        /// <summary>
-        /// GET api/SuperDemo/Company?id={id}
-        /// </summary>
-        public async Task<DemoWebApi.DemoData.Client.Company> GetCompanyAsync(long id)
-        {
-            var requestUri = new Uri(this.baseUri, "api/SuperDemo/Company?id="+id);
-            var responseMessage = await client.GetAsync(requestUri);
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = await responseMessage.Content.ReadAsStreamAsync();
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.DemoData.Client.Company>(jsonReader);
-            }
-        }
-        
-        /// <summary>
-        /// GET api/SuperDemo/Company?id={id}
-        /// </summary>
-        public DemoWebApi.DemoData.Client.Company GetCompany(long id)
-        {
-            var requestUri = new Uri(this.baseUri, "api/SuperDemo/Company?id="+id);
-            var responseMessage = this.client.GetAsync(requestUri).Result;
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.DemoData.Client.Company>(jsonReader);
-            }
-        }
-        
-        /// <summary>
-        /// GET api/SuperDemo/PersonNotFound?id={id}
-        /// </summary>
-        public async Task<DemoWebApi.DemoData.Client.Person> GetPersonNotFoundAsync(long id)
-        {
-            var requestUri = new Uri(this.baseUri, "api/SuperDemo/PersonNotFound?id="+id);
-            var responseMessage = await client.GetAsync(requestUri);
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = await responseMessage.Content.ReadAsStreamAsync();
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.DemoData.Client.Person>(jsonReader);
-            }
-        }
-        
-        /// <summary>
-        /// GET api/SuperDemo/PersonNotFound?id={id}
-        /// </summary>
-        public DemoWebApi.DemoData.Client.Person GetPersonNotFound(long id)
-        {
-            var requestUri = new Uri(this.baseUri, "api/SuperDemo/PersonNotFound?id="+id);
-            var responseMessage = this.client.GetAsync(requestUri).Result;
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.DemoData.Client.Person>(jsonReader);
-            }
-        }
-        
-        /// <summary>
-        /// GET api/SuperDemo/PersonActionNotFound?id={id}
-        /// </summary>
-        public async Task<DemoWebApi.DemoData.Client.Person> GetPersonActionNotFoundAsync(long id)
-        {
-            var requestUri = new Uri(this.baseUri, "api/SuperDemo/PersonActionNotFound?id="+id);
-            var responseMessage = await client.GetAsync(requestUri);
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = await responseMessage.Content.ReadAsStreamAsync();
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.DemoData.Client.Person>(jsonReader);
-            }
-        }
-        
-        /// <summary>
-        /// GET api/SuperDemo/PersonActionNotFound?id={id}
-        /// </summary>
-        public DemoWebApi.DemoData.Client.Person GetPersonActionNotFound(long id)
-        {
-            var requestUri = new Uri(this.baseUri, "api/SuperDemo/PersonActionNotFound?id="+id);
-            var responseMessage = this.client.GetAsync(requestUri).Result;
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.DemoData.Client.Person>(jsonReader);
-            }
-        }
-        
-        /// <summary>
         /// Get a person
         /// so to know the person
-        /// GET api/Entities/{id}
+        /// GET api/Entities/getPerson?id={id}
         /// </summary>
         /// <param name="id">unique id of that guy</param>
         /// <returns>person in db</returns>
         public async Task<DemoWebApi.DemoData.Client.Person> GetPersonAsync(long id)
         {
-            var requestUri = new Uri(this.baseUri, "api/Entities/"+id);
+            var requestUri = new Uri(this.baseUri, "api/Entities/getPerson?id="+id);
             var responseMessage = await client.GetAsync(requestUri);
             responseMessage.EnsureSuccessStatusCode();
             var stream = await responseMessage.Content.ReadAsStreamAsync();
@@ -1031,13 +1151,13 @@ namespace DemoWebApi.Controllers.Client
         /// <summary>
         /// Get a person
         /// so to know the person
-        /// GET api/Entities/{id}
+        /// GET api/Entities/getPerson?id={id}
         /// </summary>
         /// <param name="id">unique id of that guy</param>
         /// <returns>person in db</returns>
         public DemoWebApi.DemoData.Client.Person GetPerson(long id)
         {
-            var requestUri = new Uri(this.baseUri, "api/Entities/"+id);
+            var requestUri = new Uri(this.baseUri, "api/Entities/getPerson?id="+id);
             var responseMessage = this.client.GetAsync(requestUri).Result;
             responseMessage.EnsureSuccessStatusCode();
             var stream = responseMessage.Content.ReadAsStreamAsync().Result;
@@ -1049,11 +1169,11 @@ namespace DemoWebApi.Controllers.Client
         }
         
         /// <summary>
-        /// POST api/Entities
+        /// POST api/Entities/createPerson
         /// </summary>
         public async Task<long> CreatePersonAsync(DemoWebApi.DemoData.Client.Person p)
         {
-            var requestUri = new Uri(this.baseUri, "api/Entities");
+            var requestUri = new Uri(this.baseUri, "api/Entities/createPerson");
             using (var requestWriter = new System.IO.StringWriter())
             {
             var requestSerializer = JsonSerializer.Create();
@@ -1070,11 +1190,11 @@ namespace DemoWebApi.Controllers.Client
         }
         
         /// <summary>
-        /// POST api/Entities
+        /// POST api/Entities/createPerson
         /// </summary>
         public long CreatePerson(DemoWebApi.DemoData.Client.Person p)
         {
-            var requestUri = new Uri(this.baseUri, "api/Entities");
+            var requestUri = new Uri(this.baseUri, "api/Entities/createPerson");
             using (var requestWriter = new System.IO.StringWriter())
             {
             var requestSerializer = JsonSerializer.Create();
@@ -1091,11 +1211,11 @@ namespace DemoWebApi.Controllers.Client
         }
         
         /// <summary>
-        /// PUT api/Entities
+        /// PUT api/Entities/updatePerson
         /// </summary>
         public async Task UpdatePersonAsync(DemoWebApi.DemoData.Client.Person person)
         {
-            var requestUri = new Uri(this.baseUri, "api/Entities");
+            var requestUri = new Uri(this.baseUri, "api/Entities/updatePerson");
             using (var requestWriter = new System.IO.StringWriter())
             {
             var requestSerializer = JsonSerializer.Create();
@@ -1107,11 +1227,11 @@ namespace DemoWebApi.Controllers.Client
         }
         
         /// <summary>
-        /// PUT api/Entities
+        /// PUT api/Entities/updatePerson
         /// </summary>
         public void UpdatePerson(DemoWebApi.DemoData.Client.Person person)
         {
-            var requestUri = new Uri(this.baseUri, "api/Entities");
+            var requestUri = new Uri(this.baseUri, "api/Entities/updatePerson");
             using (var requestWriter = new System.IO.StringWriter())
             {
             var requestSerializer = JsonSerializer.Create();
@@ -1119,6 +1239,144 @@ namespace DemoWebApi.Controllers.Client
             var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
             var responseMessage = this.client.PutAsync(requestUri, content).Result;
             responseMessage.EnsureSuccessStatusCode();
+            }
+        }
+        
+        /// <summary>
+        /// PUT api/Entities/link?id={id}&relationship={relationship}
+        /// </summary>
+        public async Task<bool> LinkPersonAsync(long id, string relationship, DemoWebApi.DemoData.Client.Person person)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Entities/link?id="+id+"&relationship="+Uri.EscapeDataString(relationship));
+            using (var requestWriter = new System.IO.StringWriter())
+            {
+            var requestSerializer = JsonSerializer.Create();
+            requestSerializer.Serialize(requestWriter, person);
+            var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync(requestUri, content);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            return System.Boolean.Parse(jsonReader.ReadAsString());
+            }
+            }
+        }
+        
+        /// <summary>
+        /// PUT api/Entities/link?id={id}&relationship={relationship}
+        /// </summary>
+        public bool LinkPerson(long id, string relationship, DemoWebApi.DemoData.Client.Person person)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Entities/link?id="+id+"&relationship="+Uri.EscapeDataString(relationship));
+            using (var requestWriter = new System.IO.StringWriter())
+            {
+            var requestSerializer = JsonSerializer.Create();
+            requestSerializer.Serialize(requestWriter, person);
+            var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
+            var responseMessage = this.client.PutAsync(requestUri, content).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            return System.Boolean.Parse(jsonReader.ReadAsString());
+            }
+            }
+        }
+        
+        /// <summary>
+        /// GET api/Entities/Company?id={id}
+        /// </summary>
+        public async Task<DemoWebApi.DemoData.Client.Company> GetCompanyAsync(long id)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Entities/Company?id="+id);
+            var responseMessage = await client.GetAsync(requestUri);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.DemoData.Client.Company>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// GET api/Entities/Company?id={id}
+        /// </summary>
+        public DemoWebApi.DemoData.Client.Company GetCompany(long id)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Entities/Company?id="+id);
+            var responseMessage = this.client.GetAsync(requestUri).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.DemoData.Client.Company>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// GET api/Entities/PersonNotFound?id={id}
+        /// </summary>
+        public async Task<DemoWebApi.DemoData.Client.Person> GetPersonNotFoundAsync(long id)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Entities/PersonNotFound?id="+id);
+            var responseMessage = await client.GetAsync(requestUri);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.DemoData.Client.Person>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// GET api/Entities/PersonNotFound?id={id}
+        /// </summary>
+        public DemoWebApi.DemoData.Client.Person GetPersonNotFound(long id)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Entities/PersonNotFound?id="+id);
+            var responseMessage = this.client.GetAsync(requestUri).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.DemoData.Client.Person>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// GET api/Entities/PersonActionNotFound?id={id}
+        /// </summary>
+        public async Task<DemoWebApi.DemoData.Client.Person> GetPersonActionNotFoundAsync(long id)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Entities/PersonActionNotFound?id="+id);
+            var responseMessage = await client.GetAsync(requestUri);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.DemoData.Client.Person>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// GET api/Entities/PersonActionNotFound?id={id}
+        /// </summary>
+        public DemoWebApi.DemoData.Client.Person GetPersonActionNotFound(long id)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Entities/PersonActionNotFound?id="+id);
+            var responseMessage = this.client.GetAsync(requestUri).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<DemoWebApi.DemoData.Client.Person>(jsonReader);
             }
         }
         
@@ -1225,6 +1483,7 @@ namespace DemoWebApi.Controllers.Client
         }
         
         /// <summary>
+        /// True to return now, false to return null
         /// GET api/SuperDemo/NullableDatetime?hasValue={hasValue}
         /// </summary>
         public async Task<System.Nullable<System.DateTime>> GetDateTimeAsync(bool hasValue)
@@ -1241,6 +1500,7 @@ namespace DemoWebApi.Controllers.Client
         }
         
         /// <summary>
+        /// True to return now, false to return null
         /// GET api/SuperDemo/NullableDatetime?hasValue={hasValue}
         /// </summary>
         public System.Nullable<System.DateTime> GetDateTime(bool hasValue)
@@ -1483,6 +1743,7 @@ namespace DemoWebApi.Controllers.Client
         }
         
         /// <summary>
+        /// True to return 100, and false to return null
         /// GET api/SuperDemo/NullableDecimal?hasValue={hasValue}
         /// </summary>
         public async Task<System.Nullable<decimal>> GetNullableDecimalAsync(bool hasValue)
@@ -1499,6 +1760,7 @@ namespace DemoWebApi.Controllers.Client
         }
         
         /// <summary>
+        /// True to return 100, and false to return null
         /// GET api/SuperDemo/NullableDecimal?hasValue={hasValue}
         /// </summary>
         public System.Nullable<decimal> GetNullableDecimal(bool hasValue)
@@ -1545,6 +1807,7 @@ namespace DemoWebApi.Controllers.Client
         }
         
         /// <summary>
+        /// Result of 0.1d + 0.2d - 0.3d
         /// GET api/SuperDemo/DoubleZero
         /// </summary>
         public async Task<double> GetDoubleZeroAsync()
@@ -1560,6 +1823,7 @@ namespace DemoWebApi.Controllers.Client
         }
         
         /// <summary>
+        /// Result of 0.1d + 0.2d - 0.3d
         /// GET api/SuperDemo/DoubleZero
         /// </summary>
         public double GetDoubleZero()
@@ -3051,6 +3315,166 @@ namespace DemoWebApi.Controllers.Client
             return serializer.Deserialize<System.Tuple<string, int>>(jsonReader);
             }
         }
+        
+        /// <summary>
+        /// GET api/SuperDemo/DoubleNullable?location={location}&dd={dd}&de={de}
+        /// </summary>
+        public async Task<System.Tuple<string, System.Nullable<double>, System.Nullable<decimal>>> GetPrimitiveNullableAsync(string location, System.Nullable<double> dd, System.Nullable<decimal> de)
+        {
+            var requestUri = new Uri(this.baseUri, "api/SuperDemo/DoubleNullable?location="+Uri.EscapeDataString(location)+(dd.HasValue?"&dd="+dd.Value.ToString():String.Empty)+(de.HasValue?"&de="+de.Value.ToString():String.Empty));
+            var responseMessage = await client.GetAsync(requestUri);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<System.Tuple<string, System.Nullable<double>, System.Nullable<decimal>>>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// GET api/SuperDemo/DoubleNullable?location={location}&dd={dd}&de={de}
+        /// </summary>
+        public System.Tuple<string, System.Nullable<double>, System.Nullable<decimal>> GetPrimitiveNullable(string location, System.Nullable<double> dd, System.Nullable<decimal> de)
+        {
+            var requestUri = new Uri(this.baseUri, "api/SuperDemo/DoubleNullable?location="+Uri.EscapeDataString(location)+(dd.HasValue?"&dd="+dd.Value.ToString():String.Empty)+(de.HasValue?"&de="+de.Value.ToString():String.Empty));
+            var responseMessage = this.client.GetAsync(requestUri).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<System.Tuple<string, System.Nullable<double>, System.Nullable<decimal>>>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// GET api/SuperDemo/DoubleNullable2?dd={dd}&de={de}
+        /// </summary>
+        public async Task<System.Tuple<System.Nullable<double>, System.Nullable<decimal>>> GetPrimitiveNullable2Async(System.Nullable<double> dd, System.Nullable<decimal> de)
+        {
+            var requestUri = new Uri(this.baseUri, "api/SuperDemo/DoubleNullable2?"+(dd.HasValue?"dd="+dd.Value.ToString():String.Empty)+(de.HasValue?"&de="+de.Value.ToString():String.Empty));
+            var responseMessage = await client.GetAsync(requestUri);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<System.Tuple<System.Nullable<double>, System.Nullable<decimal>>>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// GET api/SuperDemo/DoubleNullable2?dd={dd}&de={de}
+        /// </summary>
+        public System.Tuple<System.Nullable<double>, System.Nullable<decimal>> GetPrimitiveNullable2(System.Nullable<double> dd, System.Nullable<decimal> de)
+        {
+            var requestUri = new Uri(this.baseUri, "api/SuperDemo/DoubleNullable2?"+(dd.HasValue?"dd="+dd.Value.ToString():String.Empty)+(de.HasValue?"&de="+de.Value.ToString():String.Empty));
+            var responseMessage = this.client.GetAsync(requestUri).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<System.Tuple<System.Nullable<double>, System.Nullable<decimal>>>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// GET api/SuperDemo/NextYearNullable?n={n}&dt={dt}
+        /// </summary>
+        public async Task<System.DateTime> GetNextYearNullableAsync(int n, System.Nullable<System.DateTime> dt)
+        {
+            var requestUri = new Uri(this.baseUri, "api/SuperDemo/NextYearNullable?n="+n+(dt.HasValue?"&dt="+dt.Value.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ"):String.Empty));
+            var responseMessage = await client.GetAsync(requestUri);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<System.DateTime>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// GET api/SuperDemo/NextYearNullable?n={n}&dt={dt}
+        /// </summary>
+        public System.DateTime GetNextYearNullable(int n, System.Nullable<System.DateTime> dt)
+        {
+            var requestUri = new Uri(this.baseUri, "api/SuperDemo/NextYearNullable?n="+n+(dt.HasValue?"&dt="+dt.Value.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ"):String.Empty));
+            var responseMessage = this.client.GetAsync(requestUri).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<System.DateTime>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// GET api/SuperDemo/NextHourNullable?n={n}&dt={dt}
+        /// </summary>
+        public async Task<System.DateTimeOffset> GetNextHourNullableAsync(int n, System.Nullable<System.DateTimeOffset> dt)
+        {
+            var requestUri = new Uri(this.baseUri, "api/SuperDemo/NextHourNullable?n="+n+(dt.HasValue?"&dt="+dt.Value.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ"):String.Empty));
+            var responseMessage = await client.GetAsync(requestUri);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<System.DateTimeOffset>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// GET api/SuperDemo/NextHourNullable?n={n}&dt={dt}
+        /// </summary>
+        public System.DateTimeOffset GetNextHourNullable(int n, System.Nullable<System.DateTimeOffset> dt)
+        {
+            var requestUri = new Uri(this.baseUri, "api/SuperDemo/NextHourNullable?n="+n+(dt.HasValue?"&dt="+dt.Value.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ"):String.Empty));
+            var responseMessage = this.client.GetAsync(requestUri).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<System.DateTimeOffset>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// GET api/SuperDemo/SearchDateRange?startDate={startDate}&endDate={endDate}
+        /// </summary>
+        public async Task<System.Tuple<System.Nullable<System.DateTime>, System.Nullable<System.DateTime>>> SearchDateRangeAsync(System.Nullable<System.DateTime> startDate, System.Nullable<System.DateTime> endDate)
+        {
+            var requestUri = new Uri(this.baseUri, "api/SuperDemo/SearchDateRange?"+(startDate.HasValue?"startDate="+startDate.Value.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ"):String.Empty)+(endDate.HasValue?"&endDate="+endDate.Value.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ"):String.Empty));
+            var responseMessage = await client.GetAsync(requestUri);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<System.Tuple<System.Nullable<System.DateTime>, System.Nullable<System.DateTime>>>(jsonReader);
+            }
+        }
+        
+        /// <summary>
+        /// GET api/SuperDemo/SearchDateRange?startDate={startDate}&endDate={endDate}
+        /// </summary>
+        public System.Tuple<System.Nullable<System.DateTime>, System.Nullable<System.DateTime>> SearchDateRange(System.Nullable<System.DateTime> startDate, System.Nullable<System.DateTime> endDate)
+        {
+            var requestUri = new Uri(this.baseUri, "api/SuperDemo/SearchDateRange?"+(startDate.HasValue?"startDate="+startDate.Value.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ"):String.Empty)+(endDate.HasValue?"&endDate="+endDate.Value.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ"):String.Empty));
+            var responseMessage = this.client.GetAsync(requestUri).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<System.Tuple<System.Nullable<System.DateTime>, System.Nullable<System.DateTime>>>(jsonReader);
+            }
+        }
     }
     
     public partial class Tuple
@@ -4193,6 +4617,36 @@ namespace DemoWebApi.Controllers.Client
         }
         
         /// <summary>
+        /// GET api/Values/{id}
+        /// </summary>
+        public async Task<string> GetAsync(int id)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Values/"+id);
+            var responseMessage = await client.GetAsync(requestUri);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            return jsonReader.ReadAsString();
+            }
+        }
+        
+        /// <summary>
+        /// GET api/Values/{id}
+        /// </summary>
+        public string Get(int id)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Values/"+id);
+            var responseMessage = this.client.GetAsync(requestUri).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            return jsonReader.ReadAsString();
+            }
+        }
+        
+        /// <summary>
         /// POST api/Values
         /// </summary>
         public async Task<string> PostAsync(string value)
@@ -4284,232 +4738,6 @@ namespace DemoWebApi.Controllers.Client
             var requestUri = new Uri(this.baseUri, "api/Values/"+id);
             var responseMessage = this.client.DeleteAsync(requestUri).Result;
             responseMessage.EnsureSuccessStatusCode();
-        }
-    }
-    
-    public partial class Heroes
-    {
-        
-        private System.Net.Http.HttpClient client;
-        
-        private System.Uri baseUri;
-        
-        public Heroes(System.Net.Http.HttpClient client, System.Uri baseUri)
-        {
-            if (client == null)
-                throw new ArgumentNullException("client", "Null HttpClient.");
-
-            if (baseUri == null)
-                throw new ArgumentNullException("baseUri", "Null baseUri");
-
-            this.client = client;
-            this.baseUri = baseUri;
-        }
-        
-        /// <summary>
-        /// Get all heroes.
-        /// GET api/Heroes
-        /// </summary>
-        public async Task<DemoWebApi.Controllers.Client.Hero[]> GetAsync()
-        {
-            var requestUri = new Uri(this.baseUri, "api/Heroes");
-            var responseMessage = await client.GetAsync(requestUri);
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = await responseMessage.Content.ReadAsStreamAsync();
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero[]>(jsonReader);
-            }
-        }
-        
-        /// <summary>
-        /// Get all heroes.
-        /// GET api/Heroes
-        /// </summary>
-        public DemoWebApi.Controllers.Client.Hero[] Get()
-        {
-            var requestUri = new Uri(this.baseUri, "api/Heroes");
-            var responseMessage = this.client.GetAsync(requestUri).Result;
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero[]>(jsonReader);
-            }
-        }
-        
-        /// <summary>
-        /// Get a hero.
-        /// GET api/Heroes/{id}
-        /// </summary>
-        public async Task<DemoWebApi.Controllers.Client.Hero> GetAsync(long id)
-        {
-            var requestUri = new Uri(this.baseUri, "api/Heroes/"+id);
-            var responseMessage = await client.GetAsync(requestUri);
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = await responseMessage.Content.ReadAsStreamAsync();
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero>(jsonReader);
-            }
-        }
-        
-        /// <summary>
-        /// Get a hero.
-        /// GET api/Heroes/{id}
-        /// </summary>
-        public DemoWebApi.Controllers.Client.Hero Get(long id)
-        {
-            var requestUri = new Uri(this.baseUri, "api/Heroes/"+id);
-            var responseMessage = this.client.GetAsync(requestUri).Result;
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero>(jsonReader);
-            }
-        }
-        
-        /// <summary>
-        /// DELETE api/Heroes/{id}
-        /// </summary>
-        public async Task DeleteAsync(long id)
-        {
-            var requestUri = new Uri(this.baseUri, "api/Heroes/"+id);
-            var responseMessage = await client.DeleteAsync(requestUri);
-            responseMessage.EnsureSuccessStatusCode();
-        }
-        
-        /// <summary>
-        /// DELETE api/Heroes/{id}
-        /// </summary>
-        public void Delete(long id)
-        {
-            var requestUri = new Uri(this.baseUri, "api/Heroes/"+id);
-            var responseMessage = this.client.DeleteAsync(requestUri).Result;
-            responseMessage.EnsureSuccessStatusCode();
-        }
-        
-        /// <summary>
-        /// Add a hero
-        /// POST api/Heroes?name={name}
-        /// </summary>
-        public async Task<DemoWebApi.Controllers.Client.Hero> PostAsync(string name)
-        {
-            var requestUri = new Uri(this.baseUri, "api/Heroes?name="+Uri.EscapeDataString(name));
-            var responseMessage = await client.PostAsync(requestUri, new StringContent(String.Empty));
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = await responseMessage.Content.ReadAsStreamAsync();
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero>(jsonReader);
-            }
-        }
-        
-        /// <summary>
-        /// Add a hero
-        /// POST api/Heroes?name={name}
-        /// </summary>
-        public DemoWebApi.Controllers.Client.Hero Post(string name)
-        {
-            var requestUri = new Uri(this.baseUri, "api/Heroes?name="+Uri.EscapeDataString(name));
-            var responseMessage = this.client.PostAsync(requestUri, new StringContent(String.Empty)).Result;
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero>(jsonReader);
-            }
-        }
-        
-        /// <summary>
-        /// Update hero.
-        /// PUT api/Heroes
-        /// </summary>
-        public async Task<DemoWebApi.Controllers.Client.Hero> PutAsync(DemoWebApi.Controllers.Client.Hero hero)
-        {
-            var requestUri = new Uri(this.baseUri, "api/Heroes");
-            using (var requestWriter = new System.IO.StringWriter())
-            {
-            var requestSerializer = JsonSerializer.Create();
-            requestSerializer.Serialize(requestWriter, hero);
-            var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync(requestUri, content);
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = await responseMessage.Content.ReadAsStreamAsync();
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero>(jsonReader);
-            }
-            }
-        }
-        
-        /// <summary>
-        /// Update hero.
-        /// PUT api/Heroes
-        /// </summary>
-        public DemoWebApi.Controllers.Client.Hero Put(DemoWebApi.Controllers.Client.Hero hero)
-        {
-            var requestUri = new Uri(this.baseUri, "api/Heroes");
-            using (var requestWriter = new System.IO.StringWriter())
-            {
-            var requestSerializer = JsonSerializer.Create();
-            requestSerializer.Serialize(requestWriter, hero);
-            var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
-            var responseMessage = this.client.PutAsync(requestUri, content).Result;
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero>(jsonReader);
-            }
-            }
-        }
-        
-        /// <summary>
-        /// Search heroes
-        /// GET api/Heroes?name={name}
-        /// </summary>
-        /// <param name="name">keyword contained in hero name.</param>
-        /// <returns>Hero array matching the keyword.</returns>
-        public async Task<DemoWebApi.Controllers.Client.Hero[]> SearchAsync(string name)
-        {
-            var requestUri = new Uri(this.baseUri, "api/Heroes?name="+Uri.EscapeDataString(name));
-            var responseMessage = await client.GetAsync(requestUri);
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = await responseMessage.Content.ReadAsStreamAsync();
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero[]>(jsonReader);
-            }
-        }
-        
-        /// <summary>
-        /// Search heroes
-        /// GET api/Heroes?name={name}
-        /// </summary>
-        /// <param name="name">keyword contained in hero name.</param>
-        /// <returns>Hero array matching the keyword.</returns>
-        public DemoWebApi.Controllers.Client.Hero[] Search(string name)
-        {
-            var requestUri = new Uri(this.baseUri, "api/Heroes?name="+Uri.EscapeDataString(name));
-            var responseMessage = this.client.GetAsync(requestUri).Result;
-            responseMessage.EnsureSuccessStatusCode();
-            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
-            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
-            {
-            var serializer = new JsonSerializer();
-            return serializer.Deserialize<DemoWebApi.Controllers.Client.Hero[]>(jsonReader);
-            }
         }
     }
 }

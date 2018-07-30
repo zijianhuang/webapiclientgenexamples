@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.2</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.561731" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2" />
@@ -96,7 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DemoWebApi.AndroidClientApi\DemoWebApi.AndroidClientApi.csproj">
-      <Project>{d9d26f26-f6b0-48b9-b55a-757a98d32ea9}</Project>
+      <Project>{76008206-9322-4264-87fd-2b63508b6e44}</Project>
       <Name>DemoWebApi.AndroidClientApi</Name>
     </ProjectReference>
   </ItemGroup>

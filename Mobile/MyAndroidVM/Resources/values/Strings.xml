@@ -1,4 +1,4 @@
 <resources>
     <string name="hello">Hello World, Click Me!</string>
-    <string name="app_name">DemoWebApi.AndroidClientApi</string>
+    <string name="app_name">MyAndroidVM</string>
 </resources>

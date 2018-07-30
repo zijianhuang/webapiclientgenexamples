@@ -13,13 +13,13 @@
 	},
 
 	"ClientApiOutputs": {
-		"ClientLibraryProjectFolderName": "..\\DemoWebApi.ClientApi",
+		"ClientLibraryProjectFolderName": "..\\DemoWebApi.ClientApiShared",
 		"GenerateBothAsyncAndSync": true,
 
 		"CamelCase": true,
 		"ContentType": "application/json;charset=UTF-8",
 		"TypeScriptJQFolder": "Scripts\\ClientApi",
-		"TypeScriptNG2Folder": "..\\DemoNGCli\\NGSource\\src\\ClientApi",
+		"TypeScriptNG2Folder": "..\\DemoAngular2\\ClientApi",
 		"NGVersion": 5
 
 	}

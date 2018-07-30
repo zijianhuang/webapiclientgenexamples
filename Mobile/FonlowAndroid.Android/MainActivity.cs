@@ -22,21 +22,44 @@ namespace FonlowAndroid.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+            LoadHeroes();
         }
 
         public override void SetContentView(View view)
         {
-            LoadHeroes();
             base.SetContentView(view);
         }
 
         private void LoadHeroes()
         {
-            var baseUri = new Uri("https://localhost:44356/");
-            var httpClient = new System.Net.Http.HttpClient();
-            var api = new DemoWebApi.Controllers.Client.Heroes(httpClient, baseUri);
-            var heroes = api.Get();
+            try
+            {
+                var baseUri = new Uri("http://192.168.2:9030/webapi/");
+                var httpClient = new System.Net.Http.HttpClient();
+                var api = new DemoWebApi.Controllers.Client.Heroes(httpClient, baseUri);
+                Heroes = api.Get();
 
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.TraceError(ex.ToString());
+                throw;
+            }
+        }
+
+        public Hero[] Heroes { get; private set; }
+
+        public int HeroCount
+        {
+            get
+            {
+                if (Heroes == null)
+                {
+                    return 0;
+                }
+
+                return Heroes.Length;
+            }
         }
     }
 }
