@@ -6,7 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-using DemoWebApi.Controllers.Client;
+
 
 namespace FonlowAndroid.Droid
 {
@@ -21,8 +21,12 @@ namespace FonlowAndroid.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
-            LoadHeroes();
+
+            var app = new App();
+            var heroes = new MyAndroidVM.Heroes();
+            app.MainPage.BindingContext = heroes;
+            LoadApplication(app);
+            heroes.LoadHeroes();
         }
 
         public override void SetContentView(View view)
@@ -30,37 +34,7 @@ namespace FonlowAndroid.Droid
             base.SetContentView(view);
         }
 
-        private void LoadHeroes()
-        {
-            try
-            {
-                var baseUri = new Uri("http://192.168.2:9030/webapi/");
-                var httpClient = new System.Net.Http.HttpClient();
-                var api = new DemoWebApi.Controllers.Client.Heroes(httpClient, baseUri);
-                Heroes = api.Get();
 
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Trace.TraceError(ex.ToString());
-                throw;
-            }
-        }
-
-        public Hero[] Heroes { get; private set; }
-
-        public int HeroCount
-        {
-            get
-            {
-                if (Heroes == null)
-                {
-                    return 0;
-                }
-
-                return Heroes.Length;
-            }
-        }
     }
 }
 

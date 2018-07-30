@@ -9,6 +9,17 @@
     	<Label Text="Welcome to Xamarin.Forms! ABC 中文" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
+
+        <Label Text="{Binding Count}" HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+
+        <ListView x:Name="HeroesView" ItemsSource="{Binding Items}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 </ContentPage>

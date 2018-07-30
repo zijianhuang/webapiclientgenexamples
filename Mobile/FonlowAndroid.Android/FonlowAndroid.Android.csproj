@@ -102,6 +102,10 @@
       <Project>{76008206-9322-4264-87fd-2b63508b6e44}</Project>
       <Name>DemoWebApi.AndroidClientApi</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MyAndroidVM\MyAndroidVM.csproj">
+      <Project>{5a3b237a-b80d-4006-b70c-d1288a6e1f1e}</Project>
+      <Name>MyAndroidVM</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\FonlowAndroid\FonlowAndroid.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
