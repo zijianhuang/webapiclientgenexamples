@@ -15,7 +15,7 @@ This VS solution was constructed using Visual Studio 2015-2017.
 
 
 **.NET client side:**
-1. .NET Framework 4.6.2, or Universal Windows, or Mono.Android, or Xamarin.iOS
+1. .NET Framework 4.6.2, or Universal Windows, or Xamarin.Android, or Xamarin.iOS
 1. ASP.NET Web API 2.2 Client Libraries
 1. Json.NET of Newtonsoft [for Content-Type application/json](http://www.asp.net/web-api/overview/formats-and-model-binding/content-negotiation)
 1. Microsoft Build Tools 2015
@@ -32,4 +32,4 @@ This VS solution was constructed using Visual Studio 2015-2017.
 * Current trunk is similar to tag "NG522
 
 **Hints**:
-* The Android mobile app is talking to the Web API however, the base URI http://192.168.0.2:9030/webapi/ is hard-coded HeroesFunction. So you may need to alter the codes in order to run the app successfuly in either Android devices or emulators, after you have deployed the Web API.
+* The Android mobile app is talking to the Web API, however the base URI http://192.168.0.2:9030/webapi/ is hard-coded in HeroesFunction. So you may need to alter the codes in order to run the app successfuly in either Android devices or emulators, after you have deployed the Web API.
