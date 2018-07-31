@@ -4,28 +4,21 @@ using System.ComponentModel;
 
 namespace MyAndroidVM
 {
-    public class Heroes : INotifyPropertyChanged
+    public class HeroesVM : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void LoadHeroes()
+        public HeroesVM()
         {
-            try
-            {
-                var baseUri = new Uri("http://192.168.0.2:9030/webapi/");
-                var httpClient = new System.Net.Http.HttpClient();
-                var api = new DemoWebApi.Controllers.Client.Heroes(httpClient, baseUri);
-                Items = api.Get();
-                NotifyPropertyChanged("Items");
-                NotifyPropertyChanged("Count");
 
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Trace.TraceError(ex.ToString());
-                throw;
-            }
         }
+
+        public void Assign(Hero[] items)
+        {
+            Items = items;
+            NotifyPropertyChanged("Items");
+            NotifyPropertyChanged("Count");
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public Hero[] Items { get; private set; }
 

@@ -23,10 +23,11 @@ namespace FonlowAndroid.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             var app = new App();
-            var heroes = new MyAndroidVM.Heroes();
+            var heroes = new MyAndroidVM.HeroesVM();
             app.MainPage.BindingContext = heroes;
             LoadApplication(app);
-            heroes.LoadHeroes();
+
+            heroes.Assign(MyAndroidVM.HeroesFunctions.LoadHeroes());
         }
 
         public override void SetContentView(View view)
