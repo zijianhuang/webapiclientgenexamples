@@ -107,6 +107,6 @@
       <Name>MyAndroidVM</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="..\FonlowAndroid\FonlowAndroid.projitems" Label="Shared" />
+  <Import Project="..\MyFormsShared\MyFormsShared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

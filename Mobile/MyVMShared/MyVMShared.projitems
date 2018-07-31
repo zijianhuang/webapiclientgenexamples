@@ -9,5 +9,7 @@
     <Import_RootNamespace>MyVMShared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Heroes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HeroesFunctions.cs" />
   </ItemGroup>
 </Project>
