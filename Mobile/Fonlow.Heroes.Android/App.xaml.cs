@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
-namespace FonlowAndroid
+namespace Fonlow.Heroes
 {
 	public partial class App : Application
 	{
@@ -11,7 +11,7 @@ namespace FonlowAndroid
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			MainPage = new Views.MainPage();
 		}
 
 		protected override void OnStart ()

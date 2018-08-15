@@ -2,7 +2,7 @@
 using DemoWebApi.Controllers.Client;
 using System.ComponentModel;
 
-namespace MyAndroidVM
+namespace Fonlow.Heroes.VM
 {
     public static class HeroesFunctions
     {

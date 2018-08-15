@@ -8,7 +8,7 @@ using Android.Widget;
 using Android.OS;
 
 
-namespace FonlowAndroid.Droid
+namespace Fonlow.Heroes
 {
     [Activity(Label = "FonlowAndroid", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
@@ -17,17 +17,17 @@ namespace FonlowAndroid.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
+            
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             var app = new App();
-            var heroes = new MyAndroidVM.HeroesVM();
+            var heroes = new Fonlow.Heroes.VM.HeroesVM();
             app.MainPage.BindingContext = heroes;
             LoadApplication(app);
 
-            heroes.Assign(MyAndroidVM.HeroesFunctions.LoadHeroes());
+            heroes.Assign(Fonlow.Heroes.VM.HeroesFunctions.LoadHeroes());
         }
 
         public override void SetContentView(View view)
