@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fonlow.Heroes.Views.Dashboard"
+             xmlns:vmNS="clr-namespace:Fonlow.Heroes.VM;assembly=Fonlow.Heroes.VM.Android"
+>
+    <!--<ContentView.BindingContext>
+        <vmNS:HeroesVM/>//Parent component will inject the BindingContext
+    </ContentView.BindingContext>-->
+    <ContentView.Content>
+        <StackLayout>
+            <ListView x:Name="HeroesView" ItemsSource="{Binding Items}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

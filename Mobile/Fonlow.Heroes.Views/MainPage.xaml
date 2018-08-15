@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"            
              x:Class="Fonlow.Heroes.Views.MainPage"
              xmlns:vmNS="clr-namespace:Fonlow.Heroes.VM;assembly=Fonlow.Heroes.VM.Android"
+             xmlns:viewsNS="clr-namespace:Fonlow.Heroes.Views"
+             x:Name="mainPage"
              >
     <ContentPage.BindingContext>
         <vmNS:HeroesVM/>
@@ -16,13 +18,8 @@
         <Label Text="{Binding Count}" HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
 
-        <ListView x:Name="HeroesView" ItemsSource="{Binding Items}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Name}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <viewsNS:Dashboard x:Name="dashboard" BindingContext="{Binding}">
+        </viewsNS:Dashboard>
     </StackLayout>
 
 </ContentPage>

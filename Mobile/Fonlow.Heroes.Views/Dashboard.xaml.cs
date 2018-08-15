@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Fonlow.Heroes.Views
 {
-	public partial class MainPage : ContentPage
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class Dashboard : ContentView
 	{
-		public MainPage()
+		public Dashboard ()
 		{
-			InitializeComponent();
-
-          //  dashboard.BindingContext = BindingContext; I prefer do this in XAML
+			InitializeComponent ();
 		}
-    }
+	}
 }
