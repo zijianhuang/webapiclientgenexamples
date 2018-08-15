@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:FonlowAndroid"
-             x:Class="Fonlow.Heroes.Views.MainPage">
-
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"            
+             x:Class="Fonlow.Heroes.Views.MainPage"
+             xmlns:vmNS="clr-namespace:Fonlow.Heroes.VM;assembly=Fonlow.Heroes.VM.Android"
+             >
+    <ContentPage.BindingContext>
+        <vmNS:HeroesVM/>
+    </ContentPage.BindingContext>
     <StackLayout>
         <!-- Place new controls here -->
     	<Label Text="Welcome to Xamarin.Forms! ABC 中文" 

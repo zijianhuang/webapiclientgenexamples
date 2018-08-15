@@ -23,8 +23,7 @@ namespace Fonlow.Heroes
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             var app = new App();
-            var heroes = new Fonlow.Heroes.VM.HeroesVM();
-            app.MainPage.BindingContext = heroes;
+            var heroes = app.MainPage.BindingContext as Fonlow.Heroes.VM.HeroesVM;
             LoadApplication(app);
 
             heroes.Assign(Fonlow.Heroes.VM.HeroesFunctions.LoadHeroes());
