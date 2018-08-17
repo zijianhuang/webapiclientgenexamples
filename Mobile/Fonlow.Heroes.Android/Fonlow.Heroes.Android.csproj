@@ -55,7 +55,7 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>11.0.2</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.1.0.637273" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2.1" />
@@ -63,9 +63,6 @@
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2.1" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,18 +98,18 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DemoWebApi.AndroidClientApi\DemoWebApi.AndroidClientApi.csproj">
-      <Project>{76008206-9322-4264-87fd-2b63508b6e44}</Project>
-      <Name>DemoWebApi.AndroidClientApi</Name>
+    <ProjectReference Include="..\..\DemoWebApi.ClientApiStandard\DemoWebApi.ClientApiStandard.csproj">
+      <Project>{4ddba5b5-778f-4b34-ba15-130d5f65aab4}</Project>
+      <Name>DemoWebApi.ClientApiStandard</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Fonlow.Heroes.VM.Android\Fonlow.Heroes.VM.Android.csproj">
-      <Project>{5a3b237a-b80d-4006-b70c-d1288a6e1f1e}</Project>
-      <Name>Fonlow.Heroes.VM.Android</Name>
+    <ProjectReference Include="..\Fonlow.Heroes.ViewModels\Fonlow.Heroes.ViewModels.csproj">
+      <Project>{72a5831d-4fd8-474a-87bf-b8e29e48a7e9}</Project>
+      <Name>Fonlow.Heroes.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fonlow.Heroes.Views\Fonlow.Heroes.Views.csproj">
+      <Project>{278be794-444f-4cb2-ab5d-1ee68eedd65f}</Project>
+      <Name>Fonlow.Heroes.Views</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="App.xaml" />
-  </ItemGroup>
-  <Import Project="..\Fonlow.Heroes.Views\Fonlow.Heroes.Views.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

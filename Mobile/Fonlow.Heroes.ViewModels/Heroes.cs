@@ -11,7 +11,7 @@ namespace Fonlow.Heroes.VM
 
         }
 
-        public void Assign(Hero[] items)
+        public void Load(Hero[] items)
         {
             Items = items;
             NotifyPropertyChanged("Items");

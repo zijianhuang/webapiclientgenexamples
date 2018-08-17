@@ -24,7 +24,7 @@ namespace Fonlow.Heroes.Views
         {
             var heroesVM = new VM.HeroesVM();
 
-            heroesVM.Assign(Fonlow.Heroes.VM.HeroesFunctions.LoadHeroes().Take(4).ToArray());
+            heroesVM.Load(Fonlow.Heroes.VM.HeroesFunctions.LoadHeroes().Take(4).ToArray());
             BindingContext = heroesVM;
         }
 
