@@ -2,6 +2,7 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fonlow.Heroes.Views.Dashboard"
+             xmlns:viewsNS="clr-namespace:Fonlow.Heroes.Views"
              xmlns:vmNS="clr-namespace:Fonlow.Heroes.VM;assembly=Fonlow.Heroes.VM.Android"
 >
     <!--<ContentView.BindingContext>
@@ -9,13 +10,17 @@
     </ContentView.BindingContext>-->
     <ContentView.Content>
         <StackLayout>
-            <ListView x:Name="HeroesView" ItemsSource="{Binding Items}">
+            <ListView x:Name="HeroesListView" ItemsSource="{Binding Items}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Name}"/>
+                        <ViewCell>
+                            <Label Text="{Binding Name}"/>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <viewsNS:HeroesView x:Name="heroesView" BindingContext="{Binding}">
+            </viewsNS:HeroesView>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

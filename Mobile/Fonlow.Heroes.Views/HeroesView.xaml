@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fonlow.Heroes.Views.HeroesView"
+             xmlns:vmNS="clr-namespace:Fonlow.Heroes.VM;assembly=Fonlow.Heroes.VM.Android"
+>
+    <!--<ContentView.BindingContext>
+        <vmNS:HeroesVM/>//Parent component will inject the BindingContext
+    </ContentView.BindingContext>-->
+    <ContentView.Content>
+        <StackLayout>
+            <ListView x:Name="HeroesListView" ItemsSource="{Binding Items}" Header="Selected Heroes" Footer="{Binding Count, StringFormat='Total: {0}'}">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Id}" Grid.Column="0" TextColor="Yellow" BackgroundColor="BlueViolet"/>
+                                <Label Text="{Binding Name}" Grid.Column="1"/>
+                                <Button Text="X" Grid.Column="2" Command="" CommandParameter=""/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

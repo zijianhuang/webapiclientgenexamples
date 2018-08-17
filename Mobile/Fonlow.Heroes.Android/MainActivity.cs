@@ -23,10 +23,7 @@ namespace Fonlow.Heroes
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             var app = new App();
-            var heroes = app.MainPage.BindingContext as Fonlow.Heroes.VM.HeroesVM;
             LoadApplication(app);
-
-            heroes.Assign(Fonlow.Heroes.VM.HeroesFunctions.LoadHeroes());
         }
 
         public override void SetContentView(View view)

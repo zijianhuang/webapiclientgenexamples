@@ -15,6 +15,16 @@ namespace Fonlow.Heroes.Views
 		public Dashboard ()
 		{
 			InitializeComponent ();
-		}
-	}
+            heroes = BindingContext as Fonlow.Heroes.VM.HeroesVM;
+
+        }
+
+        Fonlow.Heroes.VM.HeroesVM heroes;
+
+        private void DeleteButton_Clicked(object sender, EventArgs e)
+        {
+            
+        }
+
+    }
 }
