@@ -16,15 +16,15 @@ namespace Fonlow.Heroes.Views
 
         protected override void OnAppearing()
         {
-            load4Heroes();
+            Load4Heroes();
             base.OnAppearing();
         }
 
-        void load4Heroes()
+        void Load4Heroes()
         {
             var heroesVM = new VM.HeroesVM();
 
-            heroesVM.Load(Fonlow.Heroes.VM.HeroesFunctions.LoadHeroes().Take(4).ToArray());
+            heroesVM.Load(Fonlow.Heroes.VM.HeroesFunctions.LoadHeroes().Take(4).ToList());
             BindingContext = heroesVM;
         }
 

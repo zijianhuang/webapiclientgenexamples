@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fonlow.Heroes.Views.Dashboard"
              xmlns:viewsNS="clr-namespace:Fonlow.Heroes.Views"
-             xmlns:vmNS="clr-namespace:Fonlow.Heroes.VM;assembly=Fonlow.Heroes.VM.Android"
+             xmlns:vmNS="clr-namespace:Fonlow.Heroes.VM;assembly=Fonlow.Heroes.ViewModels"
 >
     <!--<ContentView.BindingContext>
         <vmNS:HeroesVM/>//Parent component will inject the BindingContext

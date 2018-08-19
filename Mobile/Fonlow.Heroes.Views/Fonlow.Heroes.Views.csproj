@@ -12,5 +12,11 @@
     <ProjectReference Include="..\Fonlow.Heroes.ViewModels\Fonlow.Heroes.ViewModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Update="HeroDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
 
 </Project>

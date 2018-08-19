@@ -2,11 +2,12 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fonlow.Heroes.Views.HeroesView"
-             xmlns:vmNS="clr-namespace:Fonlow.Heroes.VM;assembly=Fonlow.Heroes.VM.Android"
+             xmlns:vmNS="clr-namespace:Fonlow.Heroes.VM;assembly=Fonlow.Heroes.ViewModels"
+             x:Name="heroesView"
 >
-    <!--<ContentView.BindingContext>
-        <vmNS:HeroesVM/>//Parent component will inject the BindingContext
-    </ContentView.BindingContext>-->
+    <ContentView.BindingContext>
+        <vmNS:HeroesVM/>
+    </ContentView.BindingContext>
     <ContentView.Content>
         <StackLayout>
             <ListView x:Name="HeroesListView" ItemsSource="{Binding Items}" Header="Selected Heroes" Footer="{Binding Count, StringFormat='Total: {0}'}">
@@ -22,7 +23,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{Binding Id}" Grid.Column="0" TextColor="Yellow" BackgroundColor="BlueViolet"/>
                                 <Label Text="{Binding Name}" Grid.Column="1"/>
-                                <Button Text="X" Grid.Column="2" Command="" CommandParameter=""/>
+                                <Button Text="X" Grid.Column="2" Command="{Binding Source={x:Reference heroesView}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding Id}"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
