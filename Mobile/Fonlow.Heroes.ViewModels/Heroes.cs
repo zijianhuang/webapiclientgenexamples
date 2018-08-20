@@ -12,11 +12,11 @@ namespace Fonlow.Heroes.VM
     {
         public HeroesVM()
         {
+            //       DeleteCommand = new Command<long>(DeleteHero);
             DeleteCommand = new Command<long>(DeleteHero);
-            EditCommand = new Command<long>(EditHero);
         }
 
-        public void Load(List<Hero> items)
+        public void Load(IEnumerable<Hero> items)
         {
             Items = new ObservableCollection<Hero>(items);
             NotifyPropertyChanged("Items");
@@ -27,7 +27,30 @@ namespace Fonlow.Heroes.VM
 
         public ObservableCollection<Hero> Items { get; private set; }
 
-        public Hero Selected { get; set; }
+        public IEnumerable<Hero> Top4
+        {
+            get
+            {
+                if (Items == null)
+                {
+                    return null;
+                }
+
+                return Items.Take(4);
+            }
+        }
+
+        Hero selected;
+        public Hero Selected
+        {
+            get { return selected; }
+            set
+            {
+                selected = value;
+                NotifyPropertyChanged("Selected");
+                NotifyPropertyChanged("AllowEdit");
+            }
+        }
 
         public int Count
         {
@@ -51,11 +74,16 @@ namespace Fonlow.Heroes.VM
 
         public ICommand EditCommand { get; private set; }
 
-        public void DeleteHero(long id)
+        async void DeleteHero(long id)
         {
             var first = Items.FirstOrDefault(d => d.Id == id);
-            if (first !=null)
+            if (first != null)
             {
+                if (first.Id== Selected.Id)
+                {
+                    Selected = null;
+                }
+                await HeroesFunctions.DeleteAsync(id);
                 Items.Remove(first);
                 NotifyPropertyChanged("Items");
                 NotifyPropertyChanged("Count");
@@ -63,9 +91,12 @@ namespace Fonlow.Heroes.VM
 
         }
 
-        private void EditHero(long id)
+        public bool AllowEdit
         {
-
+            get
+            {
+                return Selected != null;
+            }
         }
 
     }

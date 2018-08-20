@@ -1,6 +1,7 @@
 ﻿using System;
 using DemoWebApi.Controllers.Client;
 using System.ComponentModel;
+using System.Threading.Tasks;
 
 namespace Fonlow.Heroes.VM
 {
@@ -41,5 +42,41 @@ namespace Fonlow.Heroes.VM
                 throw;
             }
         }
+
+        public static async Task SaveAsync(Hero hero)
+        {
+            try
+            {
+                using (var httpClient = new System.Net.Http.HttpClient())
+                {
+                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient, apiUri);
+                    await api.PutAsync(hero);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.TraceError(ex.ToString());
+                throw;
+            }
+        }
+
+        public static async Task DeleteAsync(long id)
+        {
+            try
+            {
+                using (var httpClient = new System.Net.Http.HttpClient())
+                {
+                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient, apiUri);
+                    await api.DeleteAsync(id);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.TraceError(ex.ToString());
+                throw;
+            }
+        }
+
+
     }
 }

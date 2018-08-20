@@ -11,6 +11,7 @@
             <Entry Text="{Binding Id}" Placeholder="ID"></Entry>
             <Label Text="Name:"></Label>
             <Entry Text="{Binding Name}" Placeholder="Name"></Entry>
+            <Button Text="Save" Clicked="Save_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

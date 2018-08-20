@@ -21,10 +21,5 @@ namespace Fonlow.Heroes.Views
 
         Fonlow.Heroes.VM.HeroesVM heroes;
 
-        private void DeleteButton_Clicked(object sender, EventArgs e)
-        {
-            
-        }
-
     }
 }

@@ -10,7 +10,11 @@
     </ContentView.BindingContext>
     <ContentView.Content>
         <StackLayout>
-            <ListView x:Name="HeroesListView" ItemsSource="{Binding Items}" Header="Selected Heroes" Footer="{Binding Count, StringFormat='Total: {0}'}">
+            <Button Text="Edit" Clicked="Edit_Clicked" IsEnabled="{Binding AllowEdit}"></Button>
+            <ListView x:Name="HeroesListView" ItemsSource="{Binding Items}" Header="Selected Heroes" Footer="{Binding Count, StringFormat='Total: {0}'}" 
+                      SelectedItem="{Binding Selected}"
+                      ItemSelected="HeroesListView_ItemSelected"
+                      >
 
                 <ListView.ItemTemplate>
                     <DataTemplate>

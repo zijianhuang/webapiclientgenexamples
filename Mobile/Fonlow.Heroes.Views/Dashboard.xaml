@@ -10,7 +10,7 @@
     </ContentView.BindingContext>-->
     <ContentView.Content>
         <StackLayout>
-            <ListView x:Name="HeroesListView" ItemsSource="{Binding Items}">
+            <ListView x:Name="HeroesListView" ItemsSource="{Binding Top4}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
