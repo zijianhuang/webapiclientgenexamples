@@ -26,6 +26,23 @@ namespace Fonlow.Heroes.VM
             }
         }
 
+        public static async Task<Hero[]> SearchAsync(string keyword)
+        {
+            try
+            {
+                using (var httpClient = new System.Net.Http.HttpClient())
+                {
+                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient, apiUri);
+                    return await api.SearchAsync(keyword);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.TraceError(ex.ToString());
+                throw;
+            }
+        }
+
         public static Hero LoadHero(long id)
         {
             try
@@ -68,6 +85,23 @@ namespace Fonlow.Heroes.VM
                 {
                     var api = new DemoWebApi.Controllers.Client.Heroes(httpClient, apiUri);
                     await api.DeleteAsync(id);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.TraceError(ex.ToString());
+                throw;
+            }
+        }
+
+        public static async Task<Hero> AddAsync(string name)
+        {
+            try
+            {
+                using (var httpClient = new System.Net.Http.HttpClient())
+                {
+                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient, apiUri);
+                    return await api.PostAsync(name);
                 }
             }
             catch (Exception ex)

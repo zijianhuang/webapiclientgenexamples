@@ -14,6 +14,7 @@ namespace Fonlow.Heroes.VM
         {
             //       DeleteCommand = new Command<long>(DeleteHero);
             DeleteCommand = new Command<long>(DeleteHero);
+            SearchCommand = new Command<string>(Search);
         }
 
         public void Load(IEnumerable<Hero> items)
@@ -72,14 +73,14 @@ namespace Fonlow.Heroes.VM
 
         public ICommand DeleteCommand { get; private set; }
 
-        public ICommand EditCommand { get; private set; }
+        public ICommand SearchCommand { get; private set; }
 
         async void DeleteHero(long id)
         {
             var first = Items.FirstOrDefault(d => d.Id == id);
             if (first != null)
             {
-                if (first.Id== Selected.Id)
+                if (first.Id == Selected.Id)
                 {
                     Selected = null;
                 }
@@ -97,6 +98,14 @@ namespace Fonlow.Heroes.VM
             {
                 return Selected != null;
             }
+        }
+
+        async void Search(string keyword)
+        {
+            var r = await HeroesFunctions.SearchAsync(keyword);
+            Items = new ObservableCollection<Hero>(r);
+            NotifyPropertyChanged("Items");
+            NotifyPropertyChanged("Count");
         }
 
     }

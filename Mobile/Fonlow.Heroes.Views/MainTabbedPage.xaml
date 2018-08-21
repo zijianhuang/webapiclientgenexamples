@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewsNS="clr-namespace:Fonlow.Heroes.Views"
+             xmlns:vmNS="clr-namespace:Fonlow.Heroes.VM;assembly=Fonlow.Heroes.ViewModels"
+             x:Class="Fonlow.Heroes.Views.MainTabbedPage"
+            >
+  <!--Pages can be added as references or inline-->
+    <ContentPage Title="Dashboard" >
+        <viewsNS:Dashboard x:Name="dashboard" BindingContext="{Binding}">
+        </viewsNS:Dashboard>
+    </ContentPage>
+    <ContentPage Title="Heroes" >
+        <viewsNS:HeroesView x:Name="heroesView" BindingContext="{Binding}">
+        </viewsNS:HeroesView>
+    </ContentPage>
+</TabbedPage>

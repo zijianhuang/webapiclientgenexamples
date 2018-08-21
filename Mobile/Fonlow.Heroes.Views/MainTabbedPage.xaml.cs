@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Fonlow.Heroes.Views
 {
-    public partial class MainPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MainTabbedPage : TabbedPage
     {
-        public MainPage()
+        public MainTabbedPage ()
         {
             InitializeComponent();
         }
@@ -27,6 +30,5 @@ namespace Fonlow.Heroes.Views
             heroesVM.Load(Fonlow.Heroes.VM.HeroesFunctions.LoadHeroes());
             BindingContext = heroesVM;
         }
-
     }
 }

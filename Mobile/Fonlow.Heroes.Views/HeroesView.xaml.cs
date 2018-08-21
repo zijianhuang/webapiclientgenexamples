@@ -37,5 +37,12 @@ namespace Fonlow.Heroes.Views
         {
             System.Diagnostics.Debug.WriteLine(e.SelectedItem == null);
         }
+
+        private async void Entry_Completed(object sender, EventArgs e)
+        {
+            var text = ((Entry)sender).Text;
+            var hero= await  HeroesFunctions.AddAsync(text);
+            Model.Items.Add(hero);
+        }
     }
 }

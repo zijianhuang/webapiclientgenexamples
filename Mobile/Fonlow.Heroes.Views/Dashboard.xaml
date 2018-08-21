@@ -10,7 +10,11 @@
     </ContentView.BindingContext>-->
     <ContentView.Content>
         <StackLayout>
-            <ListView x:Name="HeroesListView" ItemsSource="{Binding Top4}">
+            <Label Text="Top Heroes"/>
+            <ListView x:Name="HeroesListView" ItemsSource="{Binding Top4}" 
+                      ItemSelected="HeroesListView_ItemSelected"
+                      SelectedItem="{Binding Selected}"
+                      >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -19,8 +23,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <viewsNS:HeroesView x:Name="heroesView" BindingContext="{Binding}">
-            </viewsNS:HeroesView>
+
+            <viewsNS:HeroSearch></viewsNS:HeroSearch>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

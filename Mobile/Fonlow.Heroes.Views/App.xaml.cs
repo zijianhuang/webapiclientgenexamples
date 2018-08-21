@@ -11,7 +11,7 @@ namespace Fonlow.Heroes
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Views.MainPage());
+            MainPage = new NavigationPage(new Views.MainTabbedPage());
         }
 
         protected override void OnStart()

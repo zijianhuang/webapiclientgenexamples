@@ -10,16 +10,16 @@
         <vmNS:HeroesVM/>
     </ContentPage.BindingContext>
     <StackLayout>
+
         <!-- Place new controls here -->
-    	<Label Text="Welcome to Xamarin.Forms! ABC 中文" 
+        <Label Text="Welcome to Xamarin.Forms! ABC 中文" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
 
-        <Label Text="{Binding Count}" HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
 
-        <viewsNS:Dashboard x:Name="dashboard" BindingContext="{Binding}">
-        </viewsNS:Dashboard>
+
+
+
     </StackLayout>
 
 </ContentPage>

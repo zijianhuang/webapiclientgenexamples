@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using DemoWebApi.Controllers.Client;
 using Fonlow.Heroes.VM;
 
 namespace Fonlow.Heroes.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Dashboard : ContentView
+	public partial class HeroSearch : ContentView
 	{
-		public Dashboard ()
+		public HeroSearch ()
 		{
 			InitializeComponent ();
+            BindingContext = new HeroesVM();
+		}
 
-        }
-
-        HeroesVM Model
+        HeroesVM ViewModel
         {
             get
             {
@@ -27,10 +28,10 @@ namespace Fonlow.Heroes.Views
             }
         }
 
-
-        async void HeroesListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void Entry_Completed(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HeroDetailPage(Model.Selected.Id));
+            var text = ((Entry)sender).Text;
+            ViewModel.SearchCommand.Execute(text);
         }
     }
 }
