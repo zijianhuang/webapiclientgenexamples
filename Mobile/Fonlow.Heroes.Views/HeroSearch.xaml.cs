@@ -33,5 +33,10 @@ namespace Fonlow.Heroes.Views
             var text = ((Entry)sender).Text;
             ViewModel.SearchCommand.Execute(text);
         }
+
+        async void HeroesListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            await Navigation.PushAsync(new HeroDetailPage(ViewModel.Selected.Id));
+        }
     }
 }

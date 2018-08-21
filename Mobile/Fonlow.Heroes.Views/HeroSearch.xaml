@@ -11,6 +11,7 @@
         <StackLayout>
             <Entry Placeholder="Keyword" Completed="Entry_Completed"/>
             <ListView x:Name="HeroesListView" ItemsSource="{Binding Items}" Header="Heroes Found" Footer="{Binding Count, StringFormat='Total: {0}'}" 
+                      ItemSelected="HeroesListView_ItemSelected"
                       SelectedItem="{Binding Selected}"
                       >
 
