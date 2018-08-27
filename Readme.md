@@ -38,4 +38,4 @@ This VS solution was constructed using Visual Studio 2015-2017.
 * Current trunk is similar to tag "NG522
 
 **Hints**:
-* The Android mobile app is talking to the Web API, however the base URI http://192.168.0.2:9030/webapi/ is hard-coded in HeroesFunction. So you may need to alter the codes in order to run the app successfuly in either Android devices or emulators, after you have deployed the Web API to IIS.
+* The Android mobile app is talking to the Web API, however the base URI http://192.168.0.2:9030/webapi/ is hard-coded in HeroesFunction. So you may need to alter the base URI in codes in order to run the app successfuly in either Android devices or emulators, after you have deployed the Web API to IIS.

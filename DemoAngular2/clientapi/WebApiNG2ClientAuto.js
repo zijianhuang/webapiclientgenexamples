@@ -5,11 +5,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/common/http");
 var DemoWebApi_DemoData_Client;
 (function (DemoWebApi_DemoData_Client) {
     var AddressType;
@@ -89,8 +93,8 @@ var DemoWebApi_Controllers_Client;
         /**
          * DELETE api/Heroes/{id}
          */
-        Heroes.prototype["delete"] = function (id) {
-            return this.http["delete"](this.baseUri + 'api/Heroes/' + id);
+        Heroes.prototype.delete = function (id) {
+            return this.http.delete(this.baseUri + 'api/Heroes/' + id);
         };
         /**
          * POST api/Heroes?name={name}
@@ -107,7 +111,8 @@ var DemoWebApi_Controllers_Client;
         };
         Heroes = __decorate([
             core_1.Injectable(),
-            __param(0, core_1.Inject('baseUri'))
+            __param(0, core_1.Inject('baseUri')),
+            __metadata("design:paramtypes", [String, http_1.HttpClient])
         ], Heroes);
         return Heroes;
     }());
@@ -167,12 +172,13 @@ var DemoWebApi_Controllers_Client;
         /**
          * DELETE api/Entities/{id}
          */
-        Entities.prototype["delete"] = function (id) {
-            return this.http["delete"](this.baseUri + 'api/Entities/' + id);
+        Entities.prototype.delete = function (id) {
+            return this.http.delete(this.baseUri + 'api/Entities/' + id);
         };
         Entities = __decorate([
             core_1.Injectable(),
-            __param(0, core_1.Inject('baseUri'))
+            __param(0, core_1.Inject('baseUri')),
+            __metadata("design:paramtypes", [String, http_1.HttpClient])
         ], Entities);
         return Entities;
     }());
@@ -287,7 +293,7 @@ var DemoWebApi_Controllers_Client;
          * GET api/SuperDemo/TextStream
          */
         SuperDemo.prototype.getTextStream = function () {
-            return this.http.get(this.baseUri + 'api/SuperDemo/TextStream');
+            return this.http.get(this.baseUri + 'api/SuperDemo/TextStream', { observe: 'response', responseType: 'blob' });
         };
         /**
          * GET api/SuperDemo/ByteArray
@@ -299,7 +305,7 @@ var DemoWebApi_Controllers_Client;
          * GET api/SuperDemo/ActionResult
          */
         SuperDemo.prototype.getActionResult = function () {
-            return this.http.get(this.baseUri + 'api/SuperDemo/ActionResult');
+            return this.http.get(this.baseUri + 'api/SuperDemo/ActionResult', { observe: 'response', responseType: 'blob' });
         };
         /**
          * GET api/SuperDemo/ActionStringResult
@@ -555,7 +561,8 @@ var DemoWebApi_Controllers_Client;
         };
         SuperDemo = __decorate([
             core_1.Injectable(),
-            __param(0, core_1.Inject('baseUri'))
+            __param(0, core_1.Inject('baseUri')),
+            __metadata("design:paramtypes", [String, http_1.HttpClient])
         ], SuperDemo);
         return SuperDemo;
     }());
@@ -724,7 +731,8 @@ var DemoWebApi_Controllers_Client;
         };
         Tuple = __decorate([
             core_1.Injectable(),
-            __param(0, core_1.Inject('baseUri'))
+            __param(0, core_1.Inject('baseUri')),
+            __metadata("design:paramtypes", [String, http_1.HttpClient])
         ], Tuple);
         return Tuple;
     }());
@@ -774,14 +782,16 @@ var DemoWebApi_Controllers_Client;
         /**
          * DELETE api/Values/{id}
          */
-        Values.prototype["delete"] = function (id) {
-            return this.http["delete"](this.baseUri + 'api/Values/' + id);
+        Values.prototype.delete = function (id) {
+            return this.http.delete(this.baseUri + 'api/Values/' + id);
         };
         Values = __decorate([
             core_1.Injectable(),
-            __param(0, core_1.Inject('baseUri'))
+            __param(0, core_1.Inject('baseUri')),
+            __metadata("design:paramtypes", [String, http_1.HttpClient])
         ], Values);
         return Values;
     }());
     DemoWebApi_Controllers_Client.Values = Values;
 })(DemoWebApi_Controllers_Client = exports.DemoWebApi_Controllers_Client || (exports.DemoWebApi_Controllers_Client = {}));
+//# sourceMappingURL=WebApiNG2ClientAuto.js.map
