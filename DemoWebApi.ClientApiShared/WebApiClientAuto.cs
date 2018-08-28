@@ -1381,6 +1381,136 @@ namespace DemoWebApi.Controllers.Client
         }
         
         /// <summary>
+        /// POST api/Entities/linkLong?id={id}
+        /// </summary>
+        public async Task<long> LinkWithNewLongAsync(long id, DemoWebApi.DemoData.Client.Person p)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Entities/linkLong?id="+id);
+            using (var requestWriter = new System.IO.StringWriter())
+            {
+            var requestSerializer = JsonSerializer.Create();
+            requestSerializer.Serialize(requestWriter, p);
+            var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync(requestUri, content);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            return System.Int64.Parse(jsonReader.ReadAsString());
+            }
+            }
+        }
+        
+        /// <summary>
+        /// POST api/Entities/linkLong?id={id}
+        /// </summary>
+        public long LinkWithNewLong(long id, DemoWebApi.DemoData.Client.Person p)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Entities/linkLong?id="+id);
+            using (var requestWriter = new System.IO.StringWriter())
+            {
+            var requestSerializer = JsonSerializer.Create();
+            requestSerializer.Serialize(requestWriter, p);
+            var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
+            var responseMessage = this.client.PostAsync(requestUri, content).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            return System.Int64.Parse(jsonReader.ReadAsString());
+            }
+            }
+        }
+        
+        /// <summary>
+        /// POST api/Entities/linkNewGuid?id={id}
+        /// </summary>
+        public async Task<System.Guid> LinkWithNewGuidAsync(System.Guid id, DemoWebApi.DemoData.Client.Person p)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Entities/linkNewGuid?id="+id);
+            using (var requestWriter = new System.IO.StringWriter())
+            {
+            var requestSerializer = JsonSerializer.Create();
+            requestSerializer.Serialize(requestWriter, p);
+            var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync(requestUri, content);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<System.Guid>(jsonReader);
+            }
+            }
+        }
+        
+        /// <summary>
+        /// POST api/Entities/linkNewGuid?id={id}
+        /// </summary>
+        public System.Guid LinkWithNewGuid(System.Guid id, DemoWebApi.DemoData.Client.Person p)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Entities/linkNewGuid?id="+id);
+            using (var requestWriter = new System.IO.StringWriter())
+            {
+            var requestSerializer = JsonSerializer.Create();
+            requestSerializer.Serialize(requestWriter, p);
+            var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
+            var responseMessage = this.client.PostAsync(requestUri, content).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<System.Guid>(jsonReader);
+            }
+            }
+        }
+        
+        /// <summary>
+        /// POST api/Entities/linkNewDecimal?id={id}
+        /// </summary>
+        public async Task<System.Guid> LinkWithNewDecimalAsync(decimal id, DemoWebApi.DemoData.Client.Person p)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Entities/linkNewDecimal?id="+id);
+            using (var requestWriter = new System.IO.StringWriter())
+            {
+            var requestSerializer = JsonSerializer.Create();
+            requestSerializer.Serialize(requestWriter, p);
+            var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync(requestUri, content);
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = await responseMessage.Content.ReadAsStreamAsync();
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<System.Guid>(jsonReader);
+            }
+            }
+        }
+        
+        /// <summary>
+        /// POST api/Entities/linkNewDecimal?id={id}
+        /// </summary>
+        public System.Guid LinkWithNewDecimal(decimal id, DemoWebApi.DemoData.Client.Person p)
+        {
+            var requestUri = new Uri(this.baseUri, "api/Entities/linkNewDecimal?id="+id);
+            using (var requestWriter = new System.IO.StringWriter())
+            {
+            var requestSerializer = JsonSerializer.Create();
+            requestSerializer.Serialize(requestWriter, p);
+            var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
+            var responseMessage = this.client.PostAsync(requestUri, content).Result;
+            responseMessage.EnsureSuccessStatusCode();
+            var stream = responseMessage.Content.ReadAsStreamAsync().Result;
+            using (JsonReader jsonReader = new JsonTextReader(new System.IO.StreamReader(stream)))
+            {
+            var serializer = new JsonSerializer();
+            return serializer.Deserialize<System.Guid>(jsonReader);
+            }
+            }
+        }
+        
+        /// <summary>
         /// DELETE api/Entities/{id}
         /// </summary>
         public async Task DeleteAsync(long id)

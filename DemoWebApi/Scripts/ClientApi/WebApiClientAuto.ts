@@ -317,6 +317,27 @@ namespace DemoWebApi_Controllers_Client {
         }
 
         /**
+         * POST api/Entities/linkLong?id={id}
+         */
+        linkWithNewLong(id: number, p: DemoWebApi_DemoData_Client.Person, callback: (data : number) => any) {
+            this.httpClient.post(this.baseUri + 'api/Entities/linkLong?id=' + id, p, callback, this.error, this.statusCode);
+        }
+
+        /**
+         * POST api/Entities/linkNewGuid?id={id}
+         */
+        linkWithNewGuid(id: string, p: DemoWebApi_DemoData_Client.Person, callback: (data : string) => any) {
+            this.httpClient.post(this.baseUri + 'api/Entities/linkNewGuid?id=' + id, p, callback, this.error, this.statusCode);
+        }
+
+        /**
+         * POST api/Entities/linkNewDecimal?id={id}
+         */
+        linkWithNewDecimal(id: number, p: DemoWebApi_DemoData_Client.Person, callback: (data : string) => any) {
+            this.httpClient.post(this.baseUri + 'api/Entities/linkNewDecimal?id=' + id, p, callback, this.error, this.statusCode);
+        }
+
+        /**
          * DELETE api/Entities/{id}
          */
         delete(id: number, callback: (data : void) => any) {

@@ -320,6 +320,27 @@ export namespace DemoWebApi_Controllers_Client {
         }
 
         /**
+         * POST api/Entities/linkLong?id={id}
+         */
+        linkWithNewLong(id: number, p: DemoWebApi_DemoData_Client.Person): Observable<number> {
+            return this.http.post<number>(this.baseUri + 'api/Entities/linkLong?id=' + id, JSON.stringify(p), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+        }
+
+        /**
+         * POST api/Entities/linkNewGuid?id={id}
+         */
+        linkWithNewGuid(id: string, p: DemoWebApi_DemoData_Client.Person): Observable<string> {
+            return this.http.post<string>(this.baseUri + 'api/Entities/linkNewGuid?id=' + id, JSON.stringify(p), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+        }
+
+        /**
+         * POST api/Entities/linkNewDecimal?id={id}
+         */
+        linkWithNewDecimal(id: number, p: DemoWebApi_DemoData_Client.Person): Observable<string> {
+            return this.http.post<string>(this.baseUri + 'api/Entities/linkNewDecimal?id=' + id, JSON.stringify(p), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+        }
+
+        /**
          * DELETE api/Entities/{id}
          */
         delete(id: number): Observable<Response> {
