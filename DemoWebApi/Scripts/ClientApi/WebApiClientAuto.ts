@@ -40,7 +40,7 @@ namespace DemoWebApi_DemoData_Client {
         Mon = 3,
         Tue = 4,
         Wed = 5,
-        
+
         /**
          * Thursday
          */
@@ -97,12 +97,12 @@ namespace DemoWebApi_DemoData_Client {
      * Tel, Mobile, Skyp and Fax
      */
     export enum PhoneType {
-        
+
         /**
          * Land line
          */
         Tel,
-        
+
         /**
          * Mobile phone
          */
@@ -572,7 +572,7 @@ namespace DemoWebApi_Controllers_Client {
          * GET api/SuperDemo/NextHourNullable?n={n}&dt={dt}
          */
         getNextHourNullable(n: number, dt: Date, callback: (data : Date) => any) {
-            this.httpClient.get(this.baseUri + 'api/SuperDemo/NextHourNullable?n=' + n + (dt?'&dt='+dt.toISOString():''), callback, this.error, this.statusCode);
+            this.httpClient.get(this.baseUri + 'api/SuperDemo/NextHourNullable?n=' + n + (dt ? '&dt=' + dt.toISOString() : ''), callback, this.error, this.statusCode);
         }
 
         /**
@@ -586,7 +586,7 @@ namespace DemoWebApi_Controllers_Client {
          * GET api/SuperDemo/NextYearNullable?n={n}&dt={dt}
          */
         getNextYearNullable(n: number, dt: Date, callback: (data : Date) => any) {
-            this.httpClient.get(this.baseUri + 'api/SuperDemo/NextYearNullable?n=' + n + (dt?'&dt='+dt.toISOString():''), callback, this.error, this.statusCode);
+            this.httpClient.get(this.baseUri + 'api/SuperDemo/NextYearNullable?n=' + n + (dt ? '&dt=' + dt.toISOString() : ''), callback, this.error, this.statusCode);
         }
 
         /**
@@ -615,14 +615,14 @@ namespace DemoWebApi_Controllers_Client {
          * GET api/SuperDemo/DoubleNullable?location={location}&dd={dd}&de={de}
          */
         getPrimitiveNullable(location: string, dd: number, de: number, callback: (data : {item1: string, item2: number, item3: number}) => any) {
-            this.httpClient.get(this.baseUri + 'api/SuperDemo/DoubleNullable?location=' + encodeURIComponent(location) + (dd?'&dd='+dd.toString():'') + (de?'&de='+de.toString():''), callback, this.error, this.statusCode);
+            this.httpClient.get(this.baseUri + 'api/SuperDemo/DoubleNullable?location=' + encodeURIComponent(location) + (dd ? '&dd=' + dd.toString() : '') + (de ? '&de=' + de.toString() : ''), callback, this.error, this.statusCode);
         }
 
         /**
          * GET api/SuperDemo/DoubleNullable2?dd={dd}&de={de}
          */
         getPrimitiveNullable2(dd: number, de: number, callback: (data : {item1: number, item2: number}) => any) {
-            this.httpClient.get(this.baseUri + 'api/SuperDemo/DoubleNullable2?'+(dd?'dd='+dd.toString():'') + (de?'&de='+de.toString():''), callback, this.error, this.statusCode);
+            this.httpClient.get(this.baseUri + 'api/SuperDemo/DoubleNullable2?' + (dd ? 'dd=' + dd.toString() : '') + (de ? '&de=' + de.toString() : ''), callback, this.error, this.statusCode);
         }
 
         /**
@@ -777,7 +777,7 @@ namespace DemoWebApi_Controllers_Client {
          * GET api/SuperDemo/SearchDateRange?startDate={startDate}&endDate={endDate}
          */
         searchDateRange(startDate: Date, endDate: Date, callback: (data : {item1: Date, item2: Date}) => any) {
-            this.httpClient.get(this.baseUri + 'api/SuperDemo/SearchDateRange?'+(startDate?'startDate='+startDate.toISOString():'') + (endDate?'&endDate='+endDate.toISOString():''), callback, this.error, this.statusCode);
+            this.httpClient.get(this.baseUri + 'api/SuperDemo/SearchDateRange?' + (startDate ? 'startDate=' + startDate.toISOString() : '') + (endDate ? '&endDate=' + endDate.toISOString() : ''), callback, this.error, this.statusCode);
         }
     }
 
