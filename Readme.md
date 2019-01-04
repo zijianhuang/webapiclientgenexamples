@@ -39,3 +39,8 @@ This VS solution was constructed using Visual Studio 2015-2017.
 
 **Hints**:
 * The Android mobile app is talking to the Web API, however the base URI http://192.168.0.2:9030/webapi/ is hard-coded in HeroesFunction. So you may need to alter the base URI in codes in order to run the app successfuly in either Android devices or emulators, after you have deployed the Web API to IIS.
+
+## Testing on Browsers and Mobile Devices
+[![BrowserStack](http://i.imgur.com/Pg0utrk.png)](http://browserstack.com/)
+
+Special thanks to the support of [BrowserStack](http://browserstack.com/) so real cross browser testing on multiple desktop and mobile platforms as well is possible. And [App Live](https://app-live.browserstack.com) supports testing Android apps and iOS apps on rich collections of real Android and iOS devices.
