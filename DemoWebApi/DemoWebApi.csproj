@@ -64,7 +64,7 @@
       <HintPath>..\3rdParty\EssentialDiagnostics\Essential.Diagnostics.dll</HintPath>
     </Reference>
     <Reference Include="Fonlow.DocComment, Version=1.0.2.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fonlow.WebApiClientGen.2.6.2\lib\net452\Fonlow.DocComment.dll</HintPath>
+      <HintPath>..\packages\Fonlow.WebApiClientGen.2.7.0\lib\net452\Fonlow.DocComment.dll</HintPath>
     </Reference>
     <Reference Include="Fonlow.Poco2Ts, Version=2.0.2.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
       <HintPath>..\packages\Fonlow.Poco2Ts.2.0.2\lib\net452\Fonlow.Poco2Ts.dll</HintPath>
@@ -73,10 +73,10 @@
       <HintPath>..\packages\Fonlow.TypeScriptCodeDOM.2.0.1\lib\net452\Fonlow.TypeScriptCodeDom.dll</HintPath>
     </Reference>
     <Reference Include="Fonlow.Web.Meta, Version=1.1.2.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fonlow.WebApiClientGen.2.6.2\lib\net452\Fonlow.Web.Meta.dll</HintPath>
+      <HintPath>..\packages\Fonlow.WebApiClientGen.2.7.0\lib\net452\Fonlow.Web.Meta.dll</HintPath>
     </Reference>
-    <Reference Include="Fonlow.WebApiClientGen, Version=2.6.2.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fonlow.WebApiClientGen.2.6.2\lib\net452\Fonlow.WebApiClientGen.dll</HintPath>
+    <Reference Include="Fonlow.WebApiClientGen, Version=2.7.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fonlow.WebApiClientGen.2.7.0\lib\net452\Fonlow.WebApiClientGen.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>

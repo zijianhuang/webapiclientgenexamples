@@ -20,6 +20,7 @@
 		"ContentType": "application/json;charset=UTF-8",
 		"TypeScriptJQFolder": "Scripts\\ClientApi",
 		"TypeScriptNG2Folder": "..\\DemoAngular2\\ClientApi",
+		"TypeScriptAxiosFolder": "..\\axios\\src\\clientapi",
 		"NGVersion": 5
 
 	}
