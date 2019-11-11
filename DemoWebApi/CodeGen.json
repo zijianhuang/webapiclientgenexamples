@@ -17,11 +17,32 @@
 		"GenerateBothAsyncAndSync": true,
 
 		"CamelCase": true,
-		"ContentType": "application/json;charset=UTF-8",
-		"TypeScriptJQFolder": "Scripts\\ClientApi",
-		"TypeScriptNG2Folder": "..\\DemoAngular2\\ClientApi",
-		"TypeScriptAxiosFolder": "..\\axios\\src\\clientapi",
-		"NGVersion": 5
+
+		"Plugins": [
+			{
+				"AssemblyName": "Fonlow.WebApiClientGen.jQuery",
+				"TargetDir": "Scripts\\ClientApi",
+				"TSFile": "WebApiClientAuto.ts",
+				"AsModule": false,
+				"ContentType": "application/json;charset=UTF-8"
+			},
+
+			{
+				"AssemblyName": "Fonlow.WebApiClientGen.NG2",
+				"TargetDir": "..\\DemoAngular2\\ClientApi",
+				"TSFile": "WebApiNG2ClientAuto.ts",
+				"AsModule": true,
+				"ContentType": "application/json;charset=UTF-8"
+			},
+
+			{
+				"AssemblyName": "Fonlow.WebApiClientGen.Axios",
+				"TargetDir": "..\\axios\\src\\clientapi",
+				"TSFile": "WebApiAxiosClientAuto.ts",
+				"AsModule": true,
+				"ContentType": "application/json;charset=UTF-8"
+			}
+		]
 
 	}
 }
