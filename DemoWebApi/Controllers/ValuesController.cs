@@ -35,7 +35,6 @@ namespace DemoWebApi.Controllers
 		[HttpPost]
         public string Post([FromBody]string value)
         {
-            System.Diagnostics.Debug.WriteLine("received POST value: "+value);
             return value.ToUpper();
         }
 
