@@ -9,41 +9,14 @@ using Fonlow.Testing;
 
 namespace IntegrationTests
 {
-    public class EntitiesFixture : IDisposable
+    public class EntitiesFixture : DefaultHttpClient
     {
         public EntitiesFixture()
         {
-            var baseUri = new Uri(System.Configuration.ConfigurationManager.AppSettings["Testing_BaseUrl"]);
-            httpClient = new System.Net.Http.HttpClient();
-            Api = new DemoWebApi.Controllers.Client.Entities(this.httpClient, baseUri);
+            Api = new DemoWebApi.Controllers.Client.Entities(base.HttpClient, base.BaseUri);
         }
 
         public DemoWebApi.Controllers.Client.Entities Api { get; private set; }
-
-        System.Net.Http.HttpClient httpClient;
-
-        #region IDisposable pattern
-        bool disposed;
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposed)
-            {
-                if (disposing)
-                {
-                    httpClient.Dispose();
-                }
-
-                disposed = true;
-            }
-        }
-        #endregion
     }
 
 

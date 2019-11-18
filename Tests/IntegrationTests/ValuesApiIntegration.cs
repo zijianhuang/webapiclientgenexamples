@@ -1,48 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Fonlow.Testing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
-using Fonlow.Testing;
 
 namespace IntegrationTests
 {
-    public class ValuesFixture : IDisposable
+	public class ValuesFixture : DefaultHttpClient
     {
         public ValuesFixture()
         {
-            var baseUri = new Uri(System.Configuration.ConfigurationManager.AppSettings["Testing_BaseUrl"]);
-            httpClient = new System.Net.Http.HttpClient();
-            Api = new DemoWebApi.Controllers.Client.Values(this.httpClient, baseUri);
+            Api = new DemoWebApi.Controllers.Client.Values(base.HttpClient, base.BaseUri);
         }
 
         public DemoWebApi.Controllers.Client.Values Api { get; private set; }
-
-        System.Net.Http.HttpClient httpClient;
-
-        #region IDisposable pattern
-        bool disposed;
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposed)
-            {
-                if (disposing)
-                {
-                    httpClient.Dispose();
-                }
-
-                disposed = true;
-            }
-        }
-        #endregion
     }
 
 

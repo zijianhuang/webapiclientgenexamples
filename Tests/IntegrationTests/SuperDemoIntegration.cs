@@ -8,41 +8,14 @@ using DemoWebApi.DemoData.Client;
 
 namespace IntegrationTests
 {
-    public class SuperDemoFixture : IDisposable
+    public class SuperDemoFixture : Fonlow.Testing.DefaultHttpClient
     {
         public SuperDemoFixture()
         {
-            var baseUri = new Uri(System.Configuration.ConfigurationManager.AppSettings["Testing_BaseUrl"]);
-            httpClient = new System.Net.Http.HttpClient();
-            Api = new DemoWebApi.Controllers.Client.SuperDemo(httpClient, baseUri);
+            Api = new DemoWebApi.Controllers.Client.SuperDemo(base.HttpClient, base.BaseUri);
         }
 
         public DemoWebApi.Controllers.Client.SuperDemo Api { get; private set; }
-
-        System.Net.Http.HttpClient httpClient;
-
-        #region IDisposable pattern
-        bool disposed;
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposed)
-            {
-                if (disposing)
-                {
-                    httpClient.Dispose();
-                }
-
-                disposed = true;
-            }
-        }
-        #endregion
     }
 
 
