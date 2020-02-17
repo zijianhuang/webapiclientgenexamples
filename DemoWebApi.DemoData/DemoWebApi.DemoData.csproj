@@ -33,6 +33,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Fonlow.DocComment, Version=1.2.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fonlow.Poco2Ts.2.1.0\lib\net462\Fonlow.DocComment.dll</HintPath>
+    </Reference>
+    <Reference Include="Fonlow.Poco2Ts, Version=2.1.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fonlow.Poco2Ts.2.1.0\lib\net462\Fonlow.Poco2Ts.dll</HintPath>
+    </Reference>
+    <Reference Include="Fonlow.TypeScriptCodeDom, Version=2.1.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fonlow.TypeScriptCodeDOM.2.1.0\lib\net462\Fonlow.TypeScriptCodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="Fonlow.WebApiClientGen.Axios, Version=1.1.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fonlow.WebApiClientGen.Axios.1.1.0\lib\net462\Fonlow.WebApiClientGen.Axios.dll</HintPath>
+    </Reference>
+    <Reference Include="Fonlow.WebApiClientGen.jQuery, Version=1.1.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fonlow.WebApiClientGen.jQuery.1.1.0\lib\net462\Fonlow.WebApiClientGen.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Fonlow.WebApiClientGen.NG2, Version=1.1.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fonlow.WebApiClientGen.NG2.1.1.0\lib\net462\Fonlow.WebApiClientGen.NG2.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -53,6 +71,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
