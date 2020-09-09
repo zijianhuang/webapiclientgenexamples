@@ -70,7 +70,7 @@ var DemoWebApi_Controllers_Client;
          * DELETE api/Entities/{id}
          */
         Entities.prototype.delete = function (id) {
-            return this.http.delete(this.baseUri + 'api/Entities/' + id);
+            return this.http.delete(this.baseUri + 'api/Entities/' + id, { observe: 'response', responseType: 'text' });
         };
         /**
          * GET api/Entities/Company?id={id}
@@ -104,7 +104,7 @@ var DemoWebApi_Controllers_Client;
          * PUT api/Entities/link?id={id}&relationship={relationship}
          */
         Entities.prototype.linkPerson = function (id, relationship, person) {
-            return this.http.put(this.baseUri + 'api/Entities/link?id=' + id + '&relationship=' + encodeURIComponent(relationship), JSON.stringify(person), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+            return this.http.put(this.baseUri + 'api/Entities/link?id=' + id + '&relationship=' + (relationship == null ? '' : encodeURIComponent(relationship)), JSON.stringify(person), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
         };
         /**
          * POST api/Entities/linkNewDecimal?id={id}
@@ -128,7 +128,7 @@ var DemoWebApi_Controllers_Client;
          * PUT api/Entities/updatePerson
          */
         Entities.prototype.updatePerson = function (person) {
-            return this.http.put(this.baseUri + 'api/Entities/updatePerson', JSON.stringify(person), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+            return this.http.put(this.baseUri + 'api/Entities/updatePerson', JSON.stringify(person), { headers: { 'Content-Type': 'application/json;charset=UTF-8' }, observe: 'response', responseType: 'text' });
         };
         Entities = __decorate([
             core_1.Injectable(),
@@ -148,7 +148,7 @@ var DemoWebApi_Controllers_Client;
          * DELETE api/Heroes/{id}
          */
         Heroes.prototype.delete = function (id) {
-            return this.http.delete(this.baseUri + 'api/Heroes/' + id);
+            return this.http.delete(this.baseUri + 'api/Heroes/' + id, { observe: 'response', responseType: 'text' });
         };
         /**
          * Get all heroes.
@@ -168,14 +168,14 @@ var DemoWebApi_Controllers_Client;
          * POST api/Heroes?name={name}
          */
         Heroes.prototype.post = function (name) {
-            return this.http.post(this.baseUri + 'api/Heroes?name=' + encodeURIComponent(name), null, { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+            return this.http.post(this.baseUri + 'api/Heroes?name=' + (name == null ? '' : encodeURIComponent(name)), null);
         };
         /**
          * Add a hero
          * POST api/Heroes/q?name={name}
          */
         Heroes.prototype.postWithQuery = function (name) {
-            return this.http.post(this.baseUri + 'api/Heroes/q?name=' + encodeURIComponent(name), null, { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+            return this.http.post(this.baseUri + 'api/Heroes/q?name=' + (name == null ? '' : encodeURIComponent(name)), null);
         };
         /**
          * Update hero.
@@ -191,7 +191,7 @@ var DemoWebApi_Controllers_Client;
          * @return {Array<DemoWebApi_Controllers_Client.Hero>} Hero array matching the keyword.
          */
         Heroes.prototype.search = function (name) {
-            return this.http.get(this.baseUri + 'api/Heroes/search?name=' + encodeURIComponent(name));
+            return this.http.get(this.baseUri + 'api/Heroes/search?name=' + (name == null ? '' : encodeURIComponent(name)));
         };
         Heroes = __decorate([
             core_1.Injectable(),
@@ -223,13 +223,13 @@ var DemoWebApi_Controllers_Client;
          * GET api/SuperDemo/AnonymousDynamic
          */
         SuperDemo.prototype.getAnonymousDynamic = function () {
-            return this.http.get(this.baseUri + 'api/SuperDemo/AnonymousDynamic');
+            return this.http.get(this.baseUri + 'api/SuperDemo/AnonymousDynamic', { observe: 'response', responseType: 'text' });
         };
         /**
          * GET api/SuperDemo/AnonymousObject
          */
         SuperDemo.prototype.getAnonymousObject = function () {
-            return this.http.get(this.baseUri + 'api/SuperDemo/AnonymousObject');
+            return this.http.get(this.baseUri + 'api/SuperDemo/AnonymousObject', { observe: 'response', responseType: 'text' });
         };
         /**
          * GET api/SuperDemo/bool
@@ -436,7 +436,7 @@ var DemoWebApi_Controllers_Client;
          * GET api/SuperDemo/DoubleNullable?location={location}&dd={dd}&de={de}
          */
         SuperDemo.prototype.getPrimitiveNullable = function (location, dd, de) {
-            return this.http.get(this.baseUri + 'api/SuperDemo/DoubleNullable?location=' + encodeURIComponent(location) + (dd ? '&dd=' + dd.toString() : '') + (de ? '&de=' + de.toString() : ''));
+            return this.http.get(this.baseUri + 'api/SuperDemo/DoubleNullable?location=' + (location == null ? '' : encodeURIComponent(location)) + (dd ? '&dd=' + dd.toString() : '') + (de ? '&de=' + de.toString() : ''));
         };
         /**
          * GET api/SuperDemo/DoubleNullable2?dd={dd}&de={de}
@@ -484,7 +484,7 @@ var DemoWebApi_Controllers_Client;
          * POST api/SuperDemo/AnonymousObject
          */
         SuperDemo.prototype.postAnonymousObject = function (obj) {
-            return this.http.post(this.baseUri + 'api/SuperDemo/AnonymousObject', JSON.stringify(obj), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+            return this.http.post(this.baseUri + 'api/SuperDemo/AnonymousObject', JSON.stringify(obj), { headers: { 'Content-Type': 'application/json;charset=UTF-8' }, observe: 'response', responseType: 'text' });
         };
         /**
          * POST api/SuperDemo/Collection
@@ -569,7 +569,7 @@ var DemoWebApi_Controllers_Client;
          * POST api/SuperDemo/PostEmpty?s={s}&i={i}
          */
         SuperDemo.prototype.postWithQueryButEmptyBody = function (s, i) {
-            return this.http.post(this.baseUri + 'api/SuperDemo/PostEmpty?s=' + encodeURIComponent(s) + '&i=' + i, null, { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+            return this.http.post(this.baseUri + 'api/SuperDemo/PostEmpty?s=' + (s == null ? '' : encodeURIComponent(s)) + '&i=' + i, null);
         };
         /**
          * GET api/SuperDemo/SearchDateRange?startDate={startDate}&endDate={endDate}
@@ -765,7 +765,7 @@ var DemoWebApi_Controllers_Client;
          * DELETE api/Values/{id}
          */
         Values.prototype.delete = function (id) {
-            return this.http.delete(this.baseUri + 'api/Values/' + id);
+            return this.http.delete(this.baseUri + 'api/Values/' + id, { observe: 'response', responseType: 'text' });
         };
         /**
          * GET api/Values
@@ -777,13 +777,13 @@ var DemoWebApi_Controllers_Client;
          * GET api/Values/{id}?name={name}
          */
         Values.prototype.getByIdAndName = function (id, name) {
-            return this.http.get(this.baseUri + 'api/Values/' + id + '?name=' + encodeURIComponent(name));
+            return this.http.get(this.baseUri + 'api/Values/' + id + '?name=' + (name == null ? '' : encodeURIComponent(name)));
         };
         /**
          * GET api/Values?name={name}
          */
         Values.prototype.getByName = function (name) {
-            return this.http.get(this.baseUri + 'api/Values?name=' + encodeURIComponent(name));
+            return this.http.get(this.baseUri + 'api/Values?name=' + (name == null ? '' : encodeURIComponent(name)));
         };
         /**
          * GET api/Values/{id}
@@ -801,7 +801,7 @@ var DemoWebApi_Controllers_Client;
          * PUT api/Values/{id}
          */
         Values.prototype.put = function (id, value) {
-            return this.http.put(this.baseUri + 'api/Values/' + id, JSON.stringify(value), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+            return this.http.put(this.baseUri + 'api/Values/' + id, JSON.stringify(value), { headers: { 'Content-Type': 'application/json;charset=UTF-8' }, observe: 'response', responseType: 'text' });
         };
         Values = __decorate([
             core_1.Injectable(),
