@@ -2,12 +2,12 @@
 using DemoWebApi.Controllers.Client;
 using System.ComponentModel;
 using System.Threading.Tasks;
-
+using Fonlow.Net.Http;
 namespace Fonlow.Heroes.VM
 {
     public static class HeroesFunctions
     {
-        static readonly Uri apiUri = new Uri("http://192.168.0.2:9030/webapi/");
+        static readonly Uri apiUri = new Uri("http://192.168.1.100:9030/webapi/"); //replace url with what in your dev environment
 
         public static Hero[] LoadHeroes()
         {
@@ -15,11 +15,12 @@ namespace Fonlow.Heroes.VM
             {
                 using (var httpClient = new System.Net.Http.HttpClient())
                 {
-                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient, apiUri);
+                    httpClient.BaseAddress = apiUri;
+                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient);
                     return api.Get();
                 }
             }
-            catch (Exception ex)
+            catch (WebApiRequestException ex)
             {
                 System.Diagnostics.Trace.TraceError(ex.ToString());
                 throw;
@@ -32,11 +33,12 @@ namespace Fonlow.Heroes.VM
             {
                 using (var httpClient = new System.Net.Http.HttpClient())
                 {
-                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient, apiUri);
+                    httpClient.BaseAddress = apiUri;
+                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient);
                     return await api.SearchAsync(keyword);
                 }
             }
-            catch (Exception ex)
+            catch (WebApiRequestException ex)
             {
                 System.Diagnostics.Trace.TraceError(ex.ToString());
                 throw;
@@ -49,11 +51,12 @@ namespace Fonlow.Heroes.VM
             {
                 using (var httpClient = new System.Net.Http.HttpClient())
                 {
-                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient, apiUri);
+                    httpClient.BaseAddress = apiUri;
+                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient);
                     return api.Get(id);
                 }
             }
-            catch (Exception ex)
+            catch (WebApiRequestException ex)
             {
                 System.Diagnostics.Trace.TraceError(ex.ToString());
                 throw;
@@ -66,11 +69,12 @@ namespace Fonlow.Heroes.VM
             {
                 using (var httpClient = new System.Net.Http.HttpClient())
                 {
-                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient, apiUri);
+                    httpClient.BaseAddress = apiUri;
+                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient);
                     await api.PutAsync(hero);
                 }
             }
-            catch (Exception ex)
+            catch (WebApiRequestException ex)
             {
                 System.Diagnostics.Trace.TraceError(ex.ToString());
                 throw;
@@ -83,11 +87,12 @@ namespace Fonlow.Heroes.VM
             {
                 using (var httpClient = new System.Net.Http.HttpClient())
                 {
-                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient, apiUri);
+                    httpClient.BaseAddress = apiUri;
+                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient);
                     await api.DeleteAsync(id);
                 }
             }
-            catch (Exception ex)
+            catch (WebApiRequestException ex)
             {
                 System.Diagnostics.Trace.TraceError(ex.ToString());
                 throw;
@@ -100,11 +105,12 @@ namespace Fonlow.Heroes.VM
             {
                 using (var httpClient = new System.Net.Http.HttpClient())
                 {
-                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient, apiUri);
+                    httpClient.BaseAddress = apiUri;
+                    var api = new DemoWebApi.Controllers.Client.Heroes(httpClient);
                     return await api.PostAsync(name);
                 }
             }
-            catch (Exception ex)
+            catch (WebApiRequestException ex)
             {
                 System.Diagnostics.Trace.TraceError(ex.ToString());
                 throw;

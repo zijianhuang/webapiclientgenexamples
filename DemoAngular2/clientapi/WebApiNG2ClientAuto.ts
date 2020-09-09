@@ -1,16 +1,39 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+export namespace DemoWebApi_Controllers_Client {
+
+	/**
+	 * This class is used to carry the result of various file uploads.
+	 */
+	export interface FileResult {
+
+		/**
+		 * Gets or sets the local path of the file saved on the server.
+		 */
+		fileNames?: Array<string>;
+
+		/**
+		 * Gets or sets the submitter as indicated in the HTML form used to upload the data.
+		 */
+		submitter?: string;
+	}
+
+
+	/**
+	 * Complex hero type
+	 */
+	export interface Hero {
+		id?: number;
+		name?: string;
+	}
+
+}
+
 export namespace DemoWebApi_DemoData_Client {
 	export interface Address {
 		city?: string;
 		country?: string;
-		entity?: DemoWebApi_DemoData_Client.Entity;
-
-		/**
-		 * Foreign key to Entity
-		 */
-		entityId?: string;
 		id?: string;
 		postalCode?: string;
 		state?: string;
@@ -86,9 +109,7 @@ export namespace DemoWebApi_DemoData_Client {
 	}
 
 	export interface PhoneNumber {
-		entityId?: string;
 		fullNumber?: string;
-		id?: string;
 		phoneType?: DemoWebApi_DemoData_Client.PhoneType;
 	}
 
@@ -170,35 +191,6 @@ export namespace DemoWebApi_Models_Client {
 }
 
 export namespace DemoWebApi_Controllers_Client {
-
-	/**
-	 * This class is used to carry the result of various file uploads.
-	 */
-	export interface FileResult {
-
-		/**
-		 * Gets or sets the local path of the file saved on the server.
-		 */
-		fileNames?: Array<string>;
-
-		/**
-		 * Gets or sets the submitter as indicated in the HTML form used to upload the data.
-		 */
-		submitter?: string;
-	}
-
-
-	/**
-	 * Complex hero type
-	 */
-	export interface Hero {
-		id?: number;
-		name?: string;
-	}
-
-}
-
-export namespace DemoWebApi_Controllers_Client {
 	@Injectable()
 	export class Entities {
 		constructor(@Inject('baseUri') private baseUri: string = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/', private http: HttpClient) {
@@ -214,8 +206,8 @@ export namespace DemoWebApi_Controllers_Client {
 		/**
 		 * DELETE api/Entities/{id}
 		 */
-		delete(id: number): Observable<Response> {
-			return this.http.delete<Response>(this.baseUri + 'api/Entities/' + id);
+		delete(id: number): Observable<HttpResponse<string>> {
+			return this.http.delete(this.baseUri + 'api/Entities/' + id, { observe: 'response', responseType: 'text' });
 		}
 
 		/**
@@ -254,7 +246,7 @@ export namespace DemoWebApi_Controllers_Client {
 		 * PUT api/Entities/link?id={id}&relationship={relationship}
 		 */
 		linkPerson(id: number, relationship: string, person: DemoWebApi_DemoData_Client.Person): Observable<boolean> {
-			return this.http.put<boolean>(this.baseUri + 'api/Entities/link?id=' + id + '&relationship=' + encodeURIComponent(relationship), JSON.stringify(person), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+			return this.http.put<boolean>(this.baseUri + 'api/Entities/link?id=' + id + '&relationship=' + (relationship == null ? '' : encodeURIComponent(relationship)), JSON.stringify(person), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
 		}
 
 		/**
@@ -281,8 +273,8 @@ export namespace DemoWebApi_Controllers_Client {
 		/**
 		 * PUT api/Entities/updatePerson
 		 */
-		updatePerson(person: DemoWebApi_DemoData_Client.Person): Observable<Response> {
-			return this.http.put<Response>(this.baseUri + 'api/Entities/updatePerson', JSON.stringify(person), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+		updatePerson(person: DemoWebApi_DemoData_Client.Person): Observable<HttpResponse<string>> {
+			return this.http.put(this.baseUri + 'api/Entities/updatePerson', JSON.stringify(person), { headers: { 'Content-Type': 'application/json;charset=UTF-8' }, observe: 'response', responseType: 'text' });
 		}
 	}
 
@@ -294,8 +286,8 @@ export namespace DemoWebApi_Controllers_Client {
 		/**
 		 * DELETE api/Heroes/{id}
 		 */
-		delete(id: number): Observable<Response> {
-			return this.http.delete<Response>(this.baseUri + 'api/Heroes/' + id);
+		delete(id: number): Observable<HttpResponse<string>> {
+			return this.http.delete(this.baseUri + 'api/Heroes/' + id, { observe: 'response', responseType: 'text' });
 		}
 
 		/**
@@ -318,7 +310,7 @@ export namespace DemoWebApi_Controllers_Client {
 		 * POST api/Heroes?name={name}
 		 */
 		post(name: string): Observable<DemoWebApi_Controllers_Client.Hero> {
-			return this.http.post<DemoWebApi_Controllers_Client.Hero>(this.baseUri + 'api/Heroes?name=' + encodeURIComponent(name), null, { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+			return this.http.post<DemoWebApi_Controllers_Client.Hero>(this.baseUri + 'api/Heroes?name=' + (name == null ? '' : encodeURIComponent(name)), null);
 		}
 
 		/**
@@ -326,7 +318,7 @@ export namespace DemoWebApi_Controllers_Client {
 		 * POST api/Heroes/q?name={name}
 		 */
 		postWithQuery(name: string): Observable<DemoWebApi_Controllers_Client.Hero> {
-			return this.http.post<DemoWebApi_Controllers_Client.Hero>(this.baseUri + 'api/Heroes/q?name=' + encodeURIComponent(name), null, { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+			return this.http.post<DemoWebApi_Controllers_Client.Hero>(this.baseUri + 'api/Heroes/q?name=' + (name == null ? '' : encodeURIComponent(name)), null);
 		}
 
 		/**
@@ -344,7 +336,7 @@ export namespace DemoWebApi_Controllers_Client {
 		 * @return {Array<DemoWebApi_Controllers_Client.Hero>} Hero array matching the keyword.
 		 */
 		search(name: string): Observable<Array<DemoWebApi_Controllers_Client.Hero>> {
-			return this.http.get<Array<DemoWebApi_Controllers_Client.Hero>>(this.baseUri + 'api/Heroes/search?name=' + encodeURIComponent(name));
+			return this.http.get<Array<DemoWebApi_Controllers_Client.Hero>>(this.baseUri + 'api/Heroes/search?name=' + (name == null ? '' : encodeURIComponent(name)));
 		}
 	}
 
@@ -370,15 +362,15 @@ export namespace DemoWebApi_Controllers_Client {
 		/**
 		 * GET api/SuperDemo/AnonymousDynamic
 		 */
-		getAnonymousDynamic(): Observable<Response> {
-			return this.http.get<Response>(this.baseUri + 'api/SuperDemo/AnonymousDynamic');
+		getAnonymousDynamic(): Observable<HttpResponse<string>> {
+			return this.http.get(this.baseUri + 'api/SuperDemo/AnonymousDynamic', { observe: 'response', responseType: 'text' });
 		}
 
 		/**
 		 * GET api/SuperDemo/AnonymousObject
 		 */
-		getAnonymousObject(): Observable<Response> {
-			return this.http.get<Response>(this.baseUri + 'api/SuperDemo/AnonymousObject');
+		getAnonymousObject(): Observable<HttpResponse<string>> {
+			return this.http.get(this.baseUri + 'api/SuperDemo/AnonymousObject', { observe: 'response', responseType: 'text' });
 		}
 
 		/**
@@ -619,7 +611,7 @@ export namespace DemoWebApi_Controllers_Client {
 		 * GET api/SuperDemo/DoubleNullable?location={location}&dd={dd}&de={de}
 		 */
 		getPrimitiveNullable(location: string, dd: number, de: number): Observable<{item1: string, item2: number, item3: number}> {
-			return this.http.get<{item1: string, item2: number, item3: number}>(this.baseUri + 'api/SuperDemo/DoubleNullable?location=' + encodeURIComponent(location) + (dd ? '&dd=' + dd.toString() : '') + (de ? '&de=' + de.toString() : ''));
+			return this.http.get<{item1: string, item2: number, item3: number}>(this.baseUri + 'api/SuperDemo/DoubleNullable?location=' + (location == null ? '' : encodeURIComponent(location)) + (dd ? '&dd=' + dd.toString() : '') + (de ? '&de=' + de.toString() : ''));
 		}
 
 		/**
@@ -674,8 +666,8 @@ export namespace DemoWebApi_Controllers_Client {
 		/**
 		 * POST api/SuperDemo/AnonymousObject
 		 */
-		postAnonymousObject(obj: any): Observable<Response> {
-			return this.http.post<Response>(this.baseUri + 'api/SuperDemo/AnonymousObject', JSON.stringify(obj), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+		postAnonymousObject(obj: any): Observable<HttpResponse<string>> {
+			return this.http.post(this.baseUri + 'api/SuperDemo/AnonymousObject', JSON.stringify(obj), { headers: { 'Content-Type': 'application/json;charset=UTF-8' }, observe: 'response', responseType: 'text' });
 		}
 
 		/**
@@ -774,7 +766,7 @@ export namespace DemoWebApi_Controllers_Client {
 		 * POST api/SuperDemo/PostEmpty?s={s}&i={i}
 		 */
 		postWithQueryButEmptyBody(s: string, i: number): Observable<{item1: string, item2: number}> {
-			return this.http.post<{item1: string, item2: number}>(this.baseUri + 'api/SuperDemo/PostEmpty?s=' + encodeURIComponent(s) + '&i=' + i, null, { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+			return this.http.post<{item1: string, item2: number}>(this.baseUri + 'api/SuperDemo/PostEmpty?s=' + (s == null ? '' : encodeURIComponent(s)) + '&i=' + i, null);
 		}
 
 		/**
@@ -981,8 +973,8 @@ export namespace DemoWebApi_Controllers_Client {
 		/**
 		 * DELETE api/Values/{id}
 		 */
-		delete(id: number): Observable<Response> {
-			return this.http.delete<Response>(this.baseUri + 'api/Values/' + id);
+		delete(id: number): Observable<HttpResponse<string>> {
+			return this.http.delete(this.baseUri + 'api/Values/' + id, { observe: 'response', responseType: 'text' });
 		}
 
 		/**
@@ -996,14 +988,14 @@ export namespace DemoWebApi_Controllers_Client {
 		 * GET api/Values/{id}?name={name}
 		 */
 		getByIdAndName(id: number, name: string): Observable<string> {
-			return this.http.get<string>(this.baseUri + 'api/Values/' + id + '?name=' + encodeURIComponent(name));
+			return this.http.get<string>(this.baseUri + 'api/Values/' + id + '?name=' + (name == null ? '' : encodeURIComponent(name)));
 		}
 
 		/**
 		 * GET api/Values?name={name}
 		 */
 		getByName(name: string): Observable<string> {
-			return this.http.get<string>(this.baseUri + 'api/Values?name=' + encodeURIComponent(name));
+			return this.http.get<string>(this.baseUri + 'api/Values?name=' + (name == null ? '' : encodeURIComponent(name)));
 		}
 
 		/**
@@ -1023,8 +1015,8 @@ export namespace DemoWebApi_Controllers_Client {
 		/**
 		 * PUT api/Values/{id}
 		 */
-		put(id: number, value: string): Observable<Response> {
-			return this.http.put<Response>(this.baseUri + 'api/Values/' + id, JSON.stringify(value), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } });
+		put(id: number, value: string): Observable<HttpResponse<string>> {
+			return this.http.put(this.baseUri + 'api/Values/' + id, JSON.stringify(value), { headers: { 'Content-Type': 'application/json;charset=UTF-8' }, observe: 'response', responseType: 'text' });
 		}
 	}
 

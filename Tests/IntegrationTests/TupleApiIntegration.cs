@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using System;
 using Xunit;
-using DemoWebApi.DemoData.Client;
-using Newtonsoft.Json;
 
 namespace IntegrationTests
 {
-    public class TupleFixture : Fonlow.Testing.DefaultHttpClient
+	public class TupleFixture : Fonlow.Testing.DefaultHttpClient
     {
         public TupleFixture()
         {
-            Api = new DemoWebApi.Controllers.Client.Tuple(base.HttpClient, base.BaseUri);
+            base.HttpClient.BaseAddress = base.BaseUri;
+            Api = new DemoWebApi.Controllers.Client.Tuple(base.HttpClient);
         }
 
         public DemoWebApi.Controllers.Client.Tuple Api { get; private set; }

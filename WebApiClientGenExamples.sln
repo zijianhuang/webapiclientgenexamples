@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2042
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoWebApi", "DemoWebApi\DemoWebApi.csproj", "{9B025DC4-DB6F-4263-8FF6-18CECEB6B959}"
 EndProject
@@ -42,6 +42,7 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		DemoWebApi.ClientApiShared\DemoWebApi.ClientApiShared.projitems*{31e10725-9320-49d6-9ad6-51300c5eb634}*SharedItemsImports = 4
+		DemoWebApi.ClientApiShared\DemoWebApi.ClientApiShared.projitems*{4ddba5b5-778f-4b34-ba15-130d5f65aab4}*SharedItemsImports = 5
 		DemoWebApi.ClientApiShared\DemoWebApi.ClientApiShared.projitems*{cbfe51ac-65f0-4b42-ae38-7d6de5a97b5c}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

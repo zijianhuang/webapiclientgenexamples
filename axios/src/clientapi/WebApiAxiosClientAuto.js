@@ -56,7 +56,7 @@ var DemoWebApi_Controllers_Client;
          * DELETE api/Entities/{id}
          */
         Entities.prototype["delete"] = function (id) {
-            return axios_1["default"]["delete"](this.baseUri + 'api/Entities/' + id, { responseType: 'text' });
+            return axios_1["default"]["delete"](this.baseUri + 'api/Entities/' + id);
         };
         /**
          * GET api/Entities/Company?id={id}
@@ -90,7 +90,7 @@ var DemoWebApi_Controllers_Client;
          * PUT api/Entities/link?id={id}&relationship={relationship}
          */
         Entities.prototype.linkPerson = function (id, relationship, person) {
-            return axios_1["default"].put(this.baseUri + 'api/Entities/link?id=' + id + '&relationship=' + encodeURIComponent(relationship), JSON.stringify(person), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } }).then(function (d) { return d.data; });
+            return axios_1["default"].put(this.baseUri + 'api/Entities/link?id=' + id + '&relationship=' + (relationship == null ? '' : encodeURIComponent(relationship)), JSON.stringify(person), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } }).then(function (d) { return d.data; });
         };
         /**
          * POST api/Entities/linkNewDecimal?id={id}
@@ -128,7 +128,7 @@ var DemoWebApi_Controllers_Client;
          * DELETE api/Heroes/{id}
          */
         Heroes.prototype["delete"] = function (id) {
-            return axios_1["default"]["delete"](this.baseUri + 'api/Heroes/' + id, { responseType: 'text' });
+            return axios_1["default"]["delete"](this.baseUri + 'api/Heroes/' + id);
         };
         /**
          * Get all heroes.
@@ -148,14 +148,14 @@ var DemoWebApi_Controllers_Client;
          * POST api/Heroes?name={name}
          */
         Heroes.prototype.post = function (name) {
-            return axios_1["default"].post(this.baseUri + 'api/Heroes?name=' + encodeURIComponent(name), null, { headers: { 'Content-Type': 'application/json;charset=UTF-8' } }).then(function (d) { return d.data; });
+            return axios_1["default"].post(this.baseUri + 'api/Heroes?name=' + (name == null ? '' : encodeURIComponent(name)), null).then(function (d) { return d.data; });
         };
         /**
          * Add a hero
          * POST api/Heroes/q?name={name}
          */
         Heroes.prototype.postWithQuery = function (name) {
-            return axios_1["default"].post(this.baseUri + 'api/Heroes/q?name=' + encodeURIComponent(name), null, { headers: { 'Content-Type': 'application/json;charset=UTF-8' } }).then(function (d) { return d.data; });
+            return axios_1["default"].post(this.baseUri + 'api/Heroes/q?name=' + (name == null ? '' : encodeURIComponent(name)), null).then(function (d) { return d.data; });
         };
         /**
          * Update hero.
@@ -171,7 +171,7 @@ var DemoWebApi_Controllers_Client;
          * @return {Array<DemoWebApi_Controllers_Client.Hero>} Hero array matching the keyword.
          */
         Heroes.prototype.search = function (name) {
-            return axios_1["default"].get(this.baseUri + 'api/Heroes/search?name=' + encodeURIComponent(name)).then(function (d) { return d.data; });
+            return axios_1["default"].get(this.baseUri + 'api/Heroes/search?name=' + (name == null ? '' : encodeURIComponent(name))).then(function (d) { return d.data; });
         };
         return Heroes;
     }());
@@ -185,7 +185,7 @@ var DemoWebApi_Controllers_Client;
          * GET api/SuperDemo/ActionResult
          */
         SuperDemo.prototype.getActionResult = function () {
-            return axios_1["default"].get(this.baseUri + 'api/SuperDemo/ActionResult', { responseType: 'text' }).then(function (d) { return d.data; });
+            return axios_1["default"].get(this.baseUri + 'api/SuperDemo/ActionResult', { responseType: 'text' });
         };
         /**
          * GET api/SuperDemo/ActionStringResult
@@ -197,13 +197,13 @@ var DemoWebApi_Controllers_Client;
          * GET api/SuperDemo/AnonymousDynamic
          */
         SuperDemo.prototype.getAnonymousDynamic = function () {
-            return axios_1["default"].get(this.baseUri + 'api/SuperDemo/AnonymousDynamic', { responseType: 'text' });
+            return axios_1["default"].get(this.baseUri + 'api/SuperDemo/AnonymousDynamic');
         };
         /**
          * GET api/SuperDemo/AnonymousObject
          */
         SuperDemo.prototype.getAnonymousObject = function () {
-            return axios_1["default"].get(this.baseUri + 'api/SuperDemo/AnonymousObject', { responseType: 'text' });
+            return axios_1["default"].get(this.baseUri + 'api/SuperDemo/AnonymousObject');
         };
         /**
          * GET api/SuperDemo/bool
@@ -410,7 +410,7 @@ var DemoWebApi_Controllers_Client;
          * GET api/SuperDemo/DoubleNullable?location={location}&dd={dd}&de={de}
          */
         SuperDemo.prototype.getPrimitiveNullable = function (location, dd, de) {
-            return axios_1["default"].get(this.baseUri + 'api/SuperDemo/DoubleNullable?location=' + encodeURIComponent(location) + (dd ? '&dd=' + dd.toString() : '') + (de ? '&de=' + de.toString() : '')).then(function (d) { return d.data; });
+            return axios_1["default"].get(this.baseUri + 'api/SuperDemo/DoubleNullable?location=' + (location == null ? '' : encodeURIComponent(location)) + (dd ? '&dd=' + dd.toString() : '') + (de ? '&de=' + de.toString() : '')).then(function (d) { return d.data; });
         };
         /**
          * GET api/SuperDemo/DoubleNullable2?dd={dd}&de={de}
@@ -543,7 +543,7 @@ var DemoWebApi_Controllers_Client;
          * POST api/SuperDemo/PostEmpty?s={s}&i={i}
          */
         SuperDemo.prototype.postWithQueryButEmptyBody = function (s, i) {
-            return axios_1["default"].post(this.baseUri + 'api/SuperDemo/PostEmpty?s=' + encodeURIComponent(s) + '&i=' + i, null, { headers: { 'Content-Type': 'application/json;charset=UTF-8' } }).then(function (d) { return d.data; });
+            return axios_1["default"].post(this.baseUri + 'api/SuperDemo/PostEmpty?s=' + (s == null ? '' : encodeURIComponent(s)) + '&i=' + i, null).then(function (d) { return d.data; });
         };
         /**
          * GET api/SuperDemo/SearchDateRange?startDate={startDate}&endDate={endDate}
@@ -727,7 +727,7 @@ var DemoWebApi_Controllers_Client;
          * DELETE api/Values/{id}
          */
         Values.prototype["delete"] = function (id) {
-            return axios_1["default"]["delete"](this.baseUri + 'api/Values/' + id, { responseType: 'text' });
+            return axios_1["default"]["delete"](this.baseUri + 'api/Values/' + id);
         };
         /**
          * GET api/Values
@@ -739,13 +739,13 @@ var DemoWebApi_Controllers_Client;
          * GET api/Values/{id}?name={name}
          */
         Values.prototype.getByIdAndName = function (id, name) {
-            return axios_1["default"].get(this.baseUri + 'api/Values/' + id + '?name=' + encodeURIComponent(name)).then(function (d) { return d.data; });
+            return axios_1["default"].get(this.baseUri + 'api/Values/' + id + '?name=' + (name == null ? '' : encodeURIComponent(name))).then(function (d) { return d.data; });
         };
         /**
          * GET api/Values?name={name}
          */
         Values.prototype.getByName = function (name) {
-            return axios_1["default"].get(this.baseUri + 'api/Values?name=' + encodeURIComponent(name)).then(function (d) { return d.data; });
+            return axios_1["default"].get(this.baseUri + 'api/Values?name=' + (name == null ? '' : encodeURIComponent(name))).then(function (d) { return d.data; });
         };
         /**
          * GET api/Values/{id}

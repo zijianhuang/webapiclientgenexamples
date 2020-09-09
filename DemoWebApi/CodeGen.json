@@ -17,6 +17,7 @@
 		"GenerateBothAsyncAndSync": true,
 
 		"CamelCase": true,
+		"UseEnsureSuccessStatusCodeEx": true,
 
 		"Plugins": [
 			{

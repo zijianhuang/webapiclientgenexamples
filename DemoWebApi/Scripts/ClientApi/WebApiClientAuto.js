@@ -53,7 +53,7 @@ var DemoWebApi_Controllers_Client;
          * POST api/Entities/createPerson
          */
         Entities.prototype.createPerson = function (p, callback) {
-            this.httpClient.post(this.baseUri + 'api/Entities/createPerson', p, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Entities/createPerson', p, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * DELETE api/Entities/{id}
@@ -93,31 +93,31 @@ var DemoWebApi_Controllers_Client;
          * PUT api/Entities/link?id={id}&relationship={relationship}
          */
         Entities.prototype.linkPerson = function (id, relationship, person, callback) {
-            this.httpClient.put(this.baseUri + 'api/Entities/link?id=' + id + '&relationship=' + encodeURIComponent(relationship), person, callback, this.error, this.statusCode);
+            this.httpClient.put(this.baseUri + 'api/Entities/link?id=' + id + '&relationship=' + (relationship == null ? '' : encodeURIComponent(relationship)), person, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Entities/linkNewDecimal?id={id}
          */
         Entities.prototype.linkWithNewDecimal = function (id, p, callback) {
-            this.httpClient.post(this.baseUri + 'api/Entities/linkNewDecimal?id=' + id, p, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Entities/linkNewDecimal?id=' + id, p, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Entities/linkNewGuid?id={id}
          */
         Entities.prototype.linkWithNewGuid = function (id, p, callback) {
-            this.httpClient.post(this.baseUri + 'api/Entities/linkNewGuid?id=' + id, p, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Entities/linkNewGuid?id=' + id, p, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Entities/linkLong?id={id}
          */
         Entities.prototype.linkWithNewLong = function (id, p, callback) {
-            this.httpClient.post(this.baseUri + 'api/Entities/linkLong?id=' + id, p, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Entities/linkLong?id=' + id, p, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * PUT api/Entities/updatePerson
          */
         Entities.prototype.updatePerson = function (person, callback) {
-            this.httpClient.put(this.baseUri + 'api/Entities/updatePerson', person, callback, this.error, this.statusCode);
+            this.httpClient.put(this.baseUri + 'api/Entities/updatePerson', person, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         return Entities;
     }());
@@ -155,21 +155,21 @@ var DemoWebApi_Controllers_Client;
          * POST api/Heroes?name={name}
          */
         Heroes.prototype.post = function (name, callback) {
-            this.httpClient.post(this.baseUri + 'api/Heroes?name=' + encodeURIComponent(name), null, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Heroes?name=' + (name == null ? '' : encodeURIComponent(name)), null, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * Add a hero
          * POST api/Heroes/q?name={name}
          */
         Heroes.prototype.postWithQuery = function (name, callback) {
-            this.httpClient.post(this.baseUri + 'api/Heroes/q?name=' + encodeURIComponent(name), null, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Heroes/q?name=' + (name == null ? '' : encodeURIComponent(name)), null, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * Update hero.
          * PUT api/Heroes
          */
         Heroes.prototype.put = function (hero, callback) {
-            this.httpClient.put(this.baseUri + 'api/Heroes', hero, callback, this.error, this.statusCode);
+            this.httpClient.put(this.baseUri + 'api/Heroes', hero, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * Search heroes
@@ -178,7 +178,7 @@ var DemoWebApi_Controllers_Client;
          * @return {Array<DemoWebApi_Controllers_Client.Hero>} Hero array matching the keyword.
          */
         Heroes.prototype.search = function (name, callback) {
-            this.httpClient.get(this.baseUri + 'api/Heroes/search?name=' + encodeURIComponent(name), callback, this.error, this.statusCode);
+            this.httpClient.get(this.baseUri + 'api/Heroes/search?name=' + (name == null ? '' : encodeURIComponent(name)), callback, this.error, this.statusCode);
         };
         return Heroes;
     }());
@@ -421,7 +421,7 @@ var DemoWebApi_Controllers_Client;
          * GET api/SuperDemo/DoubleNullable?location={location}&dd={dd}&de={de}
          */
         SuperDemo.prototype.getPrimitiveNullable = function (location, dd, de, callback) {
-            this.httpClient.get(this.baseUri + 'api/SuperDemo/DoubleNullable?location=' + encodeURIComponent(location) + (dd ? '&dd=' + dd.toString() : '') + (de ? '&de=' + de.toString() : ''), callback, this.error, this.statusCode);
+            this.httpClient.get(this.baseUri + 'api/SuperDemo/DoubleNullable?location=' + (location == null ? '' : encodeURIComponent(location)) + (dd ? '&dd=' + dd.toString() : '') + (de ? '&de=' + de.toString() : ''), callback, this.error, this.statusCode);
         };
         /**
          * GET api/SuperDemo/DoubleNullable2?dd={dd}&de={de}
@@ -469,92 +469,92 @@ var DemoWebApi_Controllers_Client;
          * POST api/SuperDemo/AnonymousObject
          */
         SuperDemo.prototype.postAnonymousObject = function (obj, callback) {
-            this.httpClient.post(this.baseUri + 'api/SuperDemo/AnonymousObject', obj, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/SuperDemo/AnonymousObject', obj, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/SuperDemo/Collection
          */
         SuperDemo.prototype.postCollection = function (list, callback) {
-            this.httpClient.post(this.baseUri + 'api/SuperDemo/Collection', list, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/SuperDemo/Collection', list, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * DateTime and DateTimeOffset may not be represented well in URL, so must put them into the POST body.
          * POST api/SuperDemo/DateTimeOffset
          */
         SuperDemo.prototype.postDateTimeOffset = function (d, callback) {
-            this.httpClient.post(this.baseUri + 'api/SuperDemo/DateTimeOffset', d, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/SuperDemo/DateTimeOffset', d, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/SuperDemo/DateTimeOffsetNullable
          */
         SuperDemo.prototype.postDateTimeOffsetNullable = function (d, callback) {
-            this.httpClient.post(this.baseUri + 'api/SuperDemo/DateTimeOffsetNullable', d, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/SuperDemo/DateTimeOffsetNullable', d, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/SuperDemo/StringPersonDic
          */
         SuperDemo.prototype.postDictionary = function (dic, callback) {
-            this.httpClient.post(this.baseUri + 'api/SuperDemo/StringPersonDic', dic, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/SuperDemo/StringPersonDic', dic, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/SuperDemo/ICollection
          */
         SuperDemo.prototype.postICollection = function (list, callback) {
-            this.httpClient.post(this.baseUri + 'api/SuperDemo/ICollection', list, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/SuperDemo/ICollection', list, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/SuperDemo/IList
          */
         SuperDemo.prototype.postIList = function (list, callback) {
-            this.httpClient.post(this.baseUri + 'api/SuperDemo/IList', list, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/SuperDemo/IList', list, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/SuperDemo/int2d
          */
         SuperDemo.prototype.postInt2D = function (a, callback) {
-            this.httpClient.post(this.baseUri + 'api/SuperDemo/int2d', a, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/SuperDemo/int2d', a, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/SuperDemo/int2djagged
          */
         SuperDemo.prototype.postInt2DJagged = function (a, callback) {
-            this.httpClient.post(this.baseUri + 'api/SuperDemo/int2djagged', a, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/SuperDemo/int2djagged', a, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/SuperDemo/intArray
          */
         SuperDemo.prototype.postIntArray = function (a, callback) {
-            this.httpClient.post(this.baseUri + 'api/SuperDemo/intArray', a, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/SuperDemo/intArray', a, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/SuperDemo/IReadOnlyCollection
          */
         SuperDemo.prototype.postIReadOnlyCollection = function (list, callback) {
-            this.httpClient.post(this.baseUri + 'api/SuperDemo/IReadOnlyCollection', list, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/SuperDemo/IReadOnlyCollection', list, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/SuperDemo/IReadOnlyList
          */
         SuperDemo.prototype.postIReadOnlyList = function (list, callback) {
-            this.httpClient.post(this.baseUri + 'api/SuperDemo/IReadOnlyList', list, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/SuperDemo/IReadOnlyList', list, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/SuperDemo/List
          */
         SuperDemo.prototype.postList = function (list, callback) {
-            this.httpClient.post(this.baseUri + 'api/SuperDemo/List', list, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/SuperDemo/List', list, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/SuperDemo/NextYear
          */
         SuperDemo.prototype.postNextYear = function (dt, callback) {
-            this.httpClient.post(this.baseUri + 'api/SuperDemo/NextYear', dt, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/SuperDemo/NextYear', dt, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/SuperDemo/PostEmpty?s={s}&i={i}
          */
         SuperDemo.prototype.postWithQueryButEmptyBody = function (s, i, callback) {
-            this.httpClient.post(this.baseUri + 'api/SuperDemo/PostEmpty?s=' + encodeURIComponent(s) + '&i=' + i, null, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/SuperDemo/PostEmpty?s=' + (s == null ? '' : encodeURIComponent(s)) + '&i=' + i, null, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * GET api/SuperDemo/SearchDateRange?startDate={startDate}&endDate={endDate}
@@ -638,97 +638,97 @@ var DemoWebApi_Controllers_Client;
          * POST api/Tuple/PeopleCompany2
          */
         Tuple.prototype.linkPeopleCompany2 = function (peopleAndCompany, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/PeopleCompany2', peopleAndCompany, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/PeopleCompany2', peopleAndCompany, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Tuple/PeopleCompany3
          */
         Tuple.prototype.linkPeopleCompany3 = function (peopleAndCompany, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/PeopleCompany3', peopleAndCompany, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/PeopleCompany3', peopleAndCompany, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Tuple/PeopleCompany4
          */
         Tuple.prototype.linkPeopleCompany4 = function (peopleAndCompany, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/PeopleCompany4', peopleAndCompany, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/PeopleCompany4', peopleAndCompany, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Tuple/PeopleCompany5
          */
         Tuple.prototype.linkPeopleCompany5 = function (peopleAndCompany, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/PeopleCompany5', peopleAndCompany, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/PeopleCompany5', peopleAndCompany, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Tuple/PeopleCompany6
          */
         Tuple.prototype.linkPeopleCompany6 = function (peopleAndCompany, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/PeopleCompany6', peopleAndCompany, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/PeopleCompany6', peopleAndCompany, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Tuple/PeopleCompany7
          */
         Tuple.prototype.linkPeopleCompany7 = function (peopleAndCompany, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/PeopleCompany7', peopleAndCompany, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/PeopleCompany7', peopleAndCompany, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Tuple/PeopleCompany8
          */
         Tuple.prototype.linkPeopleCompany8 = function (peopleAndCompany, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/PeopleCompany8', peopleAndCompany, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/PeopleCompany8', peopleAndCompany, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Tuple/PersonCompany1
          */
         Tuple.prototype.linkPersonCompany1 = function (peopleAndCompany, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/PersonCompany1', peopleAndCompany, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/PersonCompany1', peopleAndCompany, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Tuple/Tuple1
          */
         Tuple.prototype.postTuple1 = function (tuple, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple1', tuple, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple1', tuple, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Tuple/Tuple2
          */
         Tuple.prototype.postTuple2 = function (tuple, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple2', tuple, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple2', tuple, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Tuple/Tuple3
          */
         Tuple.prototype.postTuple3 = function (tuple, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple3', tuple, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple3', tuple, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Tuple/Tuple4
          */
         Tuple.prototype.postTuple4 = function (tuple, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple4', tuple, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple4', tuple, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Tuple/Tuple5
          */
         Tuple.prototype.postTuple5 = function (tuple, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple5', tuple, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple5', tuple, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Tuple/Tuple6
          */
         Tuple.prototype.postTuple6 = function (tuple, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple6', tuple, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple6', tuple, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Tuple/Tuple7
          */
         Tuple.prototype.postTuple7 = function (tuple, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple7', tuple, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple7', tuple, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * POST api/Tuple/Tuple8
          */
         Tuple.prototype.postTuple8 = function (tuple, callback) {
-            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple8', tuple, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Tuple/Tuple8', tuple, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         return Tuple;
     }());
@@ -758,13 +758,13 @@ var DemoWebApi_Controllers_Client;
          * GET api/Values/{id}?name={name}
          */
         Values.prototype.getByIdAndName = function (id, name, callback) {
-            this.httpClient.get(this.baseUri + 'api/Values/' + id + '?name=' + encodeURIComponent(name), callback, this.error, this.statusCode);
+            this.httpClient.get(this.baseUri + 'api/Values/' + id + '?name=' + (name == null ? '' : encodeURIComponent(name)), callback, this.error, this.statusCode);
         };
         /**
          * GET api/Values?name={name}
          */
         Values.prototype.getByName = function (name, callback) {
-            this.httpClient.get(this.baseUri + 'api/Values?name=' + encodeURIComponent(name), callback, this.error, this.statusCode);
+            this.httpClient.get(this.baseUri + 'api/Values?name=' + (name == null ? '' : encodeURIComponent(name)), callback, this.error, this.statusCode);
         };
         /**
          * GET api/Values/{id}
@@ -776,13 +776,13 @@ var DemoWebApi_Controllers_Client;
          * POST api/Values
          */
         Values.prototype.post = function (value, callback) {
-            this.httpClient.post(this.baseUri + 'api/Values', value, callback, this.error, this.statusCode);
+            this.httpClient.post(this.baseUri + 'api/Values', value, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         /**
          * PUT api/Values/{id}
          */
         Values.prototype.put = function (id, value, callback) {
-            this.httpClient.put(this.baseUri + 'api/Values/' + id, value, callback, this.error, this.statusCode);
+            this.httpClient.put(this.baseUri + 'api/Values/' + id, value, callback, this.error, this.statusCode, 'application/json;charset=UTF-8');
         };
         return Values;
     }());

@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 using Xunit;
 using DemoWebApi.DemoData.Client;
 using Fonlow.Testing;
-
+using Fonlow.Net.Http;
 namespace IntegrationTests
 {
     public class EntitiesFixture : DefaultHttpClient
     {
         public EntitiesFixture()
         {
-            Api = new DemoWebApi.Controllers.Client.Entities(base.HttpClient, base.BaseUri);
+            base.HttpClient.BaseAddress = base.BaseUri;
+            Api = new DemoWebApi.Controllers.Client.Entities(base.HttpClient);
         }
 
         public DemoWebApi.Controllers.Client.Entities Api { get; private set; }
@@ -76,7 +77,7 @@ namespace IntegrationTests
               }},
             };
 
-            Assert.Throws<System.Net.Http.HttpRequestException>(() => api.CreatePerson(person));
+            Assert.Throws<WebApiRequestException>(() => api.CreatePerson(person));
         }
 
         [Fact]
@@ -170,23 +171,23 @@ namespace IntegrationTests
         [Fact]
         public void TestGetNotFound()
         {
-            var ex = Assert.Throws<System.Net.Http.HttpRequestException>(() =>
+            var ex = Assert.Throws<WebApiRequestException>(() =>
             {
                 var person = api.GetPersonNotFound(100);
             });
 
-            Assert.Contains("404", ex.Message);
+            Assert.Contains("Not Found", ex.Message);
         }
 
         [Fact]
         public void TestGetActionNotFound()
         {
-            var ex = Assert.Throws<System.Net.Http.HttpRequestException>(() =>
+            var ex = Assert.Throws<WebApiRequestException>(() =>
             {
                 var person = api.GetPersonActionNotFound(100);
             });
 
-            Assert.Contains("404", ex.Message);
+            Assert.Contains("Not Found", ex.Message);
         }
 
     }
