@@ -63,22 +63,22 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Fonlow.DocComment, Version=1.2.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fonlow.WebApiClientGen.3.12.0\lib\net462\Fonlow.DocComment.dll</HintPath>
+      <HintPath>..\packages\Fonlow.WebApiClientGen.3.13.0\lib\net462\Fonlow.DocComment.dll</HintPath>
     </Reference>
-    <Reference Include="Fonlow.Poco2Ts, Version=2.8.1.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fonlow.Poco2Ts.2.8.1\lib\net462\Fonlow.Poco2Ts.dll</HintPath>
+    <Reference Include="Fonlow.Poco2Ts, Version=2.8.3.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fonlow.Poco2Ts.2.8.3\lib\net462\Fonlow.Poco2Ts.dll</HintPath>
     </Reference>
     <Reference Include="Fonlow.TypeScriptCodeDom, Version=2.3.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
       <HintPath>..\packages\Fonlow.TypeScriptCodeDOM.2.3.0\lib\net462\Fonlow.TypeScriptCodeDom.dll</HintPath>
     </Reference>
     <Reference Include="Fonlow.Web.Meta, Version=1.5.2.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fonlow.WebApiClientGen.3.12.0\lib\net462\Fonlow.Web.Meta.dll</HintPath>
+      <HintPath>..\packages\Fonlow.WebApiClientGen.3.13.0\lib\net462\Fonlow.Web.Meta.dll</HintPath>
     </Reference>
-    <Reference Include="Fonlow.WebApiClientGen, Version=3.12.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fonlow.WebApiClientGen.3.12.0\lib\net462\Fonlow.WebApiClientGen.dll</HintPath>
+    <Reference Include="Fonlow.WebApiClientGen, Version=3.13.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fonlow.WebApiClientGen.3.13.0\lib\net462\Fonlow.WebApiClientGen.dll</HintPath>
     </Reference>
     <Reference Include="Fonlow.WebApiClientGen.Abstract, Version=1.4.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fonlow.WebApiClientGen.3.12.0\lib\net462\Fonlow.WebApiClientGen.Abstract.dll</HintPath>
+      <HintPath>..\packages\Fonlow.WebApiClientGen.3.13.0\lib\net462\Fonlow.WebApiClientGen.Abstract.dll</HintPath>
     </Reference>
     <Reference Include="Fonlow.WebApiClientGen.Axios, Version=1.3.0.0, Culture=neutral, PublicKeyToken=cf59ce9d94b04b8a, processorArchitecture=MSIL">
       <HintPath>..\packages\Fonlow.WebApiClientGen.Axios.1.3.0\lib\net462\Fonlow.WebApiClientGen.Axios.dll</HintPath>
