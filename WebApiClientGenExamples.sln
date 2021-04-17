@@ -534,6 +534,7 @@ Global
 		{101E3060-8799-4119-8A7A-4F86A01C0C84}.Ad-Hoc|ARM.Build.0 = Release|iPhone
 		{101E3060-8799-4119-8A7A-4F86A01C0C84}.Ad-Hoc|iPhone.ActiveCfg = Release|iPhone
 		{101E3060-8799-4119-8A7A-4F86A01C0C84}.Ad-Hoc|iPhone.Build.0 = Release|iPhone
+		{101E3060-8799-4119-8A7A-4F86A01C0C84}.Ad-Hoc|iPhone.Deploy.0 = Release|iPhone
 		{101E3060-8799-4119-8A7A-4F86A01C0C84}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{101E3060-8799-4119-8A7A-4F86A01C0C84}.Ad-Hoc|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{101E3060-8799-4119-8A7A-4F86A01C0C84}.Ad-Hoc|x64.ActiveCfg = Release|iPhone
