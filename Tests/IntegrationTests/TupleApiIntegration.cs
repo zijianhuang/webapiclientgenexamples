@@ -8,7 +8,6 @@ namespace IntegrationTests
     {
         public TupleFixture()
         {
-            base.HttpClient.BaseAddress = base.BaseUri;
             Api = new DemoWebApi.Controllers.Client.Tuple(base.HttpClient);
         }
 

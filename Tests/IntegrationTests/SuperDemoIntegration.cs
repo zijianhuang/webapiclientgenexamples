@@ -12,7 +12,6 @@ namespace IntegrationTests
     {
         public SuperDemoFixture()
         {
-            base.HttpClient.BaseAddress = base.BaseUri;
             Api = new DemoWebApi.Controllers.Client.SuperDemo(base.HttpClient);
         }
 

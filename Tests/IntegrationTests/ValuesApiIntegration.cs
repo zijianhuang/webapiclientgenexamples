@@ -8,7 +8,6 @@ namespace IntegrationTests
 	{
 		public ValuesFixture()
 		{
-			base.HttpClient.BaseAddress = base.BaseUri;
 			Api = new DemoWebApi.Controllers.Client.Values(base.HttpClient);
 		}
 
