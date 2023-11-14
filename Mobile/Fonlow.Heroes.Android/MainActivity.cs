@@ -17,7 +17,7 @@ namespace Fonlow.Heroes
         HardwareAccelerated =true
         )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
-    {
+	{
         protected override void OnCreate(Bundle bundle)
         {
             //TabLayoutResource = Resource.Layout.Tabbar;

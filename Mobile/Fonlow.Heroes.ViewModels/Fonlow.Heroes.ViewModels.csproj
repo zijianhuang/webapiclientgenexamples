@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.ConfigPlugin" Version="2.1.0" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2622" />
   </ItemGroup>
 
   <ItemGroup>
