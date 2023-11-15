@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30413.136
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoWebApi", "DemoWebApi\DemoWebApi.csproj", "{9B025DC4-DB6F-4263-8FF6-18CECEB6B959}"
 EndProject
@@ -39,12 +39,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fonlow.Heroes.Views", "Mobi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fonlow.Heroes.iOS", "Mobile\Fonlow.Heroes.iOS\Fonlow.Heroes.iOS.csproj", "{101E3060-8799-4119-8A7A-4F86A01C0C84}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App2", "App2\App2.csproj", "{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}"
+EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		DemoWebApi.ClientApiShared\DemoWebApi.ClientApiShared.projitems*{31e10725-9320-49d6-9ad6-51300c5eb634}*SharedItemsImports = 4
-		DemoWebApi.ClientApiShared\DemoWebApi.ClientApiShared.projitems*{4ddba5b5-778f-4b34-ba15-130d5f65aab4}*SharedItemsImports = 5
-		DemoWebApi.ClientApiShared\DemoWebApi.ClientApiShared.projitems*{cbfe51ac-65f0-4b42-ae38-7d6de5a97b5c}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
 		Ad-Hoc|ARM = Ad-Hoc|ARM
@@ -569,6 +566,78 @@ Global
 		{101E3060-8799-4119-8A7A-4F86A01C0C84}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{101E3060-8799-4119-8A7A-4F86A01C0C84}.Release|x64.ActiveCfg = Release|iPhone
 		{101E3060-8799-4119-8A7A-4F86A01C0C84}.Release|x86.ActiveCfg = Release|iPhone
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|Any CPU.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|Any CPU.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|ARM.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|ARM.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|ARM.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|iPhone.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|iPhoneSimulator.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|x64.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|x64.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|x64.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|x86.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|x86.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Ad-Hoc|x86.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|Any CPU.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|Any CPU.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|ARM.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|ARM.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|ARM.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|iPhone.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|iPhone.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|iPhoneSimulator.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|x64.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|x64.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|x64.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|x86.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|x86.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.AppStore|x86.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|ARM.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|ARM.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|iPhone.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|iPhoneSimulator.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|x64.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|x64.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|x86.Build.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|ARM.ActiveCfg = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|ARM.Build.0 = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|ARM.Deploy.0 = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|iPhone.Build.0 = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|iPhone.Deploy.0 = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|x64.ActiveCfg = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|x64.Build.0 = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|x64.Deploy.0 = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|x86.ActiveCfg = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|x86.Build.0 = Release|Any CPU
+		{F4C7B299-FC69-4FCF-AFDB-BABA859210C7}.Release|x86.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -589,5 +658,10 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AEDCFDFF-64DD-4D25-BF39-23CDC44AEF71}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		DemoWebApi.ClientApiShared\DemoWebApi.ClientApiShared.projitems*{31e10725-9320-49d6-9ad6-51300c5eb634}*SharedItemsImports = 4
+		DemoWebApi.ClientApiShared\DemoWebApi.ClientApiShared.projitems*{4ddba5b5-778f-4b34-ba15-130d5f65aab4}*SharedItemsImports = 5
+		DemoWebApi.ClientApiShared\DemoWebApi.ClientApiShared.projitems*{cbfe51ac-65f0-4b42-ae38-7d6de5a97b5c}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

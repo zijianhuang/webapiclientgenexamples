@@ -7,7 +7,7 @@ namespace Fonlow.Heroes.VM
 {
     public static class HeroesFunctions
     {
-        static readonly Uri apiUri = new Uri("http://192.168.1.100:9030/webapi/"); //replace url with what in your dev environment
+        static readonly Uri apiUri = new Uri("http://192.168.1.156:10965/webapi/"); //replace url with what in your dev environment
 
         public static Hero[] LoadHeroes()
         {

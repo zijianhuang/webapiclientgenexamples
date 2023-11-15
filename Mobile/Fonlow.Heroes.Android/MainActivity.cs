@@ -14,7 +14,8 @@ namespace Fonlow.Heroes
 		)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 	{
-		protected override void OnCreate(Bundle bundle)
+		App app;
+		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			//Both lines needed, otherwise in IDE Debug with x86 emulator base.OnCreate will throw System.InvalidCastException
 			//Message = Unable to convert instance of type 'Android.Widget.RelativeLayout' to type 'AndroidX.AppCompat.Widget.Toolbar'.	
@@ -22,9 +23,9 @@ namespace Fonlow.Heroes
 			ToolbarResource = Resource.Layout.Toolbar;
 			TabLayoutResource = Resource.Layout.Tabbar;
 
-			base.OnCreate(bundle);
+			base.OnCreate(savedInstanceState);
 
-			global::Xamarin.Forms.Forms.Init(this, bundle);
+			Xamarin.Essentials.Platform.Init(this, savedInstanceState);
 		}
 
 		protected override void OnPostCreate(Bundle savedInstanceState)
@@ -32,7 +33,7 @@ namespace Fonlow.Heroes
 
 			global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 			//global::Xamarin.Forms.FormsMaterial.Init(this, savedInstanceState);
-			var app = new App();//Settings is read
+			app = new App();//Settings is read
 			LoadApplication(app);
 
 			//Plugin.StoreReview.CrossStoreReview.Current.OpenStoreReviewPage("com.fonlow.VA");
