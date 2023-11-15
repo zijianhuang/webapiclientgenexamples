@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.FonlowAndroid.Android" android:installLocation="auto">
-	<uses-sdk android:minSdkVersion="22" android:targetSdkVersion="29" />
-	<application android:label="FonlowAndroid.Android"></application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="2.0" package="com.fonlow.XamarinHeroes" android:installLocation="internalOnly">
+	<uses-sdk android:minSdkVersion="22" android:targetSdkVersion="33" />
+	<application android:label="XamarinHeroes"></application>
 </manifest>
