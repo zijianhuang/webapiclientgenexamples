@@ -18,7 +18,7 @@ And this repository contains the following demo applications:
 This VS solution was constructed using Visual Studio 2015-2017.
 
 **Server side:**
-1. .NET Framework 4.6.2
+1. .NET Framework 4.8
 1. ASP.NET Web API 2.2
 
 
@@ -51,3 +51,11 @@ This VS solution was constructed using Visual Studio 2015-2017.
 [![BrowserStack](http://i.imgur.com/Pg0utrk.png)](http://browserstack.com/)
 
 Special thanks to the support of [BrowserStack](http://browserstack.com/) so real cross browser testing on multiple desktop and mobile platforms as well is possible. And [App Live](https://app-live.browserstack.com) supports testing Android apps and iOS apps on rich collections of real Android and iOS devices.
+
+## Testing Xamarin apps running on local Android Simulator
+
+To test Fonlow.Heroes.Android running on local Android Simulator against DemoWebApi hosted in IIS Express, do the following:
+1. Edit .vs\WebApiClientGenExamples\config\applicationhost.config and localte `site name="DemoWebApi"`
+1. Replate `bindingInformation="*:10965:localhost"` with `bindingInformation="*:10965:127.0.0.1"`, and save.
+
+Then Andorid simulator accessing 10.0.2.2:10965 will be able to talk to http://127.0.0.1:10965

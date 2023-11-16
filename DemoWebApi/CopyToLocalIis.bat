@@ -1,4 +1,8 @@
-﻿cd %~dp0
+﻿:: Copy deployable to local IIS website
+:: 1. Make sure the folder heroes has been created by IIS Manager, 
+:: 2. and change the security to allow local User (YourMachine\Users) to have write/modify access.
+:: 3. Convert folder WebApi to Application 
+cd %~dp0
 set target=C:\inetpub\wwwroot\heroes\webapi\
 robocopy bin\ %target%bin\ /MIR
 robocopy Views\ %target%Views\ /MIR

@@ -25,7 +25,7 @@ namespace Fonlow.Heroes
 
 			base.OnCreate(savedInstanceState);
 
-			Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+			//Xamarin.Essentials.Platform.Init(this, savedInstanceState);
 		}
 
 		protected override void OnPostCreate(Bundle savedInstanceState)

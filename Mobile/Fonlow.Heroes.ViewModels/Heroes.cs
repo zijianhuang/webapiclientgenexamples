@@ -80,7 +80,7 @@ namespace Fonlow.Heroes.VM
             var first = Items.FirstOrDefault(d => d.Id == id);
             if (first != null)
             {
-                if (first.Id == Selected.Id)
+                if (first.Id == Selected?.Id)
                 {
                     Selected = null;
                 }

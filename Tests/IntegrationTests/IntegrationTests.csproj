@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HeroesApiIntegration.cs" />
     <Compile Include="IisExpressCollection.cs" />
     <Compile Include="EntitiesApiIntegration.cs" />
     <Compile Include="SuperDemoIntegration.cs" />
