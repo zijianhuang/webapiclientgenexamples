@@ -12,7 +12,6 @@ namespace Fonlow.Heroes.VM
     {
         public HeroesVM()
         {
-            //       DeleteCommand = new Command<long>(DeleteHero);
             DeleteCommand = new Command<long>(DeleteHero);
             SearchCommand = new Command<string>(Search);
         }

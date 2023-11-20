@@ -14,7 +14,7 @@ namespace Fonlow.Heroes
 {
 	
 	
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "13.2.1.111")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "13.2.2.120")]
 	public partial class Resource
 	{
 		
@@ -25,197 +25,6 @@ namespace Fonlow.Heroes
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Essentials.Resource.Attribute.alpha = global::Fonlow.Heroes.Resource.Attribute.alpha;
-			global::Xamarin.Essentials.Resource.Attribute.font = global::Fonlow.Heroes.Resource.Attribute.font;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderAuthority = global::Fonlow.Heroes.Resource.Attribute.fontProviderAuthority;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderCerts = global::Fonlow.Heroes.Resource.Attribute.fontProviderCerts;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchStrategy = global::Fonlow.Heroes.Resource.Attribute.fontProviderFetchStrategy;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchTimeout = global::Fonlow.Heroes.Resource.Attribute.fontProviderFetchTimeout;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderPackage = global::Fonlow.Heroes.Resource.Attribute.fontProviderPackage;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderQuery = global::Fonlow.Heroes.Resource.Attribute.fontProviderQuery;
-			global::Xamarin.Essentials.Resource.Attribute.fontStyle = global::Fonlow.Heroes.Resource.Attribute.fontStyle;
-			global::Xamarin.Essentials.Resource.Attribute.fontVariationSettings = global::Fonlow.Heroes.Resource.Attribute.fontVariationSettings;
-			global::Xamarin.Essentials.Resource.Attribute.fontWeight = global::Fonlow.Heroes.Resource.Attribute.fontWeight;
-			global::Xamarin.Essentials.Resource.Attribute.ttcIndex = global::Fonlow.Heroes.Resource.Attribute.ttcIndex;
-			global::Xamarin.Essentials.Resource.Color.androidx_core_ripple_material_light = global::Fonlow.Heroes.Resource.Color.androidx_core_ripple_material_light;
-			global::Xamarin.Essentials.Resource.Color.androidx_core_secondary_text_default_material_light = global::Fonlow.Heroes.Resource.Color.androidx_core_secondary_text_default_material_light;
-			global::Xamarin.Essentials.Resource.Color.browser_actions_bg_grey = global::Fonlow.Heroes.Resource.Color.browser_actions_bg_grey;
-			global::Xamarin.Essentials.Resource.Color.browser_actions_divider_color = global::Fonlow.Heroes.Resource.Color.browser_actions_divider_color;
-			global::Xamarin.Essentials.Resource.Color.browser_actions_text_color = global::Fonlow.Heroes.Resource.Color.browser_actions_text_color;
-			global::Xamarin.Essentials.Resource.Color.browser_actions_title_color = global::Fonlow.Heroes.Resource.Color.browser_actions_title_color;
-			global::Xamarin.Essentials.Resource.Color.notification_action_color_filter = global::Fonlow.Heroes.Resource.Color.notification_action_color_filter;
-			global::Xamarin.Essentials.Resource.Color.notification_icon_bg_color = global::Fonlow.Heroes.Resource.Color.notification_icon_bg_color;
-			global::Xamarin.Essentials.Resource.Dimension.browser_actions_context_menu_max_width = global::Fonlow.Heroes.Resource.Dimension.browser_actions_context_menu_max_width;
-			global::Xamarin.Essentials.Resource.Dimension.browser_actions_context_menu_min_padding = global::Fonlow.Heroes.Resource.Dimension.browser_actions_context_menu_min_padding;
-			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_horizontal_material = global::Fonlow.Heroes.Resource.Dimension.compat_button_inset_horizontal_material;
-			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_vertical_material = global::Fonlow.Heroes.Resource.Dimension.compat_button_inset_vertical_material;
-			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_horizontal_material = global::Fonlow.Heroes.Resource.Dimension.compat_button_padding_horizontal_material;
-			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_vertical_material = global::Fonlow.Heroes.Resource.Dimension.compat_button_padding_vertical_material;
-			global::Xamarin.Essentials.Resource.Dimension.compat_control_corner_material = global::Fonlow.Heroes.Resource.Dimension.compat_control_corner_material;
-			global::Xamarin.Essentials.Resource.Dimension.compat_notification_large_icon_max_height = global::Fonlow.Heroes.Resource.Dimension.compat_notification_large_icon_max_height;
-			global::Xamarin.Essentials.Resource.Dimension.compat_notification_large_icon_max_width = global::Fonlow.Heroes.Resource.Dimension.compat_notification_large_icon_max_width;
-			global::Xamarin.Essentials.Resource.Dimension.notification_action_icon_size = global::Fonlow.Heroes.Resource.Dimension.notification_action_icon_size;
-			global::Xamarin.Essentials.Resource.Dimension.notification_action_text_size = global::Fonlow.Heroes.Resource.Dimension.notification_action_text_size;
-			global::Xamarin.Essentials.Resource.Dimension.notification_big_circle_margin = global::Fonlow.Heroes.Resource.Dimension.notification_big_circle_margin;
-			global::Xamarin.Essentials.Resource.Dimension.notification_content_margin_start = global::Fonlow.Heroes.Resource.Dimension.notification_content_margin_start;
-			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_height = global::Fonlow.Heroes.Resource.Dimension.notification_large_icon_height;
-			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_width = global::Fonlow.Heroes.Resource.Dimension.notification_large_icon_width;
-			global::Xamarin.Essentials.Resource.Dimension.notification_main_column_padding_top = global::Fonlow.Heroes.Resource.Dimension.notification_main_column_padding_top;
-			global::Xamarin.Essentials.Resource.Dimension.notification_media_narrow_margin = global::Fonlow.Heroes.Resource.Dimension.notification_media_narrow_margin;
-			global::Xamarin.Essentials.Resource.Dimension.notification_right_icon_size = global::Fonlow.Heroes.Resource.Dimension.notification_right_icon_size;
-			global::Xamarin.Essentials.Resource.Dimension.notification_right_side_padding_top = global::Fonlow.Heroes.Resource.Dimension.notification_right_side_padding_top;
-			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_background_padding = global::Fonlow.Heroes.Resource.Dimension.notification_small_icon_background_padding;
-			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_size_as_large = global::Fonlow.Heroes.Resource.Dimension.notification_small_icon_size_as_large;
-			global::Xamarin.Essentials.Resource.Dimension.notification_subtext_size = global::Fonlow.Heroes.Resource.Dimension.notification_subtext_size;
-			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad = global::Fonlow.Heroes.Resource.Dimension.notification_top_pad;
-			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad_large_text = global::Fonlow.Heroes.Resource.Dimension.notification_top_pad_large_text;
-			global::Xamarin.Essentials.Resource.Drawable.notification_action_background = global::Fonlow.Heroes.Resource.Drawable.notification_action_background;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg = global::Fonlow.Heroes.Resource.Drawable.notification_bg;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low = global::Fonlow.Heroes.Resource.Drawable.notification_bg_low;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_normal = global::Fonlow.Heroes.Resource.Drawable.notification_bg_low_normal;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_pressed = global::Fonlow.Heroes.Resource.Drawable.notification_bg_low_pressed;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal = global::Fonlow.Heroes.Resource.Drawable.notification_bg_normal;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal_pressed = global::Fonlow.Heroes.Resource.Drawable.notification_bg_normal_pressed;
-			global::Xamarin.Essentials.Resource.Drawable.notification_icon_background = global::Fonlow.Heroes.Resource.Drawable.notification_icon_background;
-			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_bg = global::Fonlow.Heroes.Resource.Drawable.notification_template_icon_bg;
-			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_low_bg = global::Fonlow.Heroes.Resource.Drawable.notification_template_icon_low_bg;
-			global::Xamarin.Essentials.Resource.Drawable.notification_tile_bg = global::Fonlow.Heroes.Resource.Drawable.notification_tile_bg;
-			global::Xamarin.Essentials.Resource.Drawable.notify_panel_notification_icon_bg = global::Fonlow.Heroes.Resource.Drawable.notify_panel_notification_icon_bg;
-			global::Xamarin.Essentials.Resource.Id.accessibility_action_clickable_span = global::Fonlow.Heroes.Resource.Id.accessibility_action_clickable_span;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_0 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_0;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_1 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_1;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_10 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_10;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_11 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_11;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_12 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_12;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_13 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_13;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_14 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_14;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_15 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_15;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_16 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_16;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_17 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_17;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_18 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_18;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_19 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_19;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_2 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_2;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_20 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_20;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_21 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_21;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_22 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_22;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_23 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_23;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_24 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_24;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_25 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_25;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_26 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_26;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_27 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_27;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_28 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_28;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_29 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_29;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_3 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_3;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_30 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_30;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_31 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_31;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_4 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_4;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_5 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_5;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_6 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_6;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_7 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_7;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_8 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_8;
-			global::Xamarin.Essentials.Resource.Id.accessibility_custom_action_9 = global::Fonlow.Heroes.Resource.Id.accessibility_custom_action_9;
-			global::Xamarin.Essentials.Resource.Id.actions = global::Fonlow.Heroes.Resource.Id.actions;
-			global::Xamarin.Essentials.Resource.Id.action_container = global::Fonlow.Heroes.Resource.Id.action_container;
-			global::Xamarin.Essentials.Resource.Id.action_divider = global::Fonlow.Heroes.Resource.Id.action_divider;
-			global::Xamarin.Essentials.Resource.Id.action_image = global::Fonlow.Heroes.Resource.Id.action_image;
-			global::Xamarin.Essentials.Resource.Id.action_text = global::Fonlow.Heroes.Resource.Id.action_text;
-			global::Xamarin.Essentials.Resource.Id.async = global::Fonlow.Heroes.Resource.Id.async;
-			global::Xamarin.Essentials.Resource.Id.blocking = global::Fonlow.Heroes.Resource.Id.blocking;
-			global::Xamarin.Essentials.Resource.Id.browser_actions_header_text = global::Fonlow.Heroes.Resource.Id.browser_actions_header_text;
-			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_items = global::Fonlow.Heroes.Resource.Id.browser_actions_menu_items;
-			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_item_icon = global::Fonlow.Heroes.Resource.Id.browser_actions_menu_item_icon;
-			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_item_text = global::Fonlow.Heroes.Resource.Id.browser_actions_menu_item_text;
-			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_view = global::Fonlow.Heroes.Resource.Id.browser_actions_menu_view;
-			global::Xamarin.Essentials.Resource.Id.chronometer = global::Fonlow.Heroes.Resource.Id.chronometer;
-			global::Xamarin.Essentials.Resource.Id.dialog_button = global::Fonlow.Heroes.Resource.Id.dialog_button;
-			global::Xamarin.Essentials.Resource.Id.forever = global::Fonlow.Heroes.Resource.Id.forever;
-			global::Xamarin.Essentials.Resource.Id.icon = global::Fonlow.Heroes.Resource.Id.icon;
-			global::Xamarin.Essentials.Resource.Id.icon_group = global::Fonlow.Heroes.Resource.Id.icon_group;
-			global::Xamarin.Essentials.Resource.Id.info = global::Fonlow.Heroes.Resource.Id.info;
-			global::Xamarin.Essentials.Resource.Id.italic = global::Fonlow.Heroes.Resource.Id.italic;
-			global::Xamarin.Essentials.Resource.Id.line1 = global::Fonlow.Heroes.Resource.Id.line1;
-			global::Xamarin.Essentials.Resource.Id.line3 = global::Fonlow.Heroes.Resource.Id.line3;
-			global::Xamarin.Essentials.Resource.Id.normal = global::Fonlow.Heroes.Resource.Id.normal;
-			global::Xamarin.Essentials.Resource.Id.notification_background = global::Fonlow.Heroes.Resource.Id.notification_background;
-			global::Xamarin.Essentials.Resource.Id.notification_main_column = global::Fonlow.Heroes.Resource.Id.notification_main_column;
-			global::Xamarin.Essentials.Resource.Id.notification_main_column_container = global::Fonlow.Heroes.Resource.Id.notification_main_column_container;
-			global::Xamarin.Essentials.Resource.Id.right_icon = global::Fonlow.Heroes.Resource.Id.right_icon;
-			global::Xamarin.Essentials.Resource.Id.right_side = global::Fonlow.Heroes.Resource.Id.right_side;
-			global::Xamarin.Essentials.Resource.Id.tag_accessibility_actions = global::Fonlow.Heroes.Resource.Id.tag_accessibility_actions;
-			global::Xamarin.Essentials.Resource.Id.tag_accessibility_clickable_spans = global::Fonlow.Heroes.Resource.Id.tag_accessibility_clickable_spans;
-			global::Xamarin.Essentials.Resource.Id.tag_accessibility_heading = global::Fonlow.Heroes.Resource.Id.tag_accessibility_heading;
-			global::Xamarin.Essentials.Resource.Id.tag_accessibility_pane_title = global::Fonlow.Heroes.Resource.Id.tag_accessibility_pane_title;
-			global::Xamarin.Essentials.Resource.Id.tag_screen_reader_focusable = global::Fonlow.Heroes.Resource.Id.tag_screen_reader_focusable;
-			global::Xamarin.Essentials.Resource.Id.tag_transition_group = global::Fonlow.Heroes.Resource.Id.tag_transition_group;
-			global::Xamarin.Essentials.Resource.Id.tag_unhandled_key_event_manager = global::Fonlow.Heroes.Resource.Id.tag_unhandled_key_event_manager;
-			global::Xamarin.Essentials.Resource.Id.tag_unhandled_key_listeners = global::Fonlow.Heroes.Resource.Id.tag_unhandled_key_listeners;
-			global::Xamarin.Essentials.Resource.Id.text = global::Fonlow.Heroes.Resource.Id.text;
-			global::Xamarin.Essentials.Resource.Id.text2 = global::Fonlow.Heroes.Resource.Id.text2;
-			global::Xamarin.Essentials.Resource.Id.time = global::Fonlow.Heroes.Resource.Id.time;
-			global::Xamarin.Essentials.Resource.Id.title = global::Fonlow.Heroes.Resource.Id.title;
-			global::Xamarin.Essentials.Resource.Id.view_tree_lifecycle_owner = global::Fonlow.Heroes.Resource.Id.view_tree_lifecycle_owner;
-			global::Xamarin.Essentials.Resource.Integer.status_bar_notification_info_maxnum = global::Fonlow.Heroes.Resource.Integer.status_bar_notification_info_maxnum;
-			global::Xamarin.Essentials.Resource.Layout.browser_actions_context_menu_page = global::Fonlow.Heroes.Resource.Layout.browser_actions_context_menu_page;
-			global::Xamarin.Essentials.Resource.Layout.browser_actions_context_menu_row = global::Fonlow.Heroes.Resource.Layout.browser_actions_context_menu_row;
-			global::Xamarin.Essentials.Resource.Layout.custom_dialog = global::Fonlow.Heroes.Resource.Layout.custom_dialog;
-			global::Xamarin.Essentials.Resource.Layout.notification_action = global::Fonlow.Heroes.Resource.Layout.notification_action;
-			global::Xamarin.Essentials.Resource.Layout.notification_action_tombstone = global::Fonlow.Heroes.Resource.Layout.notification_action_tombstone;
-			global::Xamarin.Essentials.Resource.Layout.notification_template_custom_big = global::Fonlow.Heroes.Resource.Layout.notification_template_custom_big;
-			global::Xamarin.Essentials.Resource.Layout.notification_template_icon_group = global::Fonlow.Heroes.Resource.Layout.notification_template_icon_group;
-			global::Xamarin.Essentials.Resource.Layout.notification_template_part_chronometer = global::Fonlow.Heroes.Resource.Layout.notification_template_part_chronometer;
-			global::Xamarin.Essentials.Resource.Layout.notification_template_part_time = global::Fonlow.Heroes.Resource.Layout.notification_template_part_time;
-			global::Xamarin.Essentials.Resource.String.copy_toast_msg = global::Fonlow.Heroes.Resource.String.copy_toast_msg;
-			global::Xamarin.Essentials.Resource.String.fallback_menu_item_copy_link = global::Fonlow.Heroes.Resource.String.fallback_menu_item_copy_link;
-			global::Xamarin.Essentials.Resource.String.fallback_menu_item_open_in_browser = global::Fonlow.Heroes.Resource.String.fallback_menu_item_open_in_browser;
-			global::Xamarin.Essentials.Resource.String.fallback_menu_item_share_link = global::Fonlow.Heroes.Resource.String.fallback_menu_item_share_link;
-			global::Xamarin.Essentials.Resource.String.status_bar_notification_info_overflow = global::Fonlow.Heroes.Resource.String.status_bar_notification_info_overflow;
-			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification = global::Fonlow.Heroes.Resource.Style.TextAppearance_Compat_Notification;
-			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Info = global::Fonlow.Heroes.Resource.Style.TextAppearance_Compat_Notification_Info;
-			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::Fonlow.Heroes.Resource.Style.TextAppearance_Compat_Notification_Line2;
-			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Time = global::Fonlow.Heroes.Resource.Style.TextAppearance_Compat_Notification_Time;
-			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Title = global::Fonlow.Heroes.Resource.Style.TextAppearance_Compat_Notification_Title;
-			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionContainer = global::Fonlow.Heroes.Resource.Style.Widget_Compat_NotificationActionContainer;
-			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionText = global::Fonlow.Heroes.Resource.Style.Widget_Compat_NotificationActionText;
-			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem = global::Fonlow.Heroes.Resource.Styleable.ColorStateListItem;
-			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem_alpha = global::Fonlow.Heroes.Resource.Styleable.ColorStateListItem_alpha;
-			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem_android_alpha = global::Fonlow.Heroes.Resource.Styleable.ColorStateListItem_android_alpha;
-			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem_android_color = global::Fonlow.Heroes.Resource.Styleable.ColorStateListItem_android_color;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily = global::Fonlow.Heroes.Resource.Styleable.FontFamily;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont = global::Fonlow.Heroes.Resource.Styleable.FontFamilyFont;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_font = global::Fonlow.Heroes.Resource.Styleable.FontFamilyFont_android_font;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_fontStyle = global::Fonlow.Heroes.Resource.Styleable.FontFamilyFont_android_fontStyle;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_fontVariationSettings = global::Fonlow.Heroes.Resource.Styleable.FontFamilyFont_android_fontVariationSettings;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_fontWeight = global::Fonlow.Heroes.Resource.Styleable.FontFamilyFont_android_fontWeight;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_ttcIndex = global::Fonlow.Heroes.Resource.Styleable.FontFamilyFont_android_ttcIndex;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_font = global::Fonlow.Heroes.Resource.Styleable.FontFamilyFont_font;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontStyle = global::Fonlow.Heroes.Resource.Styleable.FontFamilyFont_fontStyle;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontVariationSettings = global::Fonlow.Heroes.Resource.Styleable.FontFamilyFont_fontVariationSettings;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontWeight = global::Fonlow.Heroes.Resource.Styleable.FontFamilyFont_fontWeight;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_ttcIndex = global::Fonlow.Heroes.Resource.Styleable.FontFamilyFont_ttcIndex;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderAuthority = global::Fonlow.Heroes.Resource.Styleable.FontFamily_fontProviderAuthority;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderCerts = global::Fonlow.Heroes.Resource.Styleable.FontFamily_fontProviderCerts;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::Fonlow.Heroes.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::Fonlow.Heroes.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderPackage = global::Fonlow.Heroes.Resource.Styleable.FontFamily_fontProviderPackage;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderQuery = global::Fonlow.Heroes.Resource.Styleable.FontFamily_fontProviderQuery;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColor = global::Fonlow.Heroes.Resource.Styleable.GradientColor;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColorItem = global::Fonlow.Heroes.Resource.Styleable.GradientColorItem;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColorItem_android_color = global::Fonlow.Heroes.Resource.Styleable.GradientColorItem_android_color;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColorItem_android_offset = global::Fonlow.Heroes.Resource.Styleable.GradientColorItem_android_offset;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_centerColor = global::Fonlow.Heroes.Resource.Styleable.GradientColor_android_centerColor;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_centerX = global::Fonlow.Heroes.Resource.Styleable.GradientColor_android_centerX;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_centerY = global::Fonlow.Heroes.Resource.Styleable.GradientColor_android_centerY;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_endColor = global::Fonlow.Heroes.Resource.Styleable.GradientColor_android_endColor;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_endX = global::Fonlow.Heroes.Resource.Styleable.GradientColor_android_endX;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_endY = global::Fonlow.Heroes.Resource.Styleable.GradientColor_android_endY;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_gradientRadius = global::Fonlow.Heroes.Resource.Styleable.GradientColor_android_gradientRadius;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_startColor = global::Fonlow.Heroes.Resource.Styleable.GradientColor_android_startColor;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_startX = global::Fonlow.Heroes.Resource.Styleable.GradientColor_android_startX;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_startY = global::Fonlow.Heroes.Resource.Styleable.GradientColor_android_startY;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_tileMode = global::Fonlow.Heroes.Resource.Styleable.GradientColor_android_tileMode;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_type = global::Fonlow.Heroes.Resource.Styleable.GradientColor_android_type;
-			global::Xamarin.Essentials.Resource.Xml.image_share_filepaths = global::Fonlow.Heroes.Resource.Xml.image_share_filepaths;
-			global::Xamarin.Essentials.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::Fonlow.Heroes.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_fade_in = global::Fonlow.Heroes.Resource.Animation.abc_fade_in;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_fade_out = global::Fonlow.Heroes.Resource.Animation.abc_fade_out;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_grow_fade_in_from_bottom = global::Fonlow.Heroes.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -29610,9 +29419,6 @@ namespace Fonlow.Heroes
 			
 			// aapt resource value: 0x7F110005
 			public const int standalone_badge_offset = 2131820549;
-			
-			// aapt resource value: 0x7F110006
-			public const int xamarin_essentials_fileprovider_file_paths = 2131820550;
 			
 			static Xml()
 			{

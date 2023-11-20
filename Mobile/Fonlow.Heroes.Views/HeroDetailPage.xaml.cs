@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using DemoWebApi.Controllers.Client;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using DemoWebApi.Controllers.Client;
 
 namespace Fonlow.Heroes.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+	[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HeroDetailPage : ContentPage
     {
         public HeroDetailPage(long heroId)

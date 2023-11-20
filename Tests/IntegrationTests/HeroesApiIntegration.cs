@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Fonlow.Testing;
 using Xunit;
-using Fonlow.Testing;
 
 namespace IntegrationTests
 {
@@ -62,9 +61,5 @@ namespace IntegrationTests
 			Assert.Equal("Xyz", hero.Name);
 		}
 
-		//void DoSomethingWithHero([System.Diagnostics.CodeAnalysis.NotNull()] DemoWebApi.Controllers.Client.Hero hero)
-		//{
-		//	System.Console.WriteLine(hero.Name);
-		//}
 	}
 }

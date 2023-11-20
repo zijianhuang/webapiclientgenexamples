@@ -55,7 +55,7 @@ Special thanks to the support of [BrowserStack](http://browserstack.com/) so rea
 ## Testing Xamarin apps running on local Android Simulator
 
 To test Fonlow.Heroes.Android running on local Android Simulator against DemoWebApi hosted in IIS Express, do the following:
-1. Edit .vs\WebApiClientGenExamples\config\applicationhost.config and localte `site name="DemoWebApi"`
+1. Edit .vs\WebApiClientGenExamples\config\applicationhost.config and locate `site name="DemoWebApi"`
 1. Replate `bindingInformation="*:10965:localhost"` with `bindingInformation="*:10965:127.0.0.1"`, and save.
 
 Then Andorid simulator accessing 10.0.2.2:10965 will be able to talk to http://127.0.0.1:10965
