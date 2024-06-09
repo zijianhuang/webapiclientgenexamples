@@ -7,7 +7,7 @@ namespace Fonlow.Heroes.VM
 {
 	public static class HeroesFunctions
 	{
-		static readonly Uri apiUri = new Uri("http://10.0.2.2:10965/"); //replace url with what in your dev environment
+		static readonly Uri apiUri = new Uri("https://fonlow.org/"); //replace url with what in your dev environment
 																		// Also refer to "Testing Xamarin apps running on local Android Simulator" in Readme.md of the repository.
 
 		public static Hero[] LoadHeroes()
